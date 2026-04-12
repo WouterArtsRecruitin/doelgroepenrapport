@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gratis Doelgroep Analyse — DoelgroepenRapport.nl</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FF6B35'/><text x='50%' y='55%' font-size='18' text-anchor='middle' dominant-baseline='middle' fill='white'>📊</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,12 +29,10 @@ body {
   overflow-x: hidden;
 }
 
+/* ── BACKGROUND ORBS ───────────────────────────────── */
 .orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(120px);
-  pointer-events: none;
-  z-index: 0;
+  position: fixed; border-radius: 50%;
+  filter: blur(120px); pointer-events: none; z-index: 0;
   animation: drift 18s ease-in-out infinite alternate;
 }
 .orb-1 {
@@ -52,17 +51,12 @@ body {
   100% { transform: translate(40px, 30px) scale(1.05); }
 }
 
+/* ── NAV ───────────────────────────────────────────── */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 0 40px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 40px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   background: rgba(6,6,10,0.7);
   border-bottom: 1px solid var(--glass-border);
 }
@@ -71,25 +65,21 @@ nav {
 .nav-badge {
   display: flex; align-items: center; gap: 6px;
   padding: 6px 14px;
-  background: rgba(255,107,53,0.1);
-  border: 1px solid rgba(255,107,53,0.25);
-  border-radius: 100px;
-  font-size: 0.72rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--orange);
+  background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.25);
+  border-radius: 100px; font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange);
 }
 
+/* ── HERO ───────────────────────────────────────────── */
 .hero {
   position: relative; z-index: 1;
   padding: 160px 40px 80px;
-  text-align: center;
-  max-width: 960px;
-  margin: 0 auto;
+  text-align: center; max-width: 960px; margin: 0 auto;
 }
 
+/* Fade-up: CSS animation, no JS required */
 .fade-up {
-  opacity: 0;
-  transform: translateY(32px);
+  opacity: 0; transform: translateY(32px);
   animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 .fade-up:nth-child(1) { animation-delay: 0.1s; }
@@ -100,10 +90,8 @@ nav {
 
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 8px 18px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 100px;
+  padding: 8px 18px; background: var(--glass-bg);
+  border: 1px solid var(--glass-border); border-radius: 100px;
   font-size: 0.78rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.1em;
   color: rgba(255,255,255,0.7);
@@ -111,8 +99,7 @@ nav {
   margin-bottom: 36px;
 }
 .hero-badge .dot {
-  width: 6px; height: 6px;
-  background: var(--orange); border-radius: 50%;
+  width: 6px; height: 6px; background: var(--orange); border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse {
@@ -126,18 +113,17 @@ nav {
   letter-spacing: -0.05em; margin-bottom: 28px;
 }
 .hero h1 .accent { color: var(--orange); display: block; }
-
 .hero-sub {
   font-size: 1.15rem; color: var(--muted);
   max-width: 520px; margin: 0 auto 56px; line-height: 1.75;
 }
 
+/* ── FORM CARD ──────────────────────────────────────── */
 .form-card {
   position: relative;
   background: rgba(255,255,255,0.03);
   backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 24px; padding: 44px 48px;
+  border: 1px solid rgba(255,255,255,0.09); border-radius: 24px; padding: 44px 48px;
   max-width: 720px; margin: 0 auto;
   box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset, 0 32px 64px rgba(0,0,0,0.4), 0 0 80px rgba(255,107,53,0.05);
   transition: box-shadow 0.4s ease;
@@ -146,16 +132,13 @@ nav {
   box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset, 0 32px 80px rgba(0,0,0,0.5), 0 0 100px rgba(255,107,53,0.09);
 }
 .form-card::before {
-  content: ''; position: absolute; inset: 0;
-  border-radius: 24px; padding: 1px;
+  content: ''; position: absolute; inset: 0; border-radius: 24px; padding: 1px;
   background: linear-gradient(135deg, rgba(255,107,53,0.3), rgba(255,255,255,0.05), rgba(255,107,53,0.1));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out; mask-composite: exclude;
-  pointer-events: none;
+  -webkit-mask-composite: destination-out; mask-composite: exclude; pointer-events: none;
 }
 .form-heading { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; text-align: center; }
 .form-sub { font-size: 0.88rem; color: var(--muted); text-align: center; margin-bottom: 32px; }
-
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .full { grid-column: 1 / -1; }
 
@@ -166,8 +149,7 @@ nav {
 }
 .field-input {
   width: 100%;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px; padding: 13px 16px;
   font-size: 0.92rem; font-family: inherit; color: #fff;
   transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
@@ -186,15 +168,13 @@ textarea.field-input { height: 88px; resize: none; }
   width: 100%; margin-top: 20px; padding: 16px 24px;
   background: linear-gradient(135deg, #FF6B35 0%, #ff8c35 100%);
   color: #fff; border: none; border-radius: 14px;
-  font-size: 1rem; font-weight: 700; cursor: pointer;
-  font-family: inherit; letter-spacing: -0.01em;
-  position: relative; overflow: hidden;
+  font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit;
+  letter-spacing: -0.01em; position: relative; overflow: hidden;
   transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
   box-shadow: 0 4px 24px rgba(255,107,53,0.35), 0 0 0 1px rgba(255,255,255,0.1) inset;
 }
 .submit-btn::before {
-  content: ''; position: absolute; top: 0; left: -100%;
-  width: 100%; height: 100%;
+  content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
   transition: left 0.5s ease;
 }
@@ -209,12 +189,12 @@ textarea.field-input { height: 88px; resize: none; }
 }
 .form-footer span { display: flex; align-items: center; gap: 5px; }
 
+/* ── STATS ROW ──────────────────────────────────────── */
 .stats-row {
   position: relative; z-index: 1;
   display: flex; justify-content: center;
   max-width: 720px; margin: 60px auto 0;
-  border: 1px solid var(--glass-border);
-  border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden;
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   background: var(--glass-bg);
 }
@@ -230,21 +210,31 @@ textarea.field-input { height: 88px; resize: none; }
 .stat-num { font-size: 1.9rem; font-weight: 900; color: var(--orange); letter-spacing: -0.04em; line-height: 1; }
 .stat-label { font-size: 0.7rem; color: var(--muted); margin-top: 5px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
 
+/* ── MODULES SECTION ────────────────────────────────── */
 .modules-section { position: relative; z-index: 1; padding: 100px 40px; max-width: 1080px; margin: 0 auto; }
 .section-eye { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--orange); margin-bottom: 14px; }
 .section-h { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 48px; }
 .modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+/* Module cards: CSS-only staggered animation, no JS required */
 .mod {
   position: relative;
   background: var(--glass-bg); border: 1px solid var(--glass-border);
   border-radius: 18px; padding: 28px 24px;
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  animation: modIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
   transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.3s;
-  opacity: 0; transform: translateY(20px);
 }
-.mod.visible {
-  opacity: 1; transform: translateY(0);
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, box-shadow 0.3s;
+.mod:nth-child(1) { animation-delay: 0.1s; }
+.mod:nth-child(2) { animation-delay: 0.2s; }
+.mod:nth-child(3) { animation-delay: 0.3s; }
+.mod:nth-child(4) { animation-delay: 0.4s; }
+.mod:nth-child(5) { animation-delay: 0.5s; }
+.mod:nth-child(6) { animation-delay: 0.6s; }
+@keyframes modIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .mod:hover { transform: translateY(-4px) scale(1.01); border-color: rgba(255,107,53,0.25); box-shadow: 0 12px 32px rgba(0,0,0,0.3), 0 0 40px rgba(255,107,53,0.06); }
 .mod-icon { font-size: 1.9rem; margin-bottom: 14px; display: block; }
@@ -258,31 +248,193 @@ textarea.field-input { height: 88px; resize: none; }
   padding: 3px 9px; border-radius: 100px;
 }
 
+/* ── RAPPORT PREVIEW SECTION ────────────────────────── */
+.preview-section {
+  position: relative; z-index: 1;
+  padding: 0 40px 100px; max-width: 1080px; margin: 0 auto;
+}
+.preview-section .section-eye { margin-bottom: 12px; }
+.preview-section .section-h { margin-bottom: 16px; }
+.preview-section .section-sub {
+  font-size: 1rem; color: var(--muted); margin-bottom: 48px; max-width: 480px; line-height: 1.7;
+}
+
+/* Browser window frame */
+.browser-frame {
+  position: relative; border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.05) inset, 0 0 120px rgba(255,107,53,0.08);
+  background: #0d0d14;
+}
+.browser-bar {
+  background: #161620; padding: 12px 16px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.browser-dots { display: flex; gap: 6px; }
+.browser-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+}
+.browser-dot-r { background: #ff5f57; }
+.browser-dot-y { background: #ffbd2e; }
+.browser-dot-g { background: #28ca41; }
+.browser-url {
+  flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px; padding: 5px 12px;
+  font-size: 0.73rem; color: rgba(255,255,255,0.3); font-family: inherit;
+  text-align: center; letter-spacing: 0.01em;
+}
+.browser-badge {
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--orange); background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.2);
+  padding: 3px 8px; border-radius: 4px;
+}
+
+/* Report content inside frame */
+.report-content {
+  padding: 28px 28px 0;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+}
+
+/* Module panel */
+.rp {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 20px;
+}
+.rp-label {
+  font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3); margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
+}
+.rp-label .rp-dot {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--orange);
+}
+
+/* Score ring */
+.score-ring-wrap {
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 16px; margin-bottom: 16px;
+}
+.score-ring-svg { width: 100px; height: 100px; transform: rotate(-90deg); }
+.score-track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
+.score-fill {
+  fill: none; stroke: url(#ringGrad); stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.16,1,0.3,1);
+}
+.score-fill.animated { stroke-dashoffset: 62; } /* 283 * (1 - 0.78) */
+.score-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.score-svg-wrap { position: relative; width: 100px; height: 100px; }
+.score-number {
+  font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: -0.04em; line-height: 1;
+}
+.score-denom { font-size: 0.65rem; color: var(--muted); font-weight: 600; }
+.kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.kpi-tile {
+  background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px;
+  text-align: center;
+}
+.kpi-val { font-size: 1.1rem; font-weight: 800; color: var(--orange); letter-spacing: -0.03em; }
+.kpi-lbl { font-size: 0.58rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+
+/* Salary bars */
+.salary-row { margin-bottom: 14px; }
+.salary-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.salary-role { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7); }
+.salary-val { font-size: 0.8rem; font-weight: 800; color: #fff; }
+.salary-track {
+  height: 6px; background: rgba(255,255,255,0.06); border-radius: 99px; overflow: hidden;
+}
+.salary-bar {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--orange), #ff8c35);
+  width: 0;
+  transition: width 1.4s cubic-bezier(0.16,1,0.3,1);
+}
+.salary-bar.animated { width: var(--w); }
+
+/* Action plan */
+.action-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+.action-impact {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.impact-hoog { background: rgba(255,107,53,0.15); color: var(--orange); border: 1px solid rgba(255,107,53,0.25); }
+.impact-med  { background: rgba(99,102,241,0.12); color: #818cf8; border: 1px solid rgba(99,102,241,0.2); }
+.action-text { font-size: 0.75rem; color: rgba(255,255,255,0.7); line-height: 1.5; font-weight: 500; }
+.action-text strong { color: #fff; font-weight: 700; }
+
+/* Locked overlay */
+.lock-row {
+  position: relative; padding: 28px 28px 28px;
+}
+.locked-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  filter: blur(5px); opacity: 0.35; pointer-events: none; user-select: none;
+}
+.lk { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; }
+.lk-h { height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; margin-bottom: 10px; width: 60%; }
+.lk-l { height: 6px; background: rgba(255,255,255,0.05); border-radius: 4px; margin-bottom: 7px; }
+.lk-l.w80 { width: 80%; }
+.lk-l.w60 { width: 60%; }
+.lk-l.w70 { width: 70%; }
+.lk-bar { height: 32px; background: rgba(255,255,255,0.04); border-radius: 8px; margin-bottom: 8px; }
+
+/* Lock overlay CTA */
+.lock-cta {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  background: linear-gradient(to bottom, transparent, rgba(6,6,10,0.5) 30%, rgba(6,6,10,0.85) 60%);
+}
+.lock-icon {
+  width: 52px; height: 52px; border-radius: 16px;
+  background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.25);
+  display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+}
+.lock-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em; text-align: center; }
+.lock-sub { font-size: 0.82rem; color: var(--muted); text-align: center; }
+.lock-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px;
+  background: linear-gradient(135deg, #FF6B35, #ff8c35);
+  color: #fff; border-radius: 12px; text-decoration: none;
+  font-size: 0.9rem; font-weight: 700; letter-spacing: -0.01em;
+  box-shadow: 0 4px 24px rgba(255,107,53,0.4);
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+}
+.lock-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 32px rgba(255,107,53,0.55); }
+.lock-modules { font-size: 0.7rem; color: rgba(255,255,255,0.25); display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 380px; }
+.lock-modules span { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); padding: 3px 9px; border-radius: 99px; }
+
+/* ── CTA SECTION ────────────────────────────────────── */
 .cta-section { position: relative; z-index: 1; text-align: center; padding: 80px 40px 100px; }
 .cta-section h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 16px; }
 .cta-section h2 .accent { color: var(--orange); }
 .cta-section p { font-size: 1.05rem; color: var(--muted); margin-bottom: 36px; line-height: 1.7; }
 .cta-link {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 16px 36px;
-  background: linear-gradient(135deg, #FF6B35, #ff8c35);
-  color: #fff; border-radius: 14px;
+  display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px;
+  background: linear-gradient(135deg, #FF6B35, #ff8c35); color: #fff; border-radius: 14px;
   font-size: 1rem; font-weight: 700; text-decoration: none;
   box-shadow: 0 4px 24px rgba(255,107,53,0.4);
   transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
 }
 .cta-link:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 36px rgba(255,107,53,0.55); }
 
+/* ── FOOTER ──────────────────────────────────────────── */
 footer {
   position: relative; z-index: 1;
-  border-top: 1px solid var(--glass-border);
-  padding: 36px 40px;
+  border-top: 1px solid var(--glass-border); padding: 36px 40px;
   display: flex; align-items: center; justify-content: space-between;
   font-size: 0.82rem; color: rgba(255,255,255,0.28);
 }
 footer a { color: rgba(255,255,255,0.35); text-decoration: none; margin-left: 20px; transition: color 0.2s; }
 footer a:hover { color: var(--orange); }
 
+/* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .hero { padding: 120px 20px 60px; }
@@ -292,6 +444,9 @@ footer a:hover { color: var(--orange); }
   .stats-row { flex-wrap: wrap; }
   .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--glass-border); }
   .modules-grid { grid-template-columns: 1fr; }
+  .preview-section { padding: 0 20px 80px; }
+  .report-content { grid-template-columns: 1fr; }
+  .locked-grid { grid-template-columns: 1fr; }
   footer { flex-direction: column; gap: 16px; text-align: center; }
   footer a { margin: 0 10px; }
 }
@@ -307,6 +462,7 @@ footer a:hover { color: var(--orange); }
   <div class="nav-badge"><span class="dot"></span> 100% Gratis · 24u levertijd</div>
 </nav>
 
+<!-- HERO + FORM -->
 <section class="hero">
   <div class="hero-badge fade-up"><span class="dot"></span> Gratis AI Doelgroepanalyse</div>
   <h1 class="fade-up">Weet waar jouw<span class="accent">kandidaten zijn.</span></h1>
@@ -366,6 +522,7 @@ footer a:hover { color: var(--orange); }
   </div>
 </section>
 
+<!-- MODULE OVERVIEW -->
 <section class="modules-section">
   <div class="section-eye">Inhoud rapport</div>
   <div class="section-h">Alles wat je nodig hebt.</div>
@@ -379,10 +536,129 @@ footer a:hover { color: var(--orange); }
   </div>
 </section>
 
+<!-- WOW FEATURE: LIVE RAPPORT PREVIEW -->
+<section class="preview-section">
+  <div class="section-eye">Live voorbeeld</div>
+  <div class="section-h">Zo ziet jouw rapport eruit.</div>
+  <div class="section-sub">Hieronder een preview van drie modules. De andere 9 zijn vergrendeld — vraag jouw gratis rapport aan om alles te zien.</div>
+
+  <div class="browser-frame">
+    <div class="browser-bar">
+      <div class="browser-dots">
+        <div class="browser-dot browser-dot-r"></div>
+        <div class="browser-dot browser-dot-y"></div>
+        <div class="browser-dot browser-dot-g"></div>
+      </div>
+      <div class="browser-url">📊 doelgroepenrapport.nl/rapport/uw-bedrijf-2026</div>
+      <div class="browser-badge">Live Preview</div>
+    </div>
+
+    <!-- Visible modules (3) -->
+    <div class="report-content" id="previewContent">
+
+      <!-- Module 1: Executive score ring -->
+      <div class="rp">
+        <div class="rp-label"><span class="rp-dot"></span> Executive Dashboard</div>
+        <div class="score-ring-wrap">
+          <div class="score-svg-wrap">
+            <svg class="score-ring-svg" viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#FF6B35"/>
+                  <stop offset="100%" style="stop-color:#ff8c35"/>
+                </linearGradient>
+              </defs>
+              <circle class="score-track" cx="50" cy="50" r="45"/>
+              <circle class="score-fill" id="scoreRing" cx="50" cy="50" r="45"/>
+            </svg>
+            <div class="score-center">
+              <div class="score-number" id="scoreNum">0</div>
+              <div class="score-denom">/ 10</div>
+            </div>
+          </div>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-tile"><div class="kpi-val" data-target="9.4">0</div><div class="kpi-lbl">Schaarste</div></div>
+          <div class="kpi-tile"><div class="kpi-val" data-target="2.100">0</div><div class="kpi-lbl">Vraag/jr</div></div>
+          <div class="kpi-tile"><div class="kpi-val" data-target="1.680">0</div><div class="kpi-lbl">Aanbod/jr</div></div>
+          <div class="kpi-tile"><div class="kpi-val" style="color:#ff4f4f" data-target="-420">0</div><div class="kpi-lbl">Tekort/jr</div></div>
+        </div>
+      </div>
+
+      <!-- Module 2: Salary benchmark -->
+      <div class="rp">
+        <div class="rp-label"><span class="rp-dot"></span> Salaris Benchmark</div>
+        <div class="salary-row">
+          <div class="salary-meta"><span class="salary-role">Senior (8+ jr)</span><span class="salary-val">€ 5.800</span></div>
+          <div class="salary-track"><div class="salary-bar" style="--w: 88%" id="bar1"></div></div>
+        </div>
+        <div class="salary-row">
+          <div class="salary-meta"><span class="salary-role">Medior (4–8 jr)</span><span class="salary-val">€ 4.400</span></div>
+          <div class="salary-track"><div class="salary-bar" style="--w: 67%" id="bar2"></div></div>
+        </div>
+        <div class="salary-row">
+          <div class="salary-meta"><span class="salary-role">Junior (0–4 jr)</span><span class="salary-val">€ 3.100</span></div>
+          <div class="salary-track"><div class="salary-bar" style="--w: 47%" id="bar3"></div></div>
+        </div>
+        <div style="margin-top:16px; padding: 10px 12px; background: rgba(255,107,53,0.07); border: 1px solid rgba(255,107,53,0.15); border-radius: 8px;">
+          <div style="font-size:0.68rem; color:var(--orange); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">⚠ Salaris Alert</div>
+          <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); line-height:1.5;">Jouw sector ligt 12% onder markt. Risico op uitval senior profiel.</div>
+        </div>
+      </div>
+
+      <!-- Module 3: Action plan -->
+      <div class="rp">
+        <div class="rp-label"><span class="rp-dot"></span> Actieplan — Start morgen</div>
+        <div class="action-row">
+          <div class="action-impact impact-hoog">Hoog</div>
+          <div class="action-text"><strong>LinkedIn targeting campagne</strong> op passive candidates 35–50 km radius. Verwacht bereik: 1.200+</div>
+        </div>
+        <div class="action-row">
+          <div class="action-impact impact-hoog">Hoog</div>
+          <div class="action-text"><strong>Salaris correctie senior profiel</strong> naar marktconform. Verlaagt time-to-fill met 34%.</div>
+        </div>
+        <div class="action-row">
+          <div class="action-impact impact-med">Med</div>
+          <div class="action-text"><strong>MBO samenwerking</strong> voor junior instroom pipeline. 3–6 mnd doorlooptijd.</div>
+        </div>
+        <div class="action-row">
+          <div class="action-impact impact-med">Med</div>
+          <div class="action-text"><strong>Referral programma</strong> activeren. Conversie 3× hoger dan job boards.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Locked modules (9 blurred) -->
+    <div class="lock-row">
+      <div class="locked-grid">
+        <div class="lk"><div class="lk-h"></div><div class="lk-l w80"></div><div class="lk-l w60"></div><div class="lk-bar"></div></div>
+        <div class="lk"><div class="lk-h"></div><div class="lk-l w70"></div><div class="lk-l w80"></div><div class="lk-bar"></div></div>
+        <div class="lk"><div class="lk-h"></div><div class="lk-l w60"></div><div class="lk-l w70"></div><div class="lk-bar"></div></div>
+      </div>
+      <div class="lock-cta">
+        <div class="lock-icon">🔒</div>
+        <div class="lock-title">9 modules zijn vergrendeld</div>
+        <div class="lock-sub">Vraag gratis jouw persoonlijk rapport aan</div>
+        <a href="#" class="lock-btn" onclick="document.querySelector('.form-card').scrollIntoView({behavior:'smooth'}); return false;">
+          📊 Ontgrendel mijn rapport →
+        </a>
+        <div class="lock-modules">
+          <span>Thermometer</span><span>Doelgroep</span><span>EVP Analyse</span>
+          <span>Kanalen</span><span>Regionale Analyse</span><span>Scenario's</span>
+          <span>Time-to-Fill</span><span>Concurrentie</span><span>Methodologie</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="cta-section">
   <h2>Claim jouw <span class="accent">gratis</span> doelgroepanalyse</h2>
   <p>Vul het formulier in en ontdek binnen 24 uur waar jouw kandidaten zijn en hoe je ze bereikt.</p>
-  <a href="#" class="cta-link">📊 Start Nu — 100% Gratis</a>
+  <a href="#" class="cta-link" onclick="document.querySelector('.form-card').scrollIntoView({behavior:'smooth'}); return false;">
+    📊 Start Nu — 100% Gratis
+  </a>
 </section>
 
 <footer>
@@ -395,15 +671,66 @@ footer a:hover { color: var(--orange); }
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      observer.unobserve(entry.target);
-    }
+// Animate preview when it enters viewport
+const scoreRing = document.getElementById('scoreRing');
+const scoreNum  = document.getElementById('scoreNum');
+const bars      = ['bar1','bar2','bar3'].map(id => document.getElementById(id));
+const kpiTiles  = document.querySelectorAll('.kpi-val[data-target]');
+let previewAnimated = false;
+
+function easeOutExpo(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
+
+function animateNumber(el, target, duration, prefix = '', suffix = '') {
+  const start = performance.now();
+  const isNeg = target < 0;
+  const abs = Math.abs(target);
+  const isFloat = String(target).includes('.');
+  function step(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const val = abs * easeOutExpo(t);
+    const display = isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('nl-NL');
+    el.textContent = prefix + (isNeg ? '-' : '') + display + suffix;
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function runPreviewAnimation() {
+  if (previewAnimated) return;
+  previewAnimated = true;
+
+  // Score ring fills to 7.8 (78%)
+  setTimeout(() => {
+    scoreRing.classList.add('animated');
+    animateNumber(scoreNum, 7.8, 1600, '', '');
+    // Fix: show decimal
+    setTimeout(() => { scoreNum.textContent = '7.8'; }, 1650);
+  }, 200);
+
+  // KPI tiles count up
+  kpiTiles.forEach((el, i) => {
+    setTimeout(() => {
+      const t = parseFloat(el.dataset.target);
+      animateNumber(el, t, 1200);
+    }, 300 + i * 120);
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.mod').forEach(el => observer.observe(el));
-<\/script>
+
+  // Salary bars slide in
+  bars.forEach((bar, i) => {
+    setTimeout(() => bar.classList.add('animated'), 400 + i * 180);
+  });
+}
+
+// IntersectionObserver for preview + fallback timeout
+const previewEl = document.getElementById('previewContent');
+if (previewEl) {
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { runPreviewAnimation(); obs.disconnect(); }
+  }, { threshold: 0.15 });
+  obs.observe(previewEl);
+  // Fallback: if observer never fires, animate after 2.5s
+  setTimeout(runPreviewAnimation, 2500);
+}
+</script>
 </body>
 </html>
