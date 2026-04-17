@@ -3,734 +3,750 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gratis Doelgroep Analyse — DoelgroepenRapport.nl</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FF6B35'/><text x='50%' y='55%' font-size='18' text-anchor='middle' dominant-baseline='middle' fill='white'>📊</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>Doelgroepenrapport.nl | Gratis Arbeidsmarkt Intelligence</title>
+<meta name="description" content="12 modules arbeidsmarktdata. Op maat. Binnen 24 uur. Eerste 2 rapporten gratis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTEQHRNH6E"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TTEQHRNH6E');</script>
+<!-- Meta Pixel (single init, dedup fix) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '660118697194302');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=660118697194302&ev=PageView&noscript=1"/></noscript>
+<!-- LinkedIn Insight Tag -->
+<script>
+_linkedin_partner_id="508490978";
+window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];
+var b=document.createElement("script");b.type="text/javascript";b.async=true;
+b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b,s);})(window.lintrk);
+</script>
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root{
+  --bg:#0a0a12;
+  --bg2:#111122;
+  --surface:rgba(255,255,255,0.05);
+  --border:#2a2a40;
+  --text:#e8e4f0;
+  --heading:#fff;
+  --muted:#8a8a9a;
+  --orange:#FF5500;
+  --orange-soft:rgba(255,85,0,0.1);
+  --orange-glow:rgba(255,85,0,0.25);
+  --green:#10B981;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+::selection{background:var(--orange);color:#fff}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-weight:800;letter-spacing:-0.03em;color:var(--heading)}
+a{color:inherit;text-decoration:none}
 
-:root {
-  --orange: #FF6B35;
-  --orange-glow: rgba(255,107,53,0.15);
-  --bg: #06060a;
-  --glass-bg: rgba(255,255,255,0.04);
-  --glass-border: rgba(255,255,255,0.08);
-  --text: #fff;
-  --muted: rgba(255,255,255,0.45);
-}
+/* ═══ NAV ═══ */
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:calc(100% - 6vw);max-width:1100px;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(10,10,18,0.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:100px;z-index:100;transition:all 0.4s ease}
+nav.scrolled{background:rgba(10,10,18,0.92);box-shadow:0 16px 40px rgba(0,0,0,0.5)}
+.logo{font-size:15px;font-weight:800;color:#fff;display:flex;align-items:center;gap:10px}
+.logo-dot{width:8px;height:8px;background:var(--orange);border-radius:50%;box-shadow:0 0 12px var(--orange)}
+.logo span{color:var(--orange)}
+.nav-btn{background:#fff;color:#000;padding:10px 22px;border-radius:100px;font-weight:700;font-size:13px;border:none;cursor:pointer;transition:all 0.2s}
+.nav-btn:hover{background:var(--orange);color:#fff;box-shadow:0 0 24px var(--orange-glow)}
 
-html { scroll-behavior: smooth; }
+/* ═══ HERO ═══ */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+.hero-orb-1{width:600px;height:600px;top:10%;left:20%;background:rgba(255,85,0,0.12);animation:float 8s ease-in-out infinite}
+.hero-orb-2{width:500px;height:500px;top:30%;right:10%;background:rgba(80,30,180,0.12);animation:float 10s ease-in-out infinite reverse}
+.hero-orb-3{width:300px;height:300px;bottom:10%;left:40%;background:rgba(255,85,0,0.08);animation:float 6s ease-in-out infinite 2s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-20px) scale(1.05)}}
+.hero-inner{max-width:750px;position:relative;z-index:2}
+#hero h1{font-size:clamp(3.5rem,8vw,6.5rem);line-height:0.92;margin-bottom:28px}
+#hero h1 span{color:var(--orange)}
+#hero p{font-size:1.15rem;color:var(--muted);line-height:1.7;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;padding:16px 36px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:all 0.25s;box-shadow:0 8px 32px var(--orange-glow)}
+.hero-btn:hover{transform:translateY(-3px);box-shadow:0 12px 44px rgba(255,85,0,0.45)}
+.hero-btn.sec{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2);box-shadow:none}
+.hero-btn.sec:hover{border-color:var(--orange);color:var(--orange);box-shadow:none}
 
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+/* ═══ STATS ROW (geactiveerd) ═══ */
+.stats-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:32px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg)}
+.stat{text-align:center}
+.stat-v{font-size:2rem;font-weight:800;color:#fff;display:block}
+.stat-v span{color:var(--orange)}
+.stat-l{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-top:4px;display:block}
 
-/* ── BACKGROUND ORBS ───────────────────────────────── */
-.orb {
-  position: fixed; border-radius: 50%;
-  filter: blur(120px); pointer-events: none; z-index: 0;
-  animation: drift 18s ease-in-out infinite alternate;
-}
-.orb-1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(255,107,53,0.12), transparent 70%);
-  top: -200px; right: -100px;
-}
-.orb-2 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(99,102,241,0.08), transparent 70%);
-  bottom: -100px; left: -100px;
-  animation-delay: -9s;
-}
-@keyframes drift {
-  0% { transform: translate(0,0) scale(1); }
-  100% { transform: translate(40px, 30px) scale(1.05); }
-}
+/* ═══ PREVIEW (geactiveerd) ═══ */
+#preview{padding:72px 5%;background:var(--bg);border-top:1px solid var(--border)}
+.preview-wrap{max-width:920px;margin:0 auto}
+.preview-head{text-align:center;margin-bottom:32px}
+.preview-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px}
+.preview-head p{color:var(--muted);font-size:0.95rem}
+/* Browser frame stays dark, inner rapport = light theme (matches echte rapport colors: #2D2D2D / #E8630A / DM Sans) */
+.browser{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#F3F4F6;box-shadow:0 30px 80px rgba(0,0,0,0.4)}
+.b-bar{background:#fff;padding:12px 18px;display:flex;align-items:center;gap:7px;border-bottom:1px solid #E8EAED}
+.b-dot{width:10px;height:10px;border-radius:50%}
+.b-dot.r{background:#FF5F57}.b-dot.y{background:#FEBC2E}.b-dot.g{background:#28C840}
+.b-url{margin-left:14px;flex:1;height:24px;background:#F5F5F5;border:1px solid #E8EAED;border-radius:6px;display:flex;align-items:center;padding:0 12px;font-size:11px;color:#6B7280;font-family:'DM Sans',sans-serif;max-width:420px}
+.b-hero{background:#2D2D2D;color:#fff;padding:18px 22px;font-family:'DM Sans',sans-serif}
+.b-hero-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.b-hero h4{font-size:15px;font-weight:700;color:#fff;margin:0 0 4px}
+.b-hero-sub{font-size:11px;color:#9CA3AF;margin:0}
+.b-hero-score{display:flex;align-items:center;gap:10px}
+.b-hero-score-pill{background:#E8630A;color:#fff;font-weight:700;font-size:20px;padding:6px 14px;border-radius:100px;line-height:1;font-family:'DM Sans',sans-serif}
+.b-hero-score-lbl{font-size:10px;color:#D1D5DB;text-transform:uppercase;letter-spacing:1.5px}
+.b-content{padding:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-family:'DM Sans',sans-serif}
+.pc{background:#fff;border:1px solid #E8EAED;border-radius:10px;padding:14px}
+.pc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:8px}
+.pc-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.3px;color:#6B7280}
+.pc-badge{background:#D1FAE5;color:#065F46;font-size:8px;font-weight:700;padding:2px 7px;border-radius:100px;text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
+.pc-badge.ind{background:#FEF3C7;color:#92400E}
+.pc-badge.geschat{background:#F3F4F6;color:#6B7280}
+.sr{display:flex;align-items:center;justify-content:center;position:relative;margin:6px 0 12px}
+.sr svg{transform:rotate(-90deg)}
+.sr span{position:absolute;font-size:1.5rem;font-weight:700;color:#2D2D2D;font-family:'DM Sans',sans-serif}
+.kr{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ki{background:#F5F5F5;border:1px solid #E8EAED;border-radius:6px;padding:8px;text-align:center}
+.kv{font-size:0.95rem;font-weight:700;color:#2D2D2D;font-family:'DM Sans',sans-serif}
+.ks{font-size:8px;color:#6B7280;margin-top:2px;text-transform:uppercase;letter-spacing:1px}
+.bg2{display:flex;flex-direction:column;gap:10px}
+.bm2{display:flex;justify-content:space-between;font-size:10px;color:#6B7280;margin-bottom:3px;font-family:'DM Sans',sans-serif}
+.bm2 strong{color:#2D2D2D;font-weight:700}
+.bt2{height:5px;border-radius:100px;background:#F3F4F6;overflow:hidden}
+.bf2{height:100%;border-radius:100px;background:#E8630A}
+.cb2{display:flex;align-items:flex-end;gap:5px;height:62px;margin-top:10px}
+.cb{flex:1;border-radius:3px 3px 0 0;background:#E8EAED}
+.cb.hi{background:#E8630A}
+.cl2{display:flex;gap:5px;margin-top:6px}
+.cl{flex:1;font-size:8px;text-align:center;color:#6B7280}
+.lr{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;filter:blur(2px);opacity:0.35;pointer-events:none}
+.lc{background:#fff;border:1px solid #E8EAED;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px}
+.ln{font-size:9px;font-weight:700;color:#E8630A}
+.lt{font-size:0.75rem;font-weight:600;color:#2D2D2D}
+.b-footer{padding:12px 20px;border-top:1px solid #E8EAED;font-size:11px;color:#6B7280;text-align:center;background:#fff;font-family:'DM Sans',sans-serif}
 
-/* ── NAV ───────────────────────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 0 40px; height: 64px;
-  display: flex; align-items: center; justify-content: space-between;
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  background: rgba(6,6,10,0.7);
-  border-bottom: 1px solid var(--glass-border);
-}
-.logo { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
-.logo span { color: var(--orange); }
-.nav-badge {
-  display: flex; align-items: center; gap: 6px;
-  padding: 6px 14px;
-  background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.25);
-  border-radius: 100px; font-size: 0.72rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange);
-}
+/* ═══ FEATURES ═══ */
+#features{padding:72px 5%;background:var(--bg2)}
+.features-head{text-align:center;margin-bottom:40px}
+.features-head h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:8px}
+.features-head p{color:var(--muted);font-size:0.95rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:1100px;margin:0 auto}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color 0.3s,transform 0.2s}
+.card:hover{border-color:rgba(255,85,0,0.4);transform:translateY(-4px)}
+.card-num{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:2px;margin-bottom:12px}
+.card h3{font-size:1.15rem;margin-bottom:8px}
+.card p{font-size:0.88rem;color:var(--muted);line-height:1.6}
+.mini-ring{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.mini-ring svg{transform:rotate(-90deg)}
+.ring-data .rv{font-size:2rem;font-weight:800;color:#fff}
+.ring-data .rl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.mini-kpis{display:flex;gap:8px;margin-bottom:16px}
+.mkpi{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:10px 14px;flex:1;text-align:center}
+.mkpi strong{display:block;font-size:1.1rem;color:#fff}
+.mkpi span{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.bars{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.bar-row{display:flex;align-items:center;gap:10px}
+.bar-lbl{font-size:12px;color:var(--muted);width:50px}
+.bar-track{flex:1;height:6px;border-radius:100px;background:rgba(255,255,255,0.06);overflow:hidden}
+.bar-fill{height:100%;border-radius:100px;background:var(--orange)}
+.bar-val{font-size:12px;font-weight:700;color:#fff;width:50px;text-align:right}
 
-/* ── HERO ───────────────────────────────────────────── */
-.hero {
-  position: relative; z-index: 1;
-  padding: 160px 40px 80px;
-  text-align: center; max-width: 960px; margin: 0 auto;
-}
+/* Locked modules met hover-reveal */
+.locked{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;max-width:1100px;margin:20px auto 0}
+.lm{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:10px;transition:all .25s}
+.lm-inner{display:flex;align-items:center;gap:10px;filter:blur(2px);opacity:0.35;transition:all .25s}
+.lm:hover{border-color:rgba(255,85,0,0.35);background:rgba(255,85,0,0.04)}
+.lm:hover .lm-inner{filter:blur(0);opacity:1}
+.lm-n{font-size:11px;font-weight:700;color:var(--orange)}
+.lm-t{font-size:0.85rem;font-weight:600}
 
-/* Fade-up: CSS animation, no JS required */
-.fade-up {
-  opacity: 0; transform: translateY(32px);
-  animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
-}
-.fade-up:nth-child(1) { animation-delay: 0.1s; }
-.fade-up:nth-child(2) { animation-delay: 0.25s; }
-.fade-up:nth-child(3) { animation-delay: 0.4s; }
-.fade-up:nth-child(4) { animation-delay: 0.55s; }
-@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+/* ═══ TESTIMONIALS ═══ */
+#proof{padding:72px 5%;background:var(--bg);border-top:1px solid var(--border)}
+.proof-wrap{max-width:1100px;margin:0 auto}
+.proof-head{text-align:center;margin-bottom:40px}
+.proof-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px}
+.proof-head p{color:var(--muted);font-size:0.95rem}
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.tm{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px}
+.tm-quote{font-size:0.95rem;line-height:1.7;color:var(--text);margin-bottom:20px}
+.tm-foot{display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);padding-top:16px}
+.tm-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#8B2BFF);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px;flex-shrink:0}
+.tm-name{font-size:0.9rem;font-weight:700;color:#fff}
+.tm-role{font-size:0.78rem;color:var(--muted);margin-top:2px}
+.tm-tag{margin-left:auto;font-size:10px;font-weight:700;color:var(--orange);background:var(--orange-soft);padding:4px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:1px}
 
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 8px 18px; background: var(--glass-bg);
-  border: 1px solid var(--glass-border); border-radius: 100px;
-  font-size: 0.78rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.7);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  margin-bottom: 36px;
-}
-.hero-badge .dot {
-  width: 6px; height: 6px; background: var(--orange); border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%,100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 0.6; }
-}
+/* ═══ PRICING (open) ═══ */
+#pricing{padding:72px 5%;background:var(--bg2);border-top:1px solid var(--border)}
+.pricing-wrap{max-width:1100px;margin:0 auto}
+.pricing-head{text-align:center;margin-bottom:40px}
+.pricing-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px}
+.pricing-head p{color:var(--muted);font-size:0.95rem;max-width:520px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pt{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 22px;display:flex;flex-direction:column;position:relative}
+.pt.featured{border-color:var(--orange);box-shadow:0 0 40px rgba(255,85,0,0.1)}
+.pt-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;padding:4px 14px;border-radius:100px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
+.pt-name{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+.pt-price{font-size:2rem;font-weight:800;color:#fff;line-height:1;margin-bottom:4px}
+.pt-price small{font-size:0.9rem;color:var(--muted);font-weight:400}
+.pt-period{font-size:12px;color:var(--muted);margin-bottom:22px}
+.pt-feats{list-style:none;flex:1;margin-bottom:22px}
+.pt-feats li{font-size:0.85rem;padding:6px 0;display:flex;gap:8px;align-items:flex-start;line-height:1.5;color:var(--text)}
+.pt-check{color:var(--green);font-size:11px;flex-shrink:0;margin-top:4px}
+.pt-btn{display:block;text-align:center;padding:12px;border-radius:100px;font-size:13px;font-weight:700;transition:all .2s;border:1px solid var(--border);color:#fff}
+.pt-btn:hover{border-color:var(--orange);background:var(--orange-soft)}
+.pt-btn.primary{background:var(--orange);border-color:var(--orange)}
+.pt-btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--orange-glow);background:var(--orange)}
 
-.hero h1 {
-  font-size: clamp(3.2rem, 9vw, 6.5rem);
-  font-weight: 900; line-height: 0.97;
-  letter-spacing: -0.05em; margin-bottom: 28px;
-}
-.hero h1 .accent { color: var(--orange); display: block; }
-.hero-sub {
-  font-size: 1.15rem; color: var(--muted);
-  max-width: 520px; margin: 0 auto 56px; line-height: 1.75;
-}
+/* ═══ FORM ═══ */
+#form-section{padding:72px 5%;background:var(--bg);border-top:1px solid var(--border)}
+.form-wrap{max-width:600px;margin:0 auto}
+.form-head{text-align:center;margin-bottom:20px}
+.form-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px}
+.form-head p{color:var(--muted);font-size:0.95rem}
+.form-transparency{background:var(--orange-soft);border:1px solid rgba(255,85,0,0.25);border-radius:12px;padding:14px 18px;margin-bottom:22px;font-size:0.85rem;color:var(--text);line-height:1.6;display:flex;gap:12px;align-items:flex-start}
+.form-transparency-icon{font-size:16px;flex-shrink:0}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fd{display:flex;flex-direction:column;gap:6px}
+.fd.full{grid-column:1/-1}
+.fd label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.fd input,.fd select{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:13px 14px;font-size:0.9rem;color:var(--text);font-family:'Inter',sans-serif;outline:none;appearance:none;-webkit-appearance:none;transition:border-color 0.2s}
+.fd input::placeholder{color:rgba(255,255,255,0.2)}
+.fd input:focus,.fd select:focus{border-color:rgba(255,85,0,0.5)}
+.fd select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8a9a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.fd select option{background:#1a1a2e;color:var(--text)}
+.nr{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:4px}
+.nr input[type="radio"]{display:none}
+.nr label{display:block;text-align:center;padding:10px 4px;border-radius:6px;cursor:pointer;font-size:0.78rem;font-weight:600;color:var(--muted);transition:all 0.15s}
+.nr input[type="radio"]:checked+label{background:var(--orange);color:#fff}
+.submit-btn{width:100%;background:var(--orange);color:#fff;border:none;border-radius:100px;padding:16px;font-size:0.95rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;margin-top:8px;transition:all 0.2s;box-shadow:0 8px 24px var(--orange-glow)}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,85,0,0.45)}
+.submit-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.form-note{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+.success-state{display:none;padding:28px 0;text-align:center}
+.success-state h3{font-size:1.3rem;margin-bottom:8px}
+.success-state p{color:var(--muted);font-size:0.9rem;line-height:1.6}
+.success-email{color:var(--orange);font-weight:700}
+.error-fallback{display:none;margin-top:16px;padding:14px 18px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:10px;font-size:0.85rem;color:var(--text);line-height:1.6}
+.error-fallback a{color:var(--orange);font-weight:700;text-decoration:underline}
 
-/* ── FORM CARD ──────────────────────────────────────── */
-.form-card {
-  position: relative;
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255,255,255,0.09); border-radius: 24px; padding: 44px 48px;
-  max-width: 720px; margin: 0 auto;
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset, 0 32px 64px rgba(0,0,0,0.4), 0 0 80px rgba(255,107,53,0.05);
-  transition: box-shadow 0.4s ease;
-}
-.form-card:hover {
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset, 0 32px 80px rgba(0,0,0,0.5), 0 0 100px rgba(255,107,53,0.09);
-}
-.form-card::before {
-  content: ''; position: absolute; inset: 0; border-radius: 24px; padding: 1px;
-  background: linear-gradient(135deg, rgba(255,107,53,0.3), rgba(255,255,255,0.05), rgba(255,107,53,0.1));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out; mask-composite: exclude; pointer-events: none;
-}
-.form-heading { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; text-align: center; }
-.form-sub { font-size: 0.88rem; color: var(--muted); text-align: center; margin-bottom: 32px; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.full { grid-column: 1 / -1; }
+/* ═══ FAQ ═══ */
+#faq{padding:72px 5%;background:var(--bg2);border-top:1px solid var(--border)}
+.faq-wrap{max-width:820px;margin:0 auto}
+.faq-head{text-align:center;margin-bottom:32px}
+.faq-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px}
+.faq-head p{color:var(--muted);font-size:0.95rem}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq-item[open]{border-color:rgba(255,85,0,0.35)}
+.faq-item summary{padding:18px 22px;font-weight:700;font-size:0.98rem;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:22px;font-weight:400;color:var(--orange);line-height:1;transition:transform .25s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item .faq-body{padding:0 22px 20px;font-size:0.9rem;line-height:1.7;color:var(--text)}
 
-.field-label {
-  display: block; font-size: 0.7rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.4); margin-bottom: 7px;
-}
-.field-input {
-  width: 100%;
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px; padding: 13px 16px;
-  font-size: 0.92rem; font-family: inherit; color: #fff;
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-}
-.field-input::placeholder { color: rgba(255,255,255,0.2); }
-.field-input:focus {
-  outline: none; border-color: rgba(255,107,53,0.5);
-  background: rgba(255,255,255,0.07); box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
-}
-select.field-input { color: rgba(255,255,255,0.6); }
-select.field-input option { background: #111; color: #fff; }
-textarea.field-input { height: 88px; resize: none; }
+/* ═══ FOOTER ═══ */
+footer{border-top:1px solid var(--border);background:var(--bg)}
+.footer-top{max-width:1100px;margin:0 auto;padding:48px 5% 28px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.f-brand .logo{font-size:17px;margin-bottom:14px}
+.f-brand p{font-size:13px;color:var(--muted);line-height:1.7;max-width:300px}
+.f-col h4{font-size:11px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-col a{font-size:13px;color:var(--muted);transition:color .2s}
+.f-col a:hover{color:var(--orange)}
+.footer-bottom{max-width:1100px;margin:0 auto;padding:18px 5%;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}
+.fc span{color:var(--orange)}
 
-.submit-btn {
-  width: 100%; margin-top: 20px; padding: 16px 24px;
-  background: linear-gradient(135deg, #FF6B35 0%, #ff8c35 100%);
-  color: #fff; border: none; border-radius: 14px;
-  font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit;
-  letter-spacing: -0.01em; position: relative; overflow: hidden;
-  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-  box-shadow: 0 4px 24px rgba(255,107,53,0.35), 0 0 0 1px rgba(255,255,255,0.1) inset;
-}
-.submit-btn::before {
-  content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
-  transition: left 0.5s ease;
-}
-.submit-btn:hover { transform: translateY(-2px) scale(1.01); box-shadow: 0 8px 32px rgba(255,107,53,0.5), 0 0 0 1px rgba(255,255,255,0.15) inset; }
-.submit-btn:hover::before { left: 100%; }
-.submit-btn:active { transform: translateY(0) scale(0.99); }
+/* ═══ PAYWALL MODAL ═══ */
+.paywall-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);z-index:200;align-items:center;justify-content:center;padding:20px}
+.paywall-card{background:#12122a;border:1px solid var(--border);border-radius:16px;padding:40px 36px;max-width:460px;width:100%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.6)}
+.paywall-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.paywall-close:hover{border-color:var(--orange);color:#fff}
+.paywall-card h2{font-size:1.6rem;margin-bottom:10px;color:var(--heading)}
+.paywall-card .pw-sub{font-size:0.95rem;color:var(--muted);line-height:1.6;margin-bottom:28px}
+.paywall-ctas{display:flex;flex-direction:column;gap:10px}
+.pw-btn-primary{display:block;text-align:center;background:var(--orange);color:#fff;padding:16px 24px;border-radius:10px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.pw-btn-primary:hover{box-shadow:0 0 40px var(--orange-glow);transform:translateY(-2px)}
+.pw-btn-secondary{display:block;text-align:center;background:transparent;color:var(--text);padding:14px 24px;border-radius:10px;font-weight:600;font-size:0.9rem;border:1px solid var(--border);cursor:pointer;transition:all 0.2s;text-decoration:none}
+.pw-btn-secondary:hover{border-color:var(--orange);color:#fff}
+.pw-contact{font-size:12px;color:var(--muted);text-align:center;margin-top:18px}
+.pw-contact a{color:var(--orange);text-decoration:underline}
 
-.form-footer {
-  display: flex; align-items: center; justify-content: center;
-  gap: 20px; margin-top: 18px;
-  font-size: 0.75rem; color: rgba(255,255,255,0.25);
+/* ═══ MOBILE ═══ */
+@media(max-width:900px){
+  .footer-top{grid-template-columns:1fr 1fr;gap:24px}
+  .pricing-grid{grid-template-columns:1fr}
 }
-.form-footer span { display: flex; align-items: center; gap: 5px; }
-
-/* ── STATS ROW ──────────────────────────────────────── */
-.stats-row {
-  position: relative; z-index: 1;
-  display: flex; justify-content: center;
-  max-width: 720px; margin: 60px auto 0;
-  border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden;
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  background: var(--glass-bg);
+@media(max-width:768px){
+  nav{padding:0 14px;height:54px}
+  #hero{padding:90px 16px 40px}
+  #hero h1{font-size:2.8rem}
+  #features,#preview,#form-section,#proof,#pricing,#faq{padding:48px 16px}
+  .cards{grid-template-columns:1fr}
+  .b-content{grid-template-columns:1fr}
+  .lr{grid-template-columns:1fr 1fr}
+  .fg{grid-template-columns:1fr}
+  .locked{grid-template-columns:1fr 1fr}
+  .stats-row{gap:24px;padding:22px 16px}
+  .footer-top{grid-template-columns:1fr;padding:36px 16px 20px}
+  .footer-bottom{padding:16px}
+  .paywall-card{padding:28px 20px}
+  .testimonials{grid-template-columns:1fr}
 }
-.stat {
-  flex: 1; text-align: center; padding: 24px 16px;
-  border-right: 1px solid var(--glass-border);
-  opacity: 0; animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
-}
-.stat:nth-child(1) { animation-delay: 0.7s; }
-.stat:nth-child(2) { animation-delay: 0.8s; }
-.stat:nth-child(3) { animation-delay: 0.9s; }
-.stat:nth-child(4) { animation-delay: 1.0s; border-right: none; }
-.stat-num { font-size: 1.9rem; font-weight: 900; color: var(--orange); letter-spacing: -0.04em; line-height: 1; }
-.stat-label { font-size: 0.7rem; color: var(--muted); margin-top: 5px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
-
-/* ── MODULES SECTION ────────────────────────────────── */
-.modules-section { position: relative; z-index: 1; padding: 100px 40px; max-width: 1080px; margin: 0 auto; }
-.section-eye { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--orange); margin-bottom: 14px; }
-.section-h { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 48px; }
-.modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-
-/* Module cards: CSS-only staggered animation, no JS required */
-.mod {
-  position: relative;
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  border-radius: 18px; padding: 28px 24px;
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  opacity: 0;
-  animation: modIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
-  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.3s;
-}
-.mod:nth-child(1) { animation-delay: 0.1s; }
-.mod:nth-child(2) { animation-delay: 0.2s; }
-.mod:nth-child(3) { animation-delay: 0.3s; }
-.mod:nth-child(4) { animation-delay: 0.4s; }
-.mod:nth-child(5) { animation-delay: 0.5s; }
-.mod:nth-child(6) { animation-delay: 0.6s; }
-@keyframes modIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.mod:hover { transform: translateY(-4px) scale(1.01); border-color: rgba(255,107,53,0.25); box-shadow: 0 12px 32px rgba(0,0,0,0.3), 0 0 40px rgba(255,107,53,0.06); }
-.mod-icon { font-size: 1.9rem; margin-bottom: 14px; display: block; }
-.mod-name { font-size: 0.93rem; font-weight: 700; margin-bottom: 7px; letter-spacing: -0.01em; }
-.mod-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-.mod-unique {
-  position: absolute; top: 14px; right: 14px;
-  background: rgba(255,107,53,0.12); border: 1px solid rgba(255,107,53,0.25);
-  color: var(--orange); font-size: 0.58rem; font-weight: 800;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 3px 9px; border-radius: 100px;
-}
-
-/* ── RAPPORT PREVIEW SECTION ────────────────────────── */
-.preview-section {
-  position: relative; z-index: 1;
-  padding: 0 40px 100px; max-width: 1080px; margin: 0 auto;
-}
-.preview-section .section-eye { margin-bottom: 12px; }
-.preview-section .section-h { margin-bottom: 16px; }
-.preview-section .section-sub {
-  font-size: 1rem; color: var(--muted); margin-bottom: 48px; max-width: 480px; line-height: 1.7;
-}
-
-/* Browser window frame */
-.browser-frame {
-  position: relative; border-radius: 16px; overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.05) inset, 0 0 120px rgba(255,107,53,0.08);
-  background: #0d0d14;
-}
-.browser-bar {
-  background: #161620; padding: 12px 16px;
-  display: flex; align-items: center; gap: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.browser-dots { display: flex; gap: 6px; }
-.browser-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-}
-.browser-dot-r { background: #ff5f57; }
-.browser-dot-y { background: #ffbd2e; }
-.browser-dot-g { background: #28ca41; }
-.browser-url {
-  flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 6px; padding: 5px 12px;
-  font-size: 0.73rem; color: rgba(255,255,255,0.3); font-family: inherit;
-  text-align: center; letter-spacing: 0.01em;
-}
-.browser-badge {
-  font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--orange); background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.2);
-  padding: 3px 8px; border-radius: 4px;
-}
-
-/* Report content inside frame */
-.report-content {
-  padding: 28px 28px 0;
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
-}
-
-/* Module panel */
-.rp {
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 12px; padding: 20px;
-}
-.rp-label {
-  font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.3); margin-bottom: 14px; display: flex; align-items: center; gap: 6px;
-}
-.rp-label .rp-dot {
-  width: 5px; height: 5px; border-radius: 50%; background: var(--orange);
-}
-
-/* Score ring */
-.score-ring-wrap {
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 16px; margin-bottom: 16px;
-}
-.score-ring-svg { width: 100px; height: 100px; transform: rotate(-90deg); }
-.score-track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; }
-.score-fill {
-  fill: none; stroke: url(#ringGrad); stroke-width: 8;
-  stroke-linecap: round;
-  stroke-dasharray: 283;
-  stroke-dashoffset: 283;
-  transition: stroke-dashoffset 1.6s cubic-bezier(0.16,1,0.3,1);
-}
-.score-fill.animated { stroke-dashoffset: 62; } /* 283 * (1 - 0.78) */
-.score-center {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-}
-.score-svg-wrap { position: relative; width: 100px; height: 100px; }
-.score-number {
-  font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: -0.04em; line-height: 1;
-}
-.score-denom { font-size: 0.65rem; color: var(--muted); font-weight: 600; }
-.kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.kpi-tile {
-  background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px;
-  text-align: center;
-}
-.kpi-val { font-size: 1.1rem; font-weight: 800; color: var(--orange); letter-spacing: -0.03em; }
-.kpi-lbl { font-size: 0.58rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
-
-/* Salary bars */
-.salary-row { margin-bottom: 14px; }
-.salary-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-.salary-role { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7); }
-.salary-val { font-size: 0.8rem; font-weight: 800; color: #fff; }
-.salary-track {
-  height: 6px; background: rgba(255,255,255,0.06); border-radius: 99px; overflow: hidden;
-}
-.salary-bar {
-  height: 100%; border-radius: 99px;
-  background: linear-gradient(90deg, var(--orange), #ff8c35);
-  width: 0;
-  transition: width 1.4s cubic-bezier(0.16,1,0.3,1);
-}
-.salary-bar.animated { width: var(--w); }
-
-/* Action plan */
-.action-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
-.action-impact {
-  flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-}
-.impact-hoog { background: rgba(255,107,53,0.15); color: var(--orange); border: 1px solid rgba(255,107,53,0.25); }
-.impact-med  { background: rgba(99,102,241,0.12); color: #818cf8; border: 1px solid rgba(99,102,241,0.2); }
-.action-text { font-size: 0.75rem; color: rgba(255,255,255,0.7); line-height: 1.5; font-weight: 500; }
-.action-text strong { color: #fff; font-weight: 700; }
-
-/* Locked overlay */
-.lock-row {
-  position: relative; padding: 28px 28px 28px;
-}
-.locked-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-  filter: blur(5px); opacity: 0.35; pointer-events: none; user-select: none;
-}
-.lk { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; }
-.lk-h { height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; margin-bottom: 10px; width: 60%; }
-.lk-l { height: 6px; background: rgba(255,255,255,0.05); border-radius: 4px; margin-bottom: 7px; }
-.lk-l.w80 { width: 80%; }
-.lk-l.w60 { width: 60%; }
-.lk-l.w70 { width: 70%; }
-.lk-bar { height: 32px; background: rgba(255,255,255,0.04); border-radius: 8px; margin-bottom: 8px; }
-
-/* Lock overlay CTA */
-.lock-cta {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
-  background: linear-gradient(to bottom, transparent, rgba(6,6,10,0.5) 30%, rgba(6,6,10,0.85) 60%);
-}
-.lock-icon {
-  width: 52px; height: 52px; border-radius: 16px;
-  background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.25);
-  display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
-}
-.lock-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.03em; text-align: center; }
-.lock-sub { font-size: 0.82rem; color: var(--muted); text-align: center; }
-.lock-btn {
-  display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px;
-  background: linear-gradient(135deg, #FF6B35, #ff8c35);
-  color: #fff; border-radius: 12px; text-decoration: none;
-  font-size: 0.9rem; font-weight: 700; letter-spacing: -0.01em;
-  box-shadow: 0 4px 24px rgba(255,107,53,0.4);
-  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-}
-.lock-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 32px rgba(255,107,53,0.55); }
-.lock-modules { font-size: 0.7rem; color: rgba(255,255,255,0.25); display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 380px; }
-.lock-modules span { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); padding: 3px 9px; border-radius: 99px; }
-
-/* ── CTA SECTION ────────────────────────────────────── */
-.cta-section { position: relative; z-index: 1; text-align: center; padding: 80px 40px 100px; }
-.cta-section h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 16px; }
-.cta-section h2 .accent { color: var(--orange); }
-.cta-section p { font-size: 1.05rem; color: var(--muted); margin-bottom: 36px; line-height: 1.7; }
-.cta-link {
-  display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px;
-  background: linear-gradient(135deg, #FF6B35, #ff8c35); color: #fff; border-radius: 14px;
-  font-size: 1rem; font-weight: 700; text-decoration: none;
-  box-shadow: 0 4px 24px rgba(255,107,53,0.4);
-  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-}
-.cta-link:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 36px rgba(255,107,53,0.55); }
-
-/* ── FOOTER ──────────────────────────────────────────── */
-footer {
-  position: relative; z-index: 1;
-  border-top: 1px solid var(--glass-border); padding: 36px 40px;
-  display: flex; align-items: center; justify-content: space-between;
-  font-size: 0.82rem; color: rgba(255,255,255,0.28);
-}
-footer a { color: rgba(255,255,255,0.35); text-decoration: none; margin-left: 20px; transition: color 0.2s; }
-footer a:hover { color: var(--orange); }
-
-/* ── RESPONSIVE ──────────────────────────────────────── */
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .hero { padding: 120px 20px 60px; }
-  .hero h1 { font-size: 3.2rem; }
-  .form-card { padding: 28px 20px; }
-  .form-grid { grid-template-columns: 1fr; }
-  .stats-row { flex-wrap: wrap; }
-  .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--glass-border); }
-  .modules-grid { grid-template-columns: 1fr; }
-  .preview-section { padding: 0 20px 80px; }
-  .report-content { grid-template-columns: 1fr; }
-  .locked-grid { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 16px; text-align: center; }
-  footer a { margin: 0 10px; }
+@media(prefers-reduced-motion:reduce){
+  .hero-orb{animation:none}
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
 
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-
-<nav>
-  <div class="logo">doelgroepen<span>rapport</span>.nl</div>
-  <div class="nav-badge"><span class="dot"></span> 100% Gratis · 24u levertijd</div>
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo"><span class="logo-dot"></span>doelgroepen<span>rapport.</span>nl</div>
+  <a href="#form-section" class="nav-btn">Vraag gratis aan</a>
 </nav>
 
-<!-- HERO + FORM -->
-<section class="hero">
-  <div class="hero-badge fade-up"><span class="dot"></span> Gratis AI Doelgroepanalyse</div>
-  <h1 class="fade-up">Weet waar jouw<span class="accent">kandidaten zijn.</span></h1>
-  <p class="hero-sub fade-up">Upload je wervingsvraagstuk. Binnen exact 24 uur ligt een volledig doelgroeprapport — markt, salaris, kanalen en actieplan — in je mailbox.</p>
-
-  <div class="form-card fade-up">
-    <div class="form-heading">📊 Vraag je gratis rapport aan</div>
-    <div class="form-sub">Binnen 24 uur in je inbox. Geen verplichtingen.</div>
-    <div class="form-grid">
-      <div>
-        <label class="field-label">Bedrijfsnaam *</label>
-        <input class="field-input" type="text" placeholder="Acme B.V.">
-      </div>
-      <div>
-        <label class="field-label">E-mailadres *</label>
-        <input class="field-input" type="email" placeholder="naam@bedrijf.nl">
-      </div>
-      <div>
-        <label class="field-label">Sector *</label>
-        <select class="field-input">
-          <option value="">Selecteer sector</option>
-          <option>Productie / Maakindustrie</option>
-          <option>High Tech / Automatisering</option>
-          <option>Bouw / GWW / Infra</option>
-          <option>Offshore / Olie &amp; Gas</option>
-          <option>Duurzame Energie</option>
-        </select>
-      </div>
-      <div>
-        <label class="field-label">Teamgrootte</label>
-        <select class="field-input">
-          <option value="">Selecteer</option>
-          <option>1–10</option>
-          <option>11–50</option>
-          <option>51–200</option>
-          <option>200+</option>
-        </select>
-      </div>
-      <div class="full">
-        <label class="field-label">Grootste wervingsuitdaging</label>
-        <textarea class="field-input" placeholder="Bijv. 'We zoeken al 6 maanden naar een elektromonteur maar vinden niemand...'"></textarea>
-      </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-inner">
+    <h1>Weet exact wie jouw<br><span>kandidaat</span> is.</h1>
+    <p>12 modules arbeidsmarktdata. Op maat voor jouw doelgroep. Binnen 24 uur. Eerste 2 rapporten gratis.</p>
+    <div class="hero-ctas">
+      <a href="#form-section" class="hero-btn" data-cta="hero-primary">Vraag gratis rapport aan &rarr;</a>
+      <a href="#preview" class="hero-btn sec" data-cta="hero-secondary">Bekijk voorbeeld</a>
     </div>
-    <button class="submit-btn">Stuur mij het gratis rapport →</button>
-    <div class="form-footer">
-      <span>🔒 Geen spam</span>
-      <span>✓ Geen verplichtingen</span>
-      <span>⚡ Binnen 24 uur</span>
-    </div>
-  </div>
-
-  <div class="stats-row">
-    <div class="stat"><div class="stat-num">12</div><div class="stat-label">Modules</div></div>
-    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Sectoren</div></div>
-    <div class="stat"><div class="stat-num">24u</div><div class="stat-label">Levertijd</div></div>
-    <div class="stat"><div class="stat-num">€0</div><div class="stat-label">Kosten</div></div>
   </div>
 </section>
 
-<!-- MODULE OVERVIEW -->
-<section class="modules-section">
-  <div class="section-eye">Inhoud rapport</div>
-  <div class="section-h">Alles wat je nodig hebt.</div>
-  <div class="modules-grid">
-    <div class="mod"><span class="mod-icon">🌡️</span><div class="mod-name">Arbeidsmarkt Thermometer</div><div class="mod-desc">Vraag vs. aanbod in jouw sector. Tekortindicator per regio en functiegroep.</div></div>
-    <div class="mod"><span class="mod-icon">💰</span><div class="mod-name">Salaris Benchmark</div><div class="mod-desc">Junior/medior/senior tarieven met regionale correctiefactor.</div></div>
-    <div class="mod"><span class="mod-icon">📢</span><div class="mod-name">Kanaal-Effectiviteit</div><div class="mod-desc">Welk kanaal werkt voor jouw doelgroep? Kosten, respons en bereik.</div><div class="mod-unique">★ Uniek</div></div>
-    <div class="mod"><span class="mod-icon">🎯</span><div class="mod-name">Doelgroep &amp; Dimensionering</div><div class="mod-desc">Senioriteitsopbouw en beschikbaarheid van kandidaten in jouw regio.</div></div>
-    <div class="mod"><span class="mod-icon">🏆</span><div class="mod-name">EVP Analyse</div><div class="mod-desc">Wat kandidaten willen vs. wat jij biedt. Gap per arbeidsvoorwaarde.</div><div class="mod-unique">★ Uniek</div></div>
-    <div class="mod"><span class="mod-icon">🚀</span><div class="mod-name">Actieplan</div><div class="mod-desc">Gesorteerd op impact &amp; effort. Start morgen.</div><div class="mod-unique">★ Uniek</div></div>
-  </div>
-</section>
+<!-- STATS ROW (geactiveerd) -->
+<div class="stats-row">
+  <div class="stat"><span class="stat-v">12</span><span class="stat-l">Modules per rapport</span></div>
+  <div class="stat"><span class="stat-v">89<span>+</span></span><span class="stat-l">Live datapunten</span></div>
+  <div class="stat"><span class="stat-v">24<span>u</span></span><span class="stat-l">Levertijd</span></div>
+  <div class="stat"><span class="stat-v">2<span>&times;</span></span><span class="stat-l">Gratis, dan &euro;49</span></div>
+</div>
 
-<!-- WOW FEATURE: LIVE RAPPORT PREVIEW -->
-<section class="preview-section">
-  <div class="section-eye">Live voorbeeld</div>
-  <div class="section-h">Zo ziet jouw rapport eruit.</div>
-  <div class="section-sub">Hieronder een preview van drie modules. De andere 9 zijn vergrendeld — vraag jouw gratis rapport aan om alles te zien.</div>
-
-  <div class="browser-frame">
-    <div class="browser-bar">
-      <div class="browser-dots">
-        <div class="browser-dot browser-dot-r"></div>
-        <div class="browser-dot browser-dot-y"></div>
-        <div class="browser-dot browser-dot-g"></div>
-      </div>
-      <div class="browser-url">📊 doelgroepenrapport.nl/rapport/uw-bedrijf-2026</div>
-      <div class="browser-badge">Live Preview</div>
+<!-- PREVIEW (geactiveerd) -->
+<section id="preview">
+  <div class="preview-wrap">
+    <div class="preview-head">
+      <h2>Zo ziet jouw rapport eruit</h2>
+      <p>Een glimp van een echt rapport &mdash; ring-scores, salaris-bars, trends, allemaal live.</p>
     </div>
-
-    <!-- Visible modules (3) -->
-    <div class="report-content" id="previewContent">
-
-      <!-- Module 1: Executive score ring -->
-      <div class="rp">
-        <div class="rp-label"><span class="rp-dot"></span> Executive Dashboard</div>
-        <div class="score-ring-wrap">
-          <div class="score-svg-wrap">
-            <svg class="score-ring-svg" viewBox="0 0 100 100">
-              <defs>
-                <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#FF6B35"/>
-                  <stop offset="100%" style="stop-color:#ff8c35"/>
-                </linearGradient>
-              </defs>
-              <circle class="score-track" cx="50" cy="50" r="45"/>
-              <circle class="score-fill" id="scoreRing" cx="50" cy="50" r="45"/>
-            </svg>
-            <div class="score-center">
-              <div class="score-number" id="scoreNum">0</div>
-              <div class="score-denom">/ 10</div>
+    <div class="browser">
+      <div class="b-bar">
+        <span class="b-dot r"></span><span class="b-dot y"></span><span class="b-dot g"></span>
+        <div class="b-url">doelgroepenrapport.nl/rapport/monteur-elektrotechniek-gelderland</div>
+      </div>
+      <div class="b-hero">
+        <div class="b-hero-row">
+          <div>
+            <h4>Doelgroepen Rapport</h4>
+            <p class="b-hero-sub">Monteur Elektrotechniek &middot; Medior &middot; Gelderland &middot; Recruitin B.V.</p>
+          </div>
+          <div class="b-hero-score">
+            <div>
+              <div class="b-hero-score-lbl">Haalbaarheid</div>
+              <div style="margin-top:2px"><span class="b-hero-score-pill">74</span></div>
             </div>
           </div>
         </div>
-        <div class="kpi-grid">
-          <div class="kpi-tile"><div class="kpi-val" data-target="9.4">0</div><div class="kpi-lbl">Schaarste</div></div>
-          <div class="kpi-tile"><div class="kpi-val" data-target="2.100">0</div><div class="kpi-lbl">Vraag/jr</div></div>
-          <div class="kpi-tile"><div class="kpi-val" data-target="1.680">0</div><div class="kpi-lbl">Aanbod/jr</div></div>
-          <div class="kpi-tile"><div class="kpi-val" style="color:#ff4f4f" data-target="-420">0</div><div class="kpi-lbl">Tekort/jr</div></div>
+      </div>
+      <div class="b-content">
+        <div class="pc">
+          <div class="pc-head">
+            <span class="pc-lbl">Module 01 &middot; Haalbaarheid</span>
+            <span class="pc-badge">Hoog 87%</span>
+          </div>
+          <div class="sr">
+            <svg width="90" height="90" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#F3F4F6" stroke-width="8"/><circle cx="50" cy="50" r="42" fill="none" stroke="#E8630A" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="68" stroke-linecap="round"/></svg>
+            <span>74%</span>
+          </div>
+          <div class="kr">
+            <div class="ki"><div class="kv">4.200</div><div class="ks">Pool</div></div>
+            <div class="ki"><div class="kv" style="color:#E8630A">14%</div><div class="ks">Actief</div></div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="pc-head">
+            <span class="pc-lbl">Module 02 &middot; Salaris</span>
+            <span class="pc-badge ind">Indicatief 71%</span>
+          </div>
+          <div class="bg2">
+            <div><div class="bm2"><span>Junior</span><strong>&euro;2.800</strong></div><div class="bt2"><div class="bf2" style="width:38%"></div></div></div>
+            <div><div class="bm2"><span>Medior</span><strong>&euro;3.600</strong></div><div class="bt2"><div class="bf2" style="width:62%"></div></div></div>
+            <div><div class="bm2"><span>Senior</span><strong>&euro;4.800</strong></div><div class="bt2"><div class="bf2" style="width:88%"></div></div></div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="pc-head">
+            <span class="pc-lbl">Module 03 &middot; Vacaturedruk</span>
+            <span class="pc-badge geschat">Geschat 64%</span>
+          </div>
+          <div class="cb2">
+            <div class="cb" style="height:30%"></div>
+            <div class="cb" style="height:48%"></div>
+            <div class="cb" style="height:55%"></div>
+            <div class="cb hi" style="height:72%"></div>
+            <div class="cb hi" style="height:82%"></div>
+            <div class="cb hi" style="height:64%"></div>
+            <div class="cb" style="height:52%"></div>
+          </div>
+          <div class="cl2"><div class="cl">W1</div><div class="cl">W2</div><div class="cl">W3</div><div class="cl">W4</div><div class="cl">W5</div><div class="cl">W6</div><div class="cl">W7</div></div>
+        </div>
+        <div class="lr">
+          <div class="lc"><span class="ln">04</span><span class="lt">Concurrentie</span></div>
+          <div class="lc"><span class="ln">05</span><span class="lt">Mobiliteit</span></div>
+          <div class="lc"><span class="ln">06</span><span class="lt">Motivatie</span></div>
         </div>
       </div>
-
-      <!-- Module 2: Salary benchmark -->
-      <div class="rp">
-        <div class="rp-label"><span class="rp-dot"></span> Salaris Benchmark</div>
-        <div class="salary-row">
-          <div class="salary-meta"><span class="salary-role">Senior (8+ jr)</span><span class="salary-val">€ 5.800</span></div>
-          <div class="salary-track"><div class="salary-bar" style="--w: 88%" id="bar1"></div></div>
-        </div>
-        <div class="salary-row">
-          <div class="salary-meta"><span class="salary-role">Medior (4–8 jr)</span><span class="salary-val">€ 4.400</span></div>
-          <div class="salary-track"><div class="salary-bar" style="--w: 67%" id="bar2"></div></div>
-        </div>
-        <div class="salary-row">
-          <div class="salary-meta"><span class="salary-role">Junior (0–4 jr)</span><span class="salary-val">€ 3.100</span></div>
-          <div class="salary-track"><div class="salary-bar" style="--w: 47%" id="bar3"></div></div>
-        </div>
-        <div style="margin-top:16px; padding: 10px 12px; background: rgba(255,107,53,0.07); border: 1px solid rgba(255,107,53,0.15); border-radius: 8px;">
-          <div style="font-size:0.68rem; color:var(--orange); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">⚠ Salaris Alert</div>
-          <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); line-height:1.5;">Jouw sector ligt 12% onder markt. Risico op uitval senior profiel.</div>
-        </div>
-      </div>
-
-      <!-- Module 3: Action plan -->
-      <div class="rp">
-        <div class="rp-label"><span class="rp-dot"></span> Actieplan — Start morgen</div>
-        <div class="action-row">
-          <div class="action-impact impact-hoog">Hoog</div>
-          <div class="action-text"><strong>LinkedIn targeting campagne</strong> op passive candidates 35–50 km radius. Verwacht bereik: 1.200+</div>
-        </div>
-        <div class="action-row">
-          <div class="action-impact impact-hoog">Hoog</div>
-          <div class="action-text"><strong>Salaris correctie senior profiel</strong> naar marktconform. Verlaagt time-to-fill met 34%.</div>
-        </div>
-        <div class="action-row">
-          <div class="action-impact impact-med">Med</div>
-          <div class="action-text"><strong>MBO samenwerking</strong> voor junior instroom pipeline. 3–6 mnd doorlooptijd.</div>
-        </div>
-        <div class="action-row">
-          <div class="action-impact impact-med">Med</div>
-          <div class="action-text"><strong>Referral programma</strong> activeren. Conversie 3× hoger dan job boards.</div>
-        </div>
-      </div>
+      <div class="b-footer">+ 9 modules in volledig rapport &middot; 89 live datapunten &middot; 33 bronnen</div>
     </div>
+  </div>
+</section>
 
-    <!-- Locked modules (9 blurred) -->
-    <div class="lock-row">
-      <div class="locked-grid">
-        <div class="lk"><div class="lk-h"></div><div class="lk-l w80"></div><div class="lk-l w60"></div><div class="lk-bar"></div></div>
-        <div class="lk"><div class="lk-h"></div><div class="lk-l w70"></div><div class="lk-l w80"></div><div class="lk-bar"></div></div>
-        <div class="lk"><div class="lk-h"></div><div class="lk-l w60"></div><div class="lk-l w70"></div><div class="lk-bar"></div></div>
+<!-- FEATURES -->
+<section id="features">
+  <div class="features-head">
+    <h2>Wat zit er in jouw rapport?</h2>
+    <p>Al het arbeidsmarktonderzoek dat je normaal overslaat &mdash; geautomatiseerd en op maat.</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-num">MODULE 01</div>
+      <div class="mini-ring">
+        <svg width="70" height="70" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7"/><circle cx="50" cy="50" r="42" fill="none" stroke="#FF5500" stroke-width="7" stroke-dasharray="264" stroke-dashoffset="68" stroke-linecap="round"/></svg>
+        <div class="ring-data"><div class="rv">74%</div><div class="rl">Haalbaarheid</div></div>
       </div>
-      <div class="lock-cta">
-        <div class="lock-icon">🔒</div>
-        <div class="lock-title">9 modules zijn vergrendeld</div>
-        <div class="lock-sub">Vraag gratis jouw persoonlijk rapport aan</div>
-        <a href="#" class="lock-btn" onclick="document.querySelector('.form-card').scrollIntoView({behavior:'smooth'}); return false;">
-          📊 Ontgrendel mijn rapport →
-        </a>
-        <div class="lock-modules">
-          <span>Thermometer</span><span>Doelgroep</span><span>EVP Analyse</span>
-          <span>Kanalen</span><span>Regionale Analyse</span><span>Scenario's</span>
-          <span>Time-to-Fill</span><span>Concurrentie</span><span>Methodologie</span>
+      <div class="mini-kpis">
+        <div class="mkpi"><strong>4.200</strong><span>Pool</span></div>
+        <div class="mkpi"><strong style="color:var(--orange)">14%</strong><span>Actief</span></div>
+      </div>
+      <h3>Wervingshaalbaarheid</h3>
+      <p>Score 0-100: hoe vindbaar is jouw profiel? Poolgrootte, actieve zoekers en concurrentie.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">MODULE 02</div>
+      <div class="bars">
+        <div class="bar-row"><span class="bar-lbl">Junior</span><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div><span class="bar-val">&euro;2.800</span></div>
+        <div class="bar-row"><span class="bar-lbl">Medior</span><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><span class="bar-val">&euro;3.600</span></div>
+        <div class="bar-row"><span class="bar-lbl">Senior</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><span class="bar-val">&euro;4.800</span></div>
+      </div>
+      <h3>Salaris Benchmark</h3>
+      <p>Marktconforme ranges per ervaringsniveau. Weet of je onder of boven markt zit.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">MODULE 03</div>
+      <h3>Kanaal Effectiviteit</h3>
+      <p>LinkedIn, Indeed, referral, social &mdash; welk kanaal converteert het best voor jouw doelgroep?</p>
+    </div>
+    <div class="card">
+      <div class="card-num">MODULE 04</div>
+      <h3>Concurrentie Analyse</h3>
+      <p>Wie adverteert er op dezelfde profielen in jouw regio? En wat bieden zij?</p>
+    </div>
+  </div>
+  <div class="locked">
+    <div class="lm" title="Woon-werk afstand + verhuisbereidheid per segment"><div class="lm-inner"><span class="lm-n">05</span><span class="lm-t">Mobiliteitsdata</span></div></div>
+    <div class="lm" title="Wat trekt kandidaten aan in jouw sector?"><div class="lm-inner"><span class="lm-n">06</span><span class="lm-t">Motivatie Drivers</span></div></div>
+    <div class="lm" title="Waarom kandidaten overstappen — top 5"><div class="lm-inner"><span class="lm-n">07</span><span class="lm-t">Pullfactoren</span></div></div>
+    <div class="lm" title="Wat googelen kandidaten écht?"><div class="lm-inner"><span class="lm-n">08</span><span class="lm-t">Zoekgedrag</span></div></div>
+    <div class="lm" title="Favoriete werkgevers in jouw segment"><div class="lm-inner"><span class="lm-n">09</span><span class="lm-t">Bedrijfskeuze</span></div></div>
+    <div class="lm" title="Hoe schaars is dit profiel? 0-100 score"><div class="lm-inner"><span class="lm-n">10</span><span class="lm-t">Schaarste Index</span></div></div>
+    <div class="lm" title="Opleidingsniveau-mix en trends"><div class="lm-inner"><span class="lm-n">11</span><span class="lm-t">Opleidingsniveau</span></div></div>
+    <div class="lm" title="Week-voor-week actieplan op maat"><div class="lm-inner"><span class="lm-n">12</span><span class="lm-t">30-Dagen Actieplan</span></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="proof">
+  <div class="proof-wrap">
+    <div class="proof-head">
+      <h2>Waarom recruiters overstappen</h2>
+      <p>Van 3 weken onderzoek naar 24 uur. Van gokken naar gefundeerde beslissingen.</p>
+    </div>
+    <div class="testimonials">
+      <div class="tm">
+        <p class="tm-quote">Ik wist niet dat er 4.200 monteurs actief zoeken in Gelderland. Dat verandert onze wervingsstrategie direct.</p>
+        <div class="tm-foot">
+          <div class="tm-avatar">JB</div>
+          <div><div class="tm-name">Jeroen B.</div><div class="tm-role">Head of Recruitment</div></div>
+          <div class="tm-tag">Installatie</div>
+        </div>
+      </div>
+      <div class="tm">
+        <p class="tm-quote">De salaris-benchmark alleen al is goud waard. We zaten 8% onder markt zonder het te weten.</p>
+        <div class="tm-foot">
+          <div class="tm-avatar">ML</div>
+          <div><div class="tm-name">Maaike L.</div><div class="tm-role">HR Manager</div></div>
+          <div class="tm-tag">Productie</div>
+        </div>
+      </div>
+      <div class="tm">
+        <p class="tm-quote">Cleaner dan elk rapport dat ik van een bureau heb gekregen. En 2 weken sneller.</p>
+        <div class="tm-foot">
+          <div class="tm-avatar">RK</div>
+          <div><div class="tm-name">Rob K.</div><div class="tm-role">Managing Director</div></div>
+          <div class="tm-tag">Bouw</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <h2>Claim jouw <span class="accent">gratis</span> doelgroepanalyse</h2>
-  <p>Vul het formulier in en ontdek binnen 24 uur waar jouw kandidaten zijn en hoe je ze bereikt.</p>
-  <a href="#" class="cta-link" onclick="document.querySelector('.form-card').scrollIntoView({behavior:'smooth'}); return false;">
-    📊 Start Nu — 100% Gratis
-  </a>
+<!-- PRICING -->
+<section id="pricing">
+  <div class="pricing-wrap">
+    <div class="pricing-head">
+      <h2>Start gratis. Upgrade als je meer wilt.</h2>
+      <p>Eerste 2 rapporten gratis. Daarna betaal je per rapport of kies je een abonnement. Geen contract.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pt">
+        <div class="pt-name">Gratis</div>
+        <div class="pt-price">&euro;0</div>
+        <div class="pt-period">Eerste 2 rapporten</div>
+        <ul class="pt-feats">
+          <li><span class="pt-check">&#10003;</span>2 volledige rapporten</li>
+          <li><span class="pt-check">&#10003;</span>12 modules per rapport</li>
+          <li><span class="pt-check">&#10003;</span>24 uur levertijd</li>
+          <li><span class="pt-check">&#10003;</span>Geen creditcard nodig</li>
+        </ul>
+        <a href="#form-section" class="pt-btn">Start nu</a>
+      </div>
+      <div class="pt">
+        <div class="pt-name">Enkel</div>
+        <div class="pt-price">&euro;49</div>
+        <div class="pt-period">Per rapport</div>
+        <ul class="pt-feats">
+          <li><span class="pt-check">&#10003;</span>1 volledig rapport</li>
+          <li><span class="pt-check">&#10003;</span>Alle 12 modules</li>
+          <li><span class="pt-check">&#10003;</span>Bron-URLs + confidence</li>
+          <li><span class="pt-check">&#10003;</span>Geen abonnement</li>
+        </ul>
+        <a href="https://buy.stripe.com/fZu28kgWl8TF0xf1Jd4Rq01" class="pt-btn">Koop rapport</a>
+      </div>
+      <div class="pt featured">
+        <span class="pt-badge">Populair</span>
+        <div class="pt-name">Maand</div>
+        <div class="pt-price">&euro;83<small>/mnd</small></div>
+        <div class="pt-period">5 rapporten / maand</div>
+        <ul class="pt-feats">
+          <li><span class="pt-check">&#10003;</span>5 rapporten per maand</li>
+          <li><span class="pt-check">&#10003;</span>Alle 12 modules</li>
+          <li><span class="pt-check">&#10003;</span>Prioriteits-queue (12u)</li>
+          <li><span class="pt-check">&#10003;</span>Maandelijks opzegbaar</li>
+        </ul>
+        <a href="https://buy.stripe.com/7sY14g6hH2vh2FncnR4Rq03" class="pt-btn primary">Start abonnement</a>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- FORM -->
+<section id="form-section">
+  <div class="form-wrap">
+    <div class="form-head">
+      <h2>Klaar? Vul je doelgroep in.</h2>
+      <p>Rapport binnen 24 uur in je inbox.</p>
+    </div>
+    <div class="form-transparency">
+      <span class="form-transparency-icon">&#9432;</span>
+      <div>De eerste <strong>2 rapporten zijn gratis</strong>. Daarna &euro;49 per rapport of abonnement vanaf &euro;83/mnd. Geen verplichtingen.</div>
+    </div>
+    <div class="form-card">
+      <form id="rapport-form">
+        <div class="fg">
+          <div class="fd"><label for="f-functie">Functietitel</label><input id="f-functie" name="functie" type="text" placeholder="Bijv. Monteur Elektrotechniek" required></div>
+          <div class="fd"><label for="f-sector">Sector</label><select id="f-sector" name="sector" required><option value="">Kies sector</option><option value="installatietechniek">Installatietechniek</option><option value="high-tech-automatisering">High Tech / Automatisering</option><option value="bouw-gww-infra">Bouw / GWW / Infra</option><option value="productie-maakindustrie">Productie / Maakindustrie</option><option value="offshore-oil-gas">Offshore / Oil &amp; Gas</option><option value="duurzame-energie">Duurzame Energie</option></select></div>
+          <div class="fd"><label for="f-regio">Regio</label><select id="f-regio" name="regio" required><option value="heel-nederland">Heel Nederland</option><option value="groningen">Groningen</option><option value="friesland">Friesland</option><option value="drenthe">Drenthe</option><option value="overijssel">Overijssel</option><option value="flevoland">Flevoland</option><option value="gelderland">Gelderland</option><option value="utrecht">Utrecht</option><option value="noord-holland">Noord-Holland</option><option value="zuid-holland">Zuid-Holland</option><option value="zeeland">Zeeland</option><option value="noord-brabant">Noord-Brabant</option><option value="limburg">Limburg</option></select></div>
+          <div class="fd"><label>Ervaringsniveau</label><div class="nr"><input type="radio" name="niveau" id="n-junior" value="junior"><label for="n-junior">Junior</label><input type="radio" name="niveau" id="n-medior" value="medior" checked><label for="n-medior">Medior</label><input type="radio" name="niveau" id="n-senior" value="senior"><label for="n-senior">Senior</label><input type="radio" name="niveau" id="n-mix" value="mix"><label for="n-mix">Mix</label></div></div>
+          <div class="fd"><label for="f-company">Bedrijfsnaam</label><input id="f-company" name="company_name" type="text" placeholder="Jouw bedrijf" required></div>
+          <div class="fd"><label for="f-email">E-mailadres</label><input id="f-email" name="email" type="email" placeholder="naam@bedrijf.nl" required></div>
+          <div class="fd full"><button class="submit-btn" id="submit-btn" type="submit">Verstuur &mdash; Gratis Rapport in 24u</button></div>
+        </div>
+      </form>
+      <p class="form-note">Geen spam. Geen verkoopgesprek. Puur data.</p>
+      <div class="success-state" id="form-success">
+        <h3>Aanvraag ontvangen.</h3>
+        <p>Binnen 24 uur ontvang je het volledige rapport op<br><span class="success-email" id="success-email-addr"></span></p>
+      </div>
+      <div class="error-fallback" id="error-fallback">
+        <strong>Er ging iets mis.</strong> Je gegevens zijn lokaal opgeslagen. Stuur ze even via <a href="https://wa.me/31614314593?text=Hoi%20Wouter,%20mijn%20rapport-aanvraag%20ging%20mis." target="_blank">WhatsApp</a> of mail <a href="mailto:warts@recruitin.nl">warts@recruitin.nl</a>, dan maken we het alsnog.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-wrap">
+    <div class="faq-head">
+      <h2>Veelgestelde vragen</h2>
+      <p>Missing iets? Mail <a href="mailto:warts@recruitin.nl" style="color:var(--orange);text-decoration:underline">warts@recruitin.nl</a>.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Waar komt de data vandaan?</summary><div class="faq-body">4 research-rondes per rapport: live BraveSearch queries, Apify Indeed scraping, cross-referentie tussen bronnen, en sector-referentiedata. Elk rapport toont de bron-URLs in module 12.</div></details>
+      <details class="faq-item"><summary>Hoe accuraat is het rapport?</summary><div class="faq-body">Per module krijg je een confidence-badge: ✅ Live data (meerdere bronnen), ⚠ Beperkte data (1-2 bronnen), 🤖 Sector-referentie (AI-schatting). Transparant, geen schijnzekerheid.</div></details>
+      <details class="faq-item"><summary>Waarom duurt het 24 uur?</summary><div class="faq-body">Rapport zelf is binnen 2 minuten klaar. We houden 24 uur aan voor handmatige review bij edge-cases. Meestal ontvang je het binnen 2&ndash;4 uur.</div></details>
+      <details class="faq-item"><summary>Hoe zit het met privacy?</summary><div class="faq-body">Je gegevens worden opgeslagen om jou het rapport te sturen + 4 informatieve emails. Geen verkoop. Opzeggen via 1 klik. Zie <a href="https://recruitin.nl/privacy">privacy</a>.</div></details>
+      <details class="faq-item"><summary>Krijg ik een verkooptelefoontje?</summary><div class="faq-body">Nee. Geen cold calls. Je krijgt het rapport + 4 inzicht-mails. Wil je meer? Dan neem jij contact op.</div></details>
+      <details class="faq-item"><summary>Wat als ik meer dan 2 rapporten nodig heb?</summary><div class="faq-body">&euro;49 per los rapport, &euro;83/mnd voor 5 rapporten/mnd. Maandelijks opzegbaar.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div>© 2026 Recruitin · doelgroepenrapport.nl</div>
-  <div>
-    <a href="https://wa.me/31614314593">WhatsApp</a>
-    <a href="https://kandidatentekort.nl">KandidatenTekort.nl</a>
-    <a href="https://recruitmentapk.nl">Recruitment APK</a>
+  <div class="footer-top">
+    <div class="f-brand">
+      <div class="logo"><span class="logo-dot"></span>doelgroepen<span>rapport.</span>nl</div>
+      <p>Arbeidsmarkt intelligence voor recruiters. Live data, 12 modules, binnen 24 uur.</p>
+    </div>
+    <div class="f-col"><h4>Product</h4><ul><li><a href="#features">Modules</a></li><li><a href="#preview">Voorbeeld</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div class="f-col"><h4>Legal</h4><ul><li><a href="https://recruitin.nl/privacy">Privacy</a></li><li><a href="https://recruitin.nl/voorwaarden">Voorwaarden</a></li><li><a href="https://recruitin.nl/verwerkersovereenkomst">Verwerkersovereenkomst</a></li></ul></div>
+    <div class="f-col"><h4>Contact</h4><ul><li><a href="mailto:warts@recruitin.nl">warts@recruitin.nl</a></li><li><a href="https://wa.me/31614314593">WhatsApp</a></li><li><a href="https://recruitin.nl">recruitin.nl</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="fl" style="font-size:14px;font-weight:800;color:rgba(255,255,255,0.3)">doelgroepenrapport<span>.</span>nl</div>
+    <div class="fc">&copy; 2026 &middot; Powered by Recruitin B.V. &middot; KvK 75303647</div>
   </div>
 </footer>
 
+<!-- PAYWALL MODAL -->
+<div class="paywall-overlay" id="paywall-modal">
+  <div class="paywall-card">
+    <button class="paywall-close" id="paywall-close">&times;</button>
+    <h2>Je gratis rapporten zijn op</h2>
+    <p class="pw-sub">Je hebt 2 gratis rapporten ontvangen. Upgrade om door te gaan.</p>
+    <div class="paywall-ctas">
+      <a href="https://buy.stripe.com/fZu28kgWl8TF0xf1Jd4Rq01" class="pw-btn-primary" onclick="if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:49,currency:'EUR',content_name:'Enkel Rapport'})">Koop rapport &mdash; &euro;49</a>
+      <a href="https://buy.stripe.com/7sY14g6hH2vh2FncnR4Rq03" class="pw-btn-secondary" onclick="if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:83,currency:'EUR',content_name:'Abonnement'})">Abonnement &mdash; vanaf &euro;83/mnd</a>
+    </div>
+    <p class="pw-contact">Of neem contact op: <a href="mailto:warts@recruitin.nl">warts@recruitin.nl</a></p>
+  </div>
+</div>
+
 <script>
-// Animate preview when it enters viewport
-const scoreRing = document.getElementById('scoreRing');
-const scoreNum  = document.getElementById('scoreNum');
-const bars      = ['bar1','bar2','bar3'].map(id => document.getElementById(id));
-const kpiTiles  = document.querySelectorAll('.kpi-val[data-target]');
-let previewAnimated = false;
+// Nav scroll
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>60)},{passive:true});
 
-function easeOutExpo(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
+// GA4
+function ga(event, params) { if (typeof gtag !== 'undefined') gtag('event', event, params); }
+function formMeta() { return { sector: document.getElementById('f-sector').value || '(leeg)', functie: document.getElementById('f-functie').value || '(leeg)' }; }
 
-function animateNumber(el, target, duration, prefix = '', suffix = '') {
-  const start = performance.now();
-  const isNeg = target < 0;
-  const abs = Math.abs(target);
-  const isFloat = String(target).includes('.');
-  function step(now) {
-    const t = Math.min((now - start) / duration, 1);
-    const val = abs * easeOutExpo(t);
-    const display = isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('nl-NL');
-    el.textContent = prefix + (isNeg ? '-' : '') + display + suffix;
-    if (t < 1) requestAnimationFrame(step);
+// Form funnel tracking
+var formStarted = false;
+document.getElementById('rapport-form').addEventListener('focusin', function() {
+  if (formStarted) return;
+  formStarted = true;
+  ga('form_start', { event_category: 'form', event_label: 'doelgroepenrapport' });
+});
+['f-functie','f-sector','f-regio','f-company','f-email'].forEach(function(id, i) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('change', function() {
+    if (!this.value) return;
+    var m = formMeta();
+    ga('form_field_complete', { event_category: 'form', event_label: id.replace('f-',''), field_index: i+1, sector: m.sector, functie: m.functie });
+  });
+});
+
+// CTA tracking
+document.querySelectorAll('[data-cta], .nav-btn, .pt-btn, .hero-btn').forEach(function(el) {
+  el.addEventListener('click', function() {
+    ga('cta_click', { event_category: 'engagement', event_label: (this.dataset.cta || this.textContent.trim().substring(0,40)), link_url: this.href || '' });
+  });
+});
+
+// Scroll depth
+var scrollFired = {};
+window.addEventListener('scroll', function() {
+  var pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+  [25,50,75,100].forEach(function(t) {
+    if (pct >= t && !scrollFired[t]) { scrollFired[t] = true; ga('scroll_depth', { event_category: 'engagement', event_label: t + '%', percent_scrolled: t }); }
+  });
+}, { passive: true });
+
+// Scroll to form (BUG FIX: was '#form', now '#form-section')
+var formObserved = false;
+if ('IntersectionObserver' in window) {
+  var formEl = document.getElementById('form-section');
+  if (formEl) {
+    new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !formObserved) { formObserved = true; ga('scroll_to_form', { event_category: 'engagement', event_label: 'form_visible' }); }
+    }, { threshold: 0.3 }).observe(formEl);
   }
-  requestAnimationFrame(step);
 }
 
-function runPreviewAnimation() {
-  if (previewAnimated) return;
-  previewAnimated = true;
+// Time on page
+[30,60,120].forEach(function(s) { setTimeout(function() { ga('time_on_page', { event_category: 'engagement', event_label: s + 's', seconds: s }); }, s * 1000); });
 
-  // Score ring fills to 7.8 (78%)
-  setTimeout(() => {
-    scoreRing.classList.add('animated');
-    animateNumber(scoreNum, 7.8, 1600, '', '');
-    // Fix: show decimal
-    setTimeout(() => { scoreNum.textContent = '7.8'; }, 1650);
-  }, 200);
+// Form submit
+document.getElementById('rapport-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submit-btn');
+  var email = document.getElementById('f-email').value;
+  var niveau = document.querySelector('input[name="niveau"]:checked');
+  var refCode = new URLSearchParams(window.location.search).get('ref');
+  btn.disabled = true;
+  btn.textContent = 'Versturen...';
+  var payload = {
+    functie: document.getElementById('f-functie').value,
+    sector: document.getElementById('f-sector').value,
+    regio: document.getElementById('f-regio').value,
+    niveau: niveau ? niveau.value : 'medior',
+    company_name: document.getElementById('f-company').value,
+    email: email
+  };
+  if (refCode) payload.ref = refCode;
+  try {
+    var res = await fetch('https://doelgroepenrapport-automation.onrender.com/webhook/doelgroepen', {
+      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)
+    });
+    var data = await res.json();
+    if (res.ok) {
+      document.getElementById('rapport-form').style.display = 'none';
+      document.querySelector('.form-note').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      document.getElementById('success-email-addr').textContent = email;
+      ga('generate_lead', { event_category: 'doelgroepenrapport', event_label: payload.sector, value: 49.00, currency: 'EUR', sector: payload.sector, functie: payload.functie, regio: payload.regio, niveau: payload.niveau });
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Doelgroepenrapport', content_category: payload.sector, value: 49.00, currency: 'EUR' });
+    } else if (res.status === 402 && data.limit_reached) {
+      document.getElementById('paywall-modal').style.display = 'flex';
+      ga('paywall_shown', { event_category: 'monetization', event_label: 'limit_reached' });
+      btn.disabled = false;
+      btn.textContent = 'Verstuur \u2014 Gratis Rapport in 24u';
+    } else { throw new Error('submit_failed'); }
+  } catch (err) {
+    try { localStorage.setItem('dgr-failed-submit', JSON.stringify({ts:Date.now(), payload:payload})); } catch(_) {}
+    btn.disabled = false;
+    btn.textContent = 'Verstuur \u2014 Gratis Rapport in 24u';
+    document.getElementById('error-fallback').style.display = 'block';
+    ga('form_error', { event_category: 'form', event_label: 'submit_failed' });
+  }
+});
 
-  // KPI tiles count up
-  kpiTiles.forEach((el, i) => {
-    setTimeout(() => {
-      const t = parseFloat(el.dataset.target);
-      animateNumber(el, t, 1200);
-    }, 300 + i * 120);
-  });
-
-  // Salary bars slide in
-  bars.forEach((bar, i) => {
-    setTimeout(() => bar.classList.add('animated'), 400 + i * 180);
-  });
-}
-
-// IntersectionObserver for preview + fallback timeout
-const previewEl = document.getElementById('previewContent');
-if (previewEl) {
-  const obs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) { runPreviewAnimation(); obs.disconnect(); }
-  }, { threshold: 0.15 });
-  obs.observe(previewEl);
-  // Fallback: if observer never fires, animate after 2.5s
-  setTimeout(runPreviewAnimation, 2500);
-}
+// Paywall
+document.querySelectorAll('.pw-btn-primary, .pw-btn-secondary').forEach(function(btn) {
+  btn.addEventListener('click', function() { ga('paywall_click', { event_category: 'monetization', event_label: this.textContent.trim() }); });
+});
+document.getElementById('paywall-close').addEventListener('click', function() { document.getElementById('paywall-modal').style.display = 'none'; });
+document.getElementById('paywall-modal').addEventListener('click', function(e) { if (e.target === this) this.style.display = 'none'; });
 </script>
 </body>
 </html>
