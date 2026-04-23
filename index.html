@@ -588,7 +588,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
         <p>Binnen 24 uur ontvang je het volledige rapport op<br><span class="success-email" id="success-email-addr"></span></p>
       </div>
       <div class="error-fallback" id="error-fallback">
-        <strong>Er ging iets mis.</strong> Je gegevens zijn lokaal opgeslagen. Stuur ze even via <a href="https://wa.me/31614314593?text=Hoi%20Wouter,%20mijn%20rapport-aanvraag%20ging%20mis." target="_blank">WhatsApp</a> of mail <a href="mailto:warts@recruitin.nl">warts@recruitin.nl</a>, dan maken we het alsnog.
+        <strong>Even geduld&hellip;</strong> Onze server wakkert op. Dit duurt normaal <strong>10&ndash;20 seconden</strong>. Als er na 30 seconden niets gebeurt: stuur je aanvraag via <a href="https://wa.me/31614314593?text=Hoi%20Wouter,%20mijn%20rapport-aanvraag%20ging%20mis." target="_blank">WhatsApp</a> of mail <a href="mailto:warts@recruitin.nl">warts@recruitin.nl</a> — dan fix ik het direct.
       </div>
     </div>
   </div>
@@ -716,10 +716,24 @@ document.getElementById('rapport-form').addEventListener('submit', async functio
     email: email
   };
   if (refCode) payload.ref = refCode;
-  try {
-    var res = await fetch('https://doelgroepenrapport-automation.onrender.com/webhook/doelgroepen', {
+
+  async function submitOnce() {
+    return fetch('https://doelgroepenrapport-automation.onrender.com/webhook/doelgroepen', {
       method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)
     });
+  }
+
+  try {
+    var res;
+    try {
+      res = await submitOnce();
+    } catch (netErr) {
+      // Render cold-start of netwerk-hiccup: 1x retry na 3 sec voordat we error tonen
+      ga('form_retry', { event_category: 'form', event_label: 'cold_start_retry' });
+      btn.textContent = 'Server wakkert op…';
+      await new Promise(function(r){ setTimeout(r, 3000); });
+      res = await submitOnce();
+    }
     var data = await res.json();
     if (res.ok) {
       document.getElementById('rapport-form').style.display = 'none';
