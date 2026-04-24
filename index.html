@@ -89,6 +89,28 @@ nav.scrolled{background:rgba(7,5,15,0.92);box-shadow:0 16px 40px rgba(0,0,0,0.5)
 .hero-btn:hover{transform:translateY(-3px);box-shadow:0 12px 44px rgba(255,0,204,0.55)}
 .hero-btn.sec{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2);box-shadow:none}
 .hero-btn.sec:hover{border-color:var(--magenta);color:var(--magenta);box-shadow:none}
+/* Hero email-capture (boven-fold mini form om bounce op te vangen) */
+.hero-capture{max-width:440px;margin:0 auto;text-align:center}
+.hero-form{display:flex;gap:6px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:6px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(255,0,204,0.15) inset}
+.hero-form input{flex:1;min-width:0;background:transparent;border:none;outline:none;color:#fff;font-size:15px;font-family:inherit;padding:12px 18px}
+.hero-form input::placeholder{color:rgba(255,255,255,0.42)}
+.hero-form button{flex-shrink:0;background:var(--magenta);color:#fff;border:none;padding:12px 26px;border-radius:100px;font-weight:700;font-size:14px;cursor:pointer;transition:all 0.25s;box-shadow:0 4px 20px var(--magenta-glow);font-family:inherit;white-space:nowrap}
+.hero-form button:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,0,204,0.55)}
+.hero-form button:disabled{opacity:0.6;cursor:wait;transform:none}
+.hero-capture-sub{margin:14px 0 0;font-size:12px;color:var(--muted);letter-spacing:0.2px}
+.hero-capture-link{display:inline-block;margin-top:16px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,0.22);padding-bottom:2px;transition:all 0.2s}
+.hero-capture-link:hover{color:var(--magenta);border-bottom-color:var(--magenta)}
+@media (max-width:520px){
+  .hero-form{flex-direction:column;border-radius:18px;padding:8px;gap:6px}
+  .hero-form input{padding:14px 18px;font-size:16px;text-align:center}
+  .hero-form button{padding:14px 24px;width:100%}
+}
+/* Sticky mobile CTA (vangt de 95% die bounced voor 25% scroll) */
+.sticky-cta{display:none}
+@media (max-width:768px){
+  .sticky-cta{display:inline-flex;align-items:center;gap:6px;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--magenta);color:#fff;padding:14px 28px;border-radius:100px;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 10px 32px var(--magenta-glow),0 2px 10px rgba(0,0,0,0.5);z-index:50;transition:opacity 0.3s,transform 0.3s;white-space:nowrap}
+  .sticky-cta.hidden{opacity:0;pointer-events:none;transform:translate(-50%,24px)}
+}
 
 /* ═══ STATS ROW (geactiveerd) ═══ */
 .stats-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:32px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg)}
@@ -336,9 +358,13 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   <div class="hero-inner">
     <h1>Weet exact wie jouw<br><span>kandidaat</span> is.</h1>
     <p>12 modules arbeidsmarktdata. Op maat voor jouw doelgroep. Binnen 24 uur. Eerste 2 rapporten gratis.</p>
-    <div class="hero-ctas">
-      <a href="#form-section" class="hero-btn" data-cta="hero-primary">Vraag gratis rapport aan &rarr;</a>
-      <a href="#preview" class="hero-btn sec" data-cta="hero-secondary">Bekijk voorbeeld</a>
+    <div class="hero-capture">
+      <form id="hero-form" class="hero-form" novalidate>
+        <input id="hero-email" type="email" name="email" placeholder="je@bedrijf.nl" required autocomplete="email" inputmode="email">
+        <button type="submit" data-cta="hero-primary">Start gratis &rarr;</button>
+      </form>
+      <p class="hero-capture-sub">2 rapporten gratis &middot; geen creditcard &middot; 24u levertijd</p>
+      <a href="#preview" class="hero-capture-link" data-cta="hero-secondary">Bekijk eerst een voorbeeld-rapport</a>
     </div>
   </div>
 </section>
@@ -639,6 +665,9 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   </div>
 </footer>
 
+<!-- STICKY MOBILE CTA (conversie-booster: vangt users die bouncen voor ze de form bereiken) -->
+<a href="#form-section" class="sticky-cta" id="sticky-cta" data-cta="sticky-mobile">Start gratis rapport &rarr;</a>
+
 <!-- PAYWALL MODAL -->
 <div class="paywall-overlay" id="paywall-modal">
   <div class="paywall-card">
@@ -707,6 +736,46 @@ if ('IntersectionObserver' in window) {
 
 // Time on page
 [30,60,120].forEach(function(s) { setTimeout(function() { ga('time_on_page', { event_category: 'engagement', event_label: s + 's', seconds: s }); }, s * 1000); });
+
+// Hero mini-form → pre-fill full form + smooth scroll (vangt boven-fold intent)
+(function(){
+  var heroForm = document.getElementById('hero-form');
+  if (!heroForm) return;
+  heroForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var input = document.getElementById('hero-email');
+    var email = (input.value || '').trim();
+    if (!email || email.indexOf('@') < 1 || email.indexOf('.', email.indexOf('@')) < 0) {
+      input.focus();
+      input.style.outline = '2px solid var(--magenta)';
+      setTimeout(function(){ input.style.outline = ''; }, 1200);
+      return;
+    }
+    ga('hero_capture', { event_category: 'form', event_label: 'hero_email', email_domain: email.split('@')[1] });
+    document.getElementById('f-email').value = email;
+    var sec = document.getElementById('form-section');
+    sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function(){
+      var next = document.getElementById('f-functie');
+      if (next) next.focus({ preventScroll: true });
+    }, 650);
+  });
+})();
+
+// Sticky mobile CTA: verberg wanneer form in viewport komt (geen dubbele CTA)
+(function(){
+  var sticky = document.getElementById('sticky-cta');
+  if (!sticky || !('IntersectionObserver' in window)) return;
+  var sec = document.getElementById('form-section');
+  if (!sec) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){ sticky.classList.toggle('hidden', entry.isIntersecting); });
+  }, { threshold: 0.15 });
+  obs.observe(sec);
+  sticky.addEventListener('click', function(){
+    ga('sticky_cta_click', { event_category: 'engagement', event_label: 'mobile_sticky' });
+  });
+})();
 
 // Form submit
 document.getElementById('rapport-form').addEventListener('submit', async function(e) {
