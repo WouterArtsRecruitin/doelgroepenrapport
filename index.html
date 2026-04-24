@@ -70,7 +70,7 @@ nav.scrolled{background:rgba(7,5,15,0.92);box-shadow:0 16px 40px rgba(0,0,0,0.5)
 .logo{font-size:15px;font-weight:800;color:#fff;display:flex;align-items:center;gap:10px}
 .logo-dot{width:8px;height:8px;background:var(--magenta);border-radius:50%;box-shadow:0 0 12px var(--magenta)}
 .logo span{color:var(--magenta)}
-.nav-btn{background:#fff;color:#000;padding:10px 22px;border-radius:100px;font-weight:700;font-size:13px;border:none;cursor:pointer;transition:all 0.2s}
+.nav-btn{background:#fff;color:#000;padding:12px 22px;border-radius:100px;font-weight:700;font-size:13px;border:none;cursor:pointer;transition:all 0.2s;min-height:44px;display:inline-flex;align-items:center}
 .nav-btn:hover{background:var(--magenta);color:#fff;box-shadow:0 0 24px var(--magenta-glow)}
 
 /* ═══ HERO ═══ */
@@ -92,7 +92,7 @@ nav.scrolled{background:rgba(7,5,15,0.92);box-shadow:0 16px 40px rgba(0,0,0,0.5)
 /* Hero email-capture (boven-fold mini form om bounce op te vangen) */
 .hero-capture{max-width:440px;margin:0 auto;text-align:center}
 .hero-form{display:flex;gap:6px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:6px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(255,0,204,0.15) inset}
-.hero-form input{flex:1;min-width:0;background:transparent;border:none;outline:none;color:#fff;font-size:15px;font-family:inherit;padding:12px 18px}
+.hero-form input{flex:1;min-width:0;background:transparent;border:none;outline:none;color:#fff;font-size:16px;font-family:inherit;padding:12px 18px}
 .hero-form input::placeholder{color:rgba(255,255,255,0.42)}
 .hero-form button{flex-shrink:0;background:var(--magenta);color:#fff;border:none;padding:12px 26px;border-radius:100px;font-weight:700;font-size:14px;cursor:pointer;transition:all 0.25s;box-shadow:0 4px 20px var(--magenta-glow);font-family:inherit;white-space:nowrap}
 .hero-form button:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,0,204,0.55)}
@@ -218,28 +218,6 @@ nav.scrolled{background:rgba(7,5,15,0.92);box-shadow:0 16px 40px rgba(0,0,0,0.5)
 .tm-role{font-size:0.78rem;color:var(--muted);margin-top:2px}
 .tm-tag{margin-left:auto;font-size:10px;font-weight:700;color:var(--magenta);background:var(--magenta-soft);padding:4px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:1px}
 
-/* ═══ PRICING (open) ═══ */
-#pricing{padding:72px 5%;background:var(--bg2);border-top:1px solid var(--border)}
-.pricing-wrap{max-width:1100px;margin:0 auto}
-.pricing-head{text-align:center;margin-bottom:40px}
-.pricing-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px}
-.pricing-head p{color:var(--muted);font-size:0.95rem;max-width:520px;margin:0 auto}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.pt{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 22px;display:flex;flex-direction:column;position:relative}
-.pt.featured{border-color:var(--magenta);box-shadow:0 0 40px rgba(255,0,204,0.12)}
-.pt-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--magenta);color:#fff;padding:4px 14px;border-radius:100px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
-.pt-name{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
-.pt-price{font-size:2rem;font-weight:800;color:#fff;line-height:1;margin-bottom:4px}
-.pt-price small{font-size:0.9rem;color:var(--muted);font-weight:400}
-.pt-period{font-size:12px;color:var(--muted);margin-bottom:22px}
-.pt-feats{list-style:none;flex:1;margin-bottom:22px}
-.pt-feats li{font-size:0.85rem;padding:6px 0;display:flex;gap:8px;align-items:flex-start;line-height:1.5;color:var(--text)}
-.pt-check{color:var(--green);font-size:11px;flex-shrink:0;margin-top:4px}
-.pt-btn{display:block;text-align:center;padding:12px;border-radius:100px;font-size:13px;font-weight:700;transition:all .2s;border:1px solid var(--border);color:#fff}
-.pt-btn:hover{border-color:var(--magenta);background:var(--magenta-soft)}
-.pt-btn.primary{background:var(--magenta);border-color:var(--magenta)}
-.pt-btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--magenta-glow);background:var(--magenta)}
-
 /* ═══ FORM ═══ */
 #form-section{padding:72px 5%;background:var(--bg);border-top:1px solid var(--border)}
 .form-wrap{max-width:600px;margin:0 auto}
@@ -253,14 +231,14 @@ nav.scrolled{background:rgba(7,5,15,0.92);box-shadow:0 16px 40px rgba(0,0,0,0.5)
 .fd{display:flex;flex-direction:column;gap:6px}
 .fd.full{grid-column:1/-1}
 .fd label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
-.fd input,.fd select{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:13px 14px;font-size:0.9rem;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;appearance:none;-webkit-appearance:none;transition:border-color 0.2s}
+.fd input,.fd select{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:13px 14px;font-size:16px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;appearance:none;-webkit-appearance:none;transition:border-color 0.2s}
 .fd input::placeholder{color:rgba(255,255,255,0.2)}
 .fd input:focus,.fd select:focus{border-color:rgba(255,85,0,0.5)}
 .fd select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8a9a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
 .fd select option{background:#1a1a2e;color:var(--text)}
 .nr{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:4px}
 .nr input[type="radio"]{display:none}
-.nr label{display:block;text-align:center;padding:10px 4px;border-radius:6px;cursor:pointer;font-size:0.78rem;font-weight:600;color:var(--muted);transition:all 0.15s}
+.nr label{display:flex;align-items:center;justify-content:center;text-align:center;padding:12px 4px;border-radius:6px;cursor:pointer;font-size:0.78rem;font-weight:600;color:var(--muted);transition:all 0.15s;min-height:44px}
 .nr input[type="radio"]:checked+label{background:var(--magenta);color:#fff}
 .submit-btn{width:100%;background:var(--magenta);color:#fff;border:none;border-radius:100px;padding:16px;font-size:0.95rem;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;margin-top:8px;transition:all 0.2s;box-shadow:0 8px 24px var(--magenta-glow)}
 .submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,0,204,0.55)}
@@ -295,7 +273,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 .f-brand p{font-size:13px;color:var(--muted);line-height:1.7;max-width:300px}
 .f-col h4{font-size:11px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
 .f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.f-col a{font-size:13px;color:var(--muted);transition:color .2s}
+.f-col a{font-size:13px;color:var(--muted);transition:color .2s;display:inline-block;padding:4px 0;min-height:24px}
 .f-col a:hover{color:var(--magenta)}
 .footer-bottom{max-width:1100px;margin:0 auto;padding:18px 5%;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}
 .fc span{color:var(--magenta)}
@@ -318,13 +296,12 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 /* ═══ MOBILE ═══ */
 @media(max-width:900px){
   .footer-top{grid-template-columns:1fr 1fr;gap:24px}
-  .pricing-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   nav{padding:0 14px;height:54px}
   #hero{padding:90px 16px 40px}
   #hero h1{font-size:2.8rem}
-  #features,#preview,#form-section,#proof,#pricing,#faq{padding:48px 16px}
+  #features,#preview,#form-section,#proof,#faq{padding:48px 16px}
   .cards{grid-template-columns:1fr}
   .b-content{grid-template-columns:1fr}
   .lr{grid-template-columns:1fr 1fr}
@@ -340,6 +317,21 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   .hero-orb{animation:none}
   html{scroll-behavior:auto}
 }
+
+/* ═══ MOBILE UX FIXES (apr 2026) ═══ */
+/* B4: form single-column on mobile (explicit 720px breakpoint) */
+@media (max-width:720px){
+  .fg { grid-template-columns: 1fr !important; }
+}
+/* B5: hero orbs — slower animation + lower opacity on mobile (battery + paint perf) */
+@media (max-width:720px){
+  .hero-orb, .hero-orb-1, .hero-orb-2, .hero-orb-3 {
+    animation-duration: 30s !important;
+    opacity: 0.4 !important;
+  }
+}
+/* B6: brand-colored tap-highlight (overrides ugly grey iOS/Android default) */
+* { -webkit-tap-highlight-color: rgba(255, 0, 204, 0.15); }
 </style>
 </head>
 <body>
@@ -541,52 +533,12 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="pricing-wrap">
-    <div class="pricing-head">
-      <h2>Start gratis. Upgrade als je meer wilt.</h2>
-      <p>Eerste 2 rapporten gratis. Daarna betaal je per rapport of kies je een abonnement. Geen contract.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pt">
-        <div class="pt-name">Gratis</div>
-        <div class="pt-price">&euro;0</div>
-        <div class="pt-period">Eerste 2 rapporten</div>
-        <ul class="pt-feats">
-          <li><span class="pt-check">&#10003;</span>2 volledige rapporten</li>
-          <li><span class="pt-check">&#10003;</span>12 modules per rapport</li>
-          <li><span class="pt-check">&#10003;</span>24 uur levertijd</li>
-          <li><span class="pt-check">&#10003;</span>Geen creditcard nodig</li>
-        </ul>
-        <a href="#form-section" class="pt-btn">Start nu</a>
-      </div>
-      <div class="pt">
-        <div class="pt-name">Enkel</div>
-        <div class="pt-price">&euro;49</div>
-        <div class="pt-period">Per rapport</div>
-        <ul class="pt-feats">
-          <li><span class="pt-check">&#10003;</span>1 volledig rapport</li>
-          <li><span class="pt-check">&#10003;</span>Alle 12 modules</li>
-          <li><span class="pt-check">&#10003;</span>Bron-URLs + confidence</li>
-          <li><span class="pt-check">&#10003;</span>Geen abonnement</li>
-        </ul>
-        <a href="https://buy.stripe.com/fZu28kgWl8TF0xf1Jd4Rq01" class="pt-btn">Koop rapport</a>
-      </div>
-      <div class="pt featured">
-        <span class="pt-badge">Populair</span>
-        <div class="pt-name">Maand</div>
-        <div class="pt-price">&euro;83<small>/mnd</small></div>
-        <div class="pt-period">5 rapporten / maand</div>
-        <ul class="pt-feats">
-          <li><span class="pt-check">&#10003;</span>5 rapporten per maand</li>
-          <li><span class="pt-check">&#10003;</span>Alle 12 modules</li>
-          <li><span class="pt-check">&#10003;</span>Prioriteits-queue (12u)</li>
-          <li><span class="pt-check">&#10003;</span>Maandelijks opzegbaar</li>
-        </ul>
-        <a href="https://buy.stripe.com/7sY14g6hH2vh2FncnR4Rq03" class="pt-btn primary">Start abonnement</a>
-      </div>
-    </div>
+<!-- RISK REVERSAL STRIP (replaced pricing section — pricing now in FAQ only) -->
+<section style="padding:56px 5% 40px;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg)">
+  <div style="max-width:720px;margin:0 auto">
+    <div style="font-size:12px;color:var(--magenta);font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px">Geen risico</div>
+    <h2 style="font-size:clamp(1.4rem,3.2vw,2rem);margin:0 0 14px;color:#fff;line-height:1.25">Niet bruikbaar? Mail me en ik stort &euro;49 terug.</h2>
+    <p style="font-size:1.05rem;color:var(--muted);margin:0;line-height:1.6">Eerste 2 rapporten zijn sowieso gratis &mdash; geen creditcard, geen contract, geen verkoopgesprek. Rapport gaat rechtstreeks naar je mailbox.</p>
   </div>
 </section>
 
@@ -642,7 +594,19 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
       <details class="faq-item"><summary>Waarom duurt het 24 uur?</summary><div class="faq-body">Rapport zelf is binnen 2 minuten klaar. We houden 24 uur aan voor handmatige review bij edge-cases. Meestal ontvang je het binnen 2&ndash;4 uur.</div></details>
       <details class="faq-item"><summary>Hoe zit het met privacy?</summary><div class="faq-body">Je gegevens worden opgeslagen om jou het rapport te sturen + 4 informatieve emails. Geen verkoop. Opzeggen via 1 klik. Zie <a href="https://recruitin.nl/privacy">privacy</a>.</div></details>
       <details class="faq-item"><summary>Krijg ik een verkooptelefoontje?</summary><div class="faq-body">Nee. Geen cold calls. Je krijgt het rapport + 4 inzicht-mails. Wil je meer? Dan neem jij contact op.</div></details>
-      <details class="faq-item"><summary>Wat kost het na 2 gratis rapporten?</summary><div class="faq-body">&euro;49 per los rapport (pay-as-you-go) of &euro;83/mnd voor 5 rapporten (abonnement, maandelijks opzegbaar). Geen verplichtingen, geen setup-kosten. Je betaalt pas als je een 3e rapport aanvraagt.</div></details>
+      <details class="faq-item">
+        <summary>Wat kost het na 2 gratis rapporten?</summary>
+        <div class="faq-body">
+          <p>De eerste 2 rapporten zijn 100% gratis. Daarna zijn er 4 opties:</p>
+          <ul style="margin:10px 0 10px 20px;padding:0">
+            <li><strong>&euro;49/rapport</strong> &mdash; enkel rapport (geen abonnement)</li>
+            <li><strong>&euro;99/maand</strong> &mdash; 5 rapporten/maand</li>
+            <li><strong>&euro;249/kwartaal</strong> &mdash; 8 rapporten/kwartaal (&euro;83/mnd)</li>
+            <li><strong>&euro;799/jaar</strong> &mdash; 10 rapporten/jaar (&euro;67/mnd)</li>
+          </ul>
+          <p>Nooit meer betalen dan gebruikt. Opzeggen per maand, geen haakjes.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -654,7 +618,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
       <div class="logo"><span class="logo-dot"></span>doelgroepen<span>rapport.</span>nl</div>
       <p>Arbeidsmarkt intelligence voor recruiters. Live data, 12 modules, binnen 24 uur.</p>
     </div>
-    <div class="f-col"><h4>Product</h4><ul><li><a href="#features">Modules</a></li><li><a href="#preview">Voorbeeld</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div class="f-col"><h4>Product</h4><ul><li><a href="#features">Modules</a></li><li><a href="#preview">Voorbeeld</a></li><li><a href="#faq">FAQ</a></li></ul></div>
     <div class="f-col"><h4>Legal</h4><ul><li><a href="https://recruitin.nl/privacy">Privacy</a></li><li><a href="https://recruitin.nl/voorwaarden">Voorwaarden</a></li><li><a href="https://recruitin.nl/verwerkersovereenkomst">Verwerkersovereenkomst</a></li></ul></div>
     <div class="f-col"><h4>Contact</h4><ul><li><a href="mailto:warts@recruitin.nl">warts@recruitin.nl</a></li><li><a href="https://wa.me/31614314593">WhatsApp</a></li><li><a href="https://recruitin.nl">recruitin.nl</a></li></ul></div>
   </div>
