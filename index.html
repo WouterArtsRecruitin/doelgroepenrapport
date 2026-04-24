@@ -5,13 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Doelgroepenrapport.nl | Gratis Arbeidsmarkt Intelligence</title>
 <meta name="description" content="12 modules arbeidsmarktdata. Op maat. Binnen 24 uur. Eerste 2 rapporten gratis.">
+<!-- Open Graph / Twitter -->
+<meta property="og:title" content="Doelgroepenrapport &mdash; Arbeidsmarktanalyse in 24u">
+<meta property="og:description" content="12 modules arbeidsmarktdata voor jouw doelgroep. Eerste 2 rapporten gratis.">
+<meta property="og:url" content="https://doelgroepenrapport.nl/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://doelgroepenrapport.nl/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Cookiebot consent manager (Recruitin Domain Group) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="255025f6-3932-479b-a9d7-6a4fac614cb8" data-blockingmode="auto" type="text/javascript"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTEQHRNH6E"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TTEQHRNH6E');</script>
-<!-- Meta Pixel (single init, dedup fix) -->
-<script>
+<!-- GA4 (DGR stream G-7BT66CT9YR, property 403852433) — gated on statistics consent -->
+<script async type="text/plain" data-cookieconsent="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-7BT66CT9YR"></script>
+<script type="text/plain" data-cookieconsent="statistics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7BT66CT9YR');</script>
+<!-- Meta Pixel (single init, dedup fix) — gated on marketing consent -->
+<script type="text/plain" data-cookieconsent="marketing">
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
 n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
@@ -21,8 +30,8 @@ fbq('init', '660118697194302');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=660118697194302&ev=PageView&noscript=1"/></noscript>
-<!-- LinkedIn Insight Tag -->
-<script>
+<!-- LinkedIn Insight Tag — gated on marketing consent -->
+<script type="text/plain" data-cookieconsent="marketing">
 _linkedin_partner_id="508490978";
 window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
 window._linkedin_data_partner_ids.push(_linkedin_partner_id);
@@ -577,14 +586,14 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
           <div class="fd"><label for="f-sector">Sector</label><select id="f-sector" name="sector" required><option value="">Kies sector</option><option value="installatietechniek">Installatietechniek</option><option value="high-tech-automatisering">High Tech / Automatisering</option><option value="bouw-gww-infra">Bouw / GWW / Infra</option><option value="productie-maakindustrie">Productie / Maakindustrie</option><option value="offshore-oil-gas">Offshore / Oil &amp; Gas</option><option value="duurzame-energie">Duurzame Energie</option></select></div>
           <div class="fd"><label for="f-regio">Regio</label><select id="f-regio" name="regio" required><option value="" disabled selected>Kies regio</option><option value="heel-nederland">Heel Nederland</option><option value="groningen">Groningen</option><option value="friesland">Friesland</option><option value="drenthe">Drenthe</option><option value="overijssel">Overijssel</option><option value="flevoland">Flevoland</option><option value="gelderland">Gelderland</option><option value="utrecht">Utrecht</option><option value="noord-holland">Noord-Holland</option><option value="zuid-holland">Zuid-Holland</option><option value="zeeland">Zeeland</option><option value="noord-brabant">Noord-Brabant</option><option value="limburg">Limburg</option></select></div>
           <div class="fd"><label>Ervaringsniveau</label><div class="nr"><input type="radio" name="niveau" id="n-junior" value="junior"><label for="n-junior">Junior</label><input type="radio" name="niveau" id="n-medior" value="medior" checked><label for="n-medior">Medior</label><input type="radio" name="niveau" id="n-senior" value="senior"><label for="n-senior">Senior</label><input type="radio" name="niveau" id="n-mix" value="mix"><label for="n-mix">Mix</label></div></div>
-          <div class="fd"><label for="f-company">Bedrijfsnaam <span style="opacity:.6;font-weight:400">(optioneel)</span></label><input id="f-company" name="company_name" type="text" placeholder="Jouw bedrijf"></div>
+          <div class="fd"><label for="f-company">Bedrijfsnaam <span style="opacity:.6;font-weight:400">(optioneel)</span></label><input id="f-company" name="bedrijfsnaam" type="text" placeholder="Jouw bedrijf"></div>
           <div class="fd"><label for="f-email">E-mailadres</label><input id="f-email" name="email" type="email" placeholder="naam@bedrijf.nl" required></div>
           <div class="fd full" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden" aria-hidden="true"><label for="f-website">Website (laat leeg)</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="fd full"><button class="submit-btn" id="submit-btn" type="submit">Verstuur &mdash; Gratis Rapport in 24u</button></div>
         </div>
       </form>
       <p class="form-note">Geen spam. Geen verkoopgesprek. Puur data.</p>
-      <div class="success-state" id="form-success">
+      <div class="success-state" id="form-success" role="status" aria-live="polite">
         <h3>Aanvraag ontvangen.</h3>
         <p>Binnen 24 uur ontvang je het volledige rapport op<br><span class="success-email" id="success-email-addr"></span></p>
       </div>
@@ -705,7 +714,8 @@ document.getElementById('rapport-form').addEventListener('submit', async functio
   var btn = document.getElementById('submit-btn');
   var email = document.getElementById('f-email').value;
   var niveau = document.querySelector('input[name="niveau"]:checked');
-  var refCode = new URLSearchParams(window.location.search).get('ref');
+  var params = new URLSearchParams(window.location.search);
+  var refCode = params.get('ref') || '';
   btn.disabled = true;
   btn.textContent = 'Versturen...';
   var payload = {
@@ -713,16 +723,32 @@ document.getElementById('rapport-form').addEventListener('submit', async functio
     sector: document.getElementById('f-sector').value,
     regio: document.getElementById('f-regio').value,
     niveau: niveau ? niveau.value : 'medior',
-    company_name: document.getElementById('f-company').value,
+    bedrijfsnaam: document.getElementById('f-company').value,
     email: email,
-    website: document.getElementById('f-website') ? document.getElementById('f-website').value : ''
+    website: document.getElementById('f-website') ? document.getElementById('f-website').value : '',
+    utm_source: params.get('utm_source') || '',
+    utm_medium: params.get('utm_medium') || '',
+    utm_campaign: params.get('utm_campaign') || '',
+    utm_content: params.get('utm_content') || '',
+    utm_term: params.get('utm_term') || ''
   };
   if (refCode) payload.ref = refCode;
 
-  async function submitOnce() {
-    return fetch('https://doelgroepenrapport-automation.onrender.com/webhook/doelgroepen', {
-      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)
-    });
+  // Show error-fallback UI after 6s regardless of promise state (WhatsApp escape hatch)
+  var fallbackTimer = setTimeout(function(){
+    var fb = document.getElementById('error-fallback');
+    if (fb) fb.style.display = 'block';
+  }, 6000);
+
+  async function submitOnce(ms) {
+    ms = ms || 8000;
+    var ctrl = new AbortController();
+    var t = setTimeout(function(){ ctrl.abort(); }, ms);
+    try {
+      return await fetch('https://doelgroepenrapport-automation.onrender.com/webhook/doelgroepen', {
+        method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload), signal: ctrl.signal
+      });
+    } finally { clearTimeout(t); }
   }
 
   try {
@@ -734,17 +760,21 @@ document.getElementById('rapport-form').addEventListener('submit', async functio
       ga('form_retry', { event_category: 'form', event_label: 'cold_start_retry' });
       btn.textContent = 'Server wakkert op…';
       await new Promise(function(r){ setTimeout(r, 3000); });
-      res = await submitOnce();
+      res = await submitOnce(12000);
     }
     var data = await res.json();
     if (res.ok) {
+      clearTimeout(fallbackTimer);
       document.getElementById('rapport-form').style.display = 'none';
       document.querySelector('.form-note').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
+      var successEl = document.getElementById('form-success');
+      successEl.style.display = 'block';
       document.getElementById('success-email-addr').textContent = email;
+      try { successEl.scrollIntoView({behavior:'smooth'}); } catch(_) {}
       ga('generate_lead', { event_category: 'doelgroepenrapport', event_label: payload.sector, value: 49.00, currency: 'EUR', sector: payload.sector, functie: payload.functie, regio: payload.regio, niveau: payload.niveau });
       if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Doelgroepenrapport', content_category: payload.sector, value: 49.00, currency: 'EUR' });
     } else if (res.status === 402 && data.limit_reached) {
+      clearTimeout(fallbackTimer);
       document.getElementById('paywall-modal').style.display = 'flex';
       ga('paywall_shown', { event_category: 'monetization', event_label: 'limit_reached' });
       btn.disabled = false;
