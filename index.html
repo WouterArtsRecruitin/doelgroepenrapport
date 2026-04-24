@@ -356,8 +356,8 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-orb hero-orb-3"></div>
   <div class="hero-inner">
-    <h1>Weet exact wie jouw<br><span>kandidaat</span> is.</h1>
-    <p>12 modules arbeidsmarktdata. Op maat voor jouw doelgroep. Binnen 24 uur. Eerste 2 rapporten gratis.</p>
+    <h1 id="hero-h1">Weet exact wie jouw<br><span>kandidaat</span> is.</h1>
+    <p id="hero-sub">12 modules arbeidsmarktdata. Op maat voor jouw doelgroep. Binnen 24 uur. Eerste 2 rapporten gratis.</p>
     <div class="hero-capture">
       <form id="hero-form" class="hero-form" novalidate>
         <input id="hero-email" type="email" name="email" placeholder="je@bedrijf.nl" required autocomplete="email" inputmode="email">
@@ -685,6 +685,27 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 <script>
 // Nav scroll
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>60)},{passive:true});
+
+// Hero A/B variant switcher (Meta utm_content)
+(function(){
+  var raw=(new URLSearchParams(location.search).get('utm_content')||'').toLowerCase();
+  var V={
+    variant_e:['4.200 monteurs zoeken in jouw regio.','Concrete aantallen per functie, regio en ervaring. 12 modules data. In 24 uur per mail. Eerste 2 rapporten gratis.'],
+    variant_f:['Stop met gokken op salaris, kanaal en doelgroep.','12 modules arbeidsmarktdata. 33 bronnen. Geen gokwerk meer. Eerste 2 rapporten gratis.'],
+    variant_b:['Weet exact wie jouw kandidaat is.','12 modules arbeidsmarktdata. Op maat voor jouw doelgroep. Binnen 24 uur. Eerste 2 rapporten gratis.']
+  };
+  var match=null;
+  if(raw.indexOf('variant_e')>-1||raw.indexOf('data_hook')>-1)match='variant_e';
+  else if(raw.indexOf('variant_f')>-1||raw.indexOf('pain_point')>-1)match='variant_f';
+  else if(raw.indexOf('variant_b')>-1||raw.indexOf('generic')>-1)match='variant_b';
+  if(match){
+    var h=document.getElementById('hero-h1'), s=document.getElementById('hero-sub');
+    if(h)h.textContent=V[match][0];
+    if(s)s.textContent=V[match][1];
+    document.body.dataset.heroVariant=match;
+  }
+  if(window.gtag)gtag('event','hero_variant_shown',{variant:match||'default',utm_content:raw||''});
+})();
 
 // GA4
 function ga(event, params) { if (typeof gtag !== 'undefined') gtag('event', event, params); }
