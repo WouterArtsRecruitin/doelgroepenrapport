@@ -162,7 +162,7 @@ nav.scrolled{background:rgba(7,5,15,0.92);box-shadow:0 16px 40px rgba(0,0,0,0.5)
 .cb.hi{background:#E8630A}
 .cl2{display:flex;gap:5px;margin-top:6px}
 .cl{flex:1;font-size:8px;text-align:center;color:#6B7280}
-.lr{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;filter:blur(2px);opacity:0.35;pointer-events:none}
+.lr{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;filter:blur(3px);opacity:0.5;pointer-events:none}
 .lc{background:#fff;border:1px solid #E8EAED;border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px}
 .ln{font-size:9px;font-weight:700;color:#E8630A}
 .lt{font-size:0.75rem;font-weight:600;color:#2D2D2D}
@@ -347,7 +347,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 <!-- NAV -->
 <nav id="nav">
   <div class="logo"><span class="logo-dot"></span>doelgroepen<span>rapport.</span>nl</div>
-  <a href="#form-section" class="nav-btn">Vraag gratis aan</a>
+  <a href="#form-section" class="nav-btn">Start gratis &rarr;</a>
 </nav>
 
 <!-- HERO -->
@@ -356,25 +356,33 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-orb hero-orb-3"></div>
   <div class="hero-inner">
-    <h1 id="hero-h1">Weet exact wie jouw<br><span>kandidaat</span> is.</h1>
-    <p id="hero-sub">12 modules arbeidsmarktdata. Op maat voor jouw doelgroep. Binnen 24 uur. Eerste 2 rapporten gratis.</p>
+    <h1 id="hero-h1">4.200 monteurs zoeken<br>in <span>jouw regio</span>. Nu.</h1>
+    <p id="hero-sub">Krijg concrete aantallen per functie, salaris en kanaal. 12 modules data in je mailbox binnen 24u.</p>
     <div class="hero-capture">
       <form id="hero-form" class="hero-form" novalidate>
         <input id="hero-email" type="email" name="email" placeholder="je@bedrijf.nl" required autocomplete="email" inputmode="email">
         <button type="submit" data-cta="hero-primary">Start gratis &rarr;</button>
       </form>
       <p class="hero-capture-sub">2 rapporten gratis &middot; geen creditcard &middot; 24u levertijd</p>
-      <a href="#preview" class="hero-capture-link" data-cta="hero-secondary">Bekijk eerst een voorbeeld-rapport</a>
+      <a href="#preview" class="hero-capture-link" data-cta="hero-secondary">Of bekijk eerst een voorbeeld &darr;</a>
     </div>
   </div>
 </section>
 
+<!-- SOURCE-LOGOS STRIP -->
+<div style="padding:20px 5%;background:var(--bg);border-top:1px solid var(--border);text-align:center">
+  <div style="font-size:10px;color:var(--muted);font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px">Data uit 33 bronnen, waaronder</div>
+  <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;opacity:0.7;font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:0.5px">
+    <span>Indeed</span><span>LinkedIn</span><span>CBS</span><span>UWV</span><span>Stepstone</span><span>Monsterboard</span><span>BraveSearch</span><span style="color:var(--magenta)">+26 meer</span>
+  </div>
+</div>
+
 <!-- STATS ROW (geactiveerd) -->
 <div class="stats-row">
-  <div class="stat"><span class="stat-v">12</span><span class="stat-l">Modules per rapport</span></div>
-  <div class="stat"><span class="stat-v">89<span>+</span></span><span class="stat-l">Live datapunten</span></div>
-  <div class="stat"><span class="stat-v">24<span>u</span></span><span class="stat-l">Levertijd</span></div>
-  <div class="stat"><span class="stat-v">2<span>&times;</span></span><span class="stat-l">Gratis, dan &euro;49</span></div>
+  <div class="stat"><span class="stat-v">4.200<span>+</span></span><span class="stat-l">Kandidaten in 1 voorbeeld</span></div>
+  <div class="stat"><span class="stat-v">33</span><span class="stat-l">Live bronnen per rapport</span></div>
+  <div class="stat"><span class="stat-v">24<span>u</span></span><span class="stat-l">Levertijd &mdash; meestal 2-4u</span></div>
+  <div class="stat"><span class="stat-v">&euro;0</span><span class="stat-l">Eerste 2 rapporten</span></div>
 </div>
 
 <!-- PREVIEW (geactiveerd) -->
@@ -451,7 +459,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
           <div class="lc"><span class="ln">06</span><span class="lt">Motivatie</span></div>
         </div>
       </div>
-      <div class="b-footer">+ 9 modules in volledig rapport &middot; 89 live datapunten &middot; 33 bronnen</div>
+      <div class="b-footer">Hierboven: 3 van 12 modules &middot; volledig rapport bevat alle 12 &middot; 89 datapunten &middot; 33 bronnen</div>
     </div>
   </div>
 </section>
@@ -513,33 +521,21 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 <section id="proof">
   <div class="proof-wrap">
     <div class="proof-head">
-      <h2>Waarom recruiters overstappen</h2>
+      <h2>Waarom dit geen bureau-rapport is</h2>
       <p>Van 3 weken onderzoek naar 24 uur. Van gokken naar gefundeerde beslissingen.</p>
     </div>
     <div class="testimonials">
       <div class="tm">
-        <p class="tm-quote">Ik wist niet dat er 4.200 monteurs actief zoeken in Gelderland. Dat verandert onze wervingsstrategie direct.</p>
-        <div class="tm-foot">
-          <div class="tm-avatar">JB</div>
-          <div><div class="tm-name">Jeroen B.</div><div class="tm-role">Head of Recruitment</div></div>
-          <div class="tm-tag">Installatie</div>
-        </div>
+        <p class="tm-quote">33 bronnen gescand per rapport &mdash; Apify Indeed, BraveSearch, CBS, UWV, Stepstone, Monsterboard, LinkedIn Talent Insights + 26 meer.</p>
+        <div class="tm-foot"><div class="tm-tag" style="margin-left:0">BRONNEN</div></div>
       </div>
       <div class="tm">
-        <p class="tm-quote">De salaris-benchmark alleen al is goud waard. We zaten 8% onder markt zonder het te weten.</p>
-        <div class="tm-foot">
-          <div class="tm-avatar">ML</div>
-          <div><div class="tm-name">Maaike L.</div><div class="tm-role">HR Manager</div></div>
-          <div class="tm-tag">Productie</div>
-        </div>
+        <p class="tm-quote">89 live datapunten per rapport. Elke module toont confidence-level en bron-URL. Geen schijnzekerheid.</p>
+        <div class="tm-foot"><div class="tm-tag" style="margin-left:0">TRANSPARANTIE</div></div>
       </div>
       <div class="tm">
-        <p class="tm-quote">Cleaner dan elk rapport dat ik van een bureau heb gekregen. En 2 weken sneller.</p>
-        <div class="tm-foot">
-          <div class="tm-avatar">RK</div>
-          <div><div class="tm-name">Rob K.</div><div class="tm-role">Managing Director</div></div>
-          <div class="tm-tag">Bouw</div>
-        </div>
+        <p class="tm-quote">Binnen 24u in je mailbox &mdash; meestal binnen 2&ndash;4u. Geen bureau, geen gesprek, geen upsell-funnel.</p>
+        <div class="tm-foot"><div class="tm-tag" style="margin-left:0">LEVERTIJD</div></div>
       </div>
     </div>
   </div>
@@ -602,8 +598,8 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
       <p>Rapport binnen 24 uur in je inbox.</p>
     </div>
     <div class="form-transparency">
-      <span class="form-transparency-icon">&#9432;</span>
-      <div>Eerste <strong>2 rapporten 100% gratis</strong>. Geen creditcard nodig.</div>
+      <span class="form-transparency-icon">&#9889;</span>
+      <div><strong>Deze week: 2 rapporten gratis per nieuwe aanvrager</strong> &mdash; geen creditcard, geen verkoopgesprek. Rapport in je mailbox binnen 24u.</div>
     </div>
     <div class="form-card">
       <form id="rapport-form">
@@ -612,10 +608,13 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
           <div class="fd"><label for="f-sector">Sector</label><select id="f-sector" name="sector" required><option value="">Kies sector</option><option value="installatietechniek">Installatietechniek</option><option value="high-tech-automatisering">High Tech / Automatisering</option><option value="bouw-gww-infra">Bouw / GWW / Infra</option><option value="productie-maakindustrie">Productie / Maakindustrie</option><option value="offshore-oil-gas">Offshore / Oil &amp; Gas</option><option value="duurzame-energie">Duurzame Energie</option></select></div>
           <div class="fd"><label for="f-regio">Regio</label><select id="f-regio" name="regio" required><option value="" disabled selected>Kies regio</option><option value="heel-nederland">Heel Nederland</option><option value="groningen">Groningen</option><option value="friesland">Friesland</option><option value="drenthe">Drenthe</option><option value="overijssel">Overijssel</option><option value="flevoland">Flevoland</option><option value="gelderland">Gelderland</option><option value="utrecht">Utrecht</option><option value="noord-holland">Noord-Holland</option><option value="zuid-holland">Zuid-Holland</option><option value="zeeland">Zeeland</option><option value="noord-brabant">Noord-Brabant</option><option value="limburg">Limburg</option></select></div>
           <div class="fd"><label>Ervaringsniveau</label><div class="nr"><input type="radio" name="niveau" id="n-junior" value="junior"><label for="n-junior">Junior</label><input type="radio" name="niveau" id="n-medior" value="medior" checked><label for="n-medior">Medior</label><input type="radio" name="niveau" id="n-senior" value="senior"><label for="n-senior">Senior</label><input type="radio" name="niveau" id="n-mix" value="mix"><label for="n-mix">Mix</label></div></div>
-          <div class="fd"><label for="f-company">Bedrijfsnaam <span style="opacity:.6;font-weight:400">(optioneel)</span></label><input id="f-company" name="bedrijfsnaam" type="text" placeholder="Jouw bedrijf"></div>
-          <div class="fd"><label for="f-email">E-mailadres</label><input id="f-email" name="email" type="email" placeholder="naam@bedrijf.nl" required></div>
+          <details class="form-row-optional" style="grid-column:1/-1">
+            <summary style="font-size:13px;color:var(--muted);cursor:pointer;padding:8px 0">+ Bedrijfsnaam toevoegen (optioneel)</summary>
+            <div class="fd" style="margin-top:8px"><label for="f-company">Bedrijfsnaam <span style="opacity:.6;font-weight:400">(optioneel)</span></label><input id="f-company" name="bedrijfsnaam" type="text" placeholder="Jouw bedrijf"></div>
+          </details>
+          <div class="fd full"><label for="f-email">E-mailadres</label><input id="f-email" name="email" type="email" placeholder="naam@bedrijf.nl" required></div>
           <div class="fd full" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden" aria-hidden="true"><label for="f-website">Website (laat leeg)</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-          <div class="fd full"><button class="submit-btn" id="submit-btn" type="submit">Verstuur &mdash; Gratis Rapport in 24u</button></div>
+          <div class="fd full"><button class="submit-btn" id="submit-btn" type="submit">Stuur mijn rapport &rarr;</button></div>
         </div>
       </form>
       <p class="form-note">Geen spam. Geen verkoopgesprek. Puur data.</p>
@@ -666,7 +665,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 </footer>
 
 <!-- STICKY MOBILE CTA (conversie-booster: vangt users die bouncen voor ze de form bereiken) -->
-<a href="#form-section" class="sticky-cta" id="sticky-cta" data-cta="sticky-mobile">Start gratis rapport &rarr;</a>
+<a href="#form-section" class="sticky-cta" id="sticky-cta" data-cta="sticky-mobile">Start mijn rapport &rarr;</a>
 
 <!-- PAYWALL MODAL -->
 <div class="paywall-overlay" id="paywall-modal">
@@ -692,7 +691,7 @@ window.addEventListener('scroll',()=>{document.getElementById('nav').classList.t
   var V={
     variant_e:['4.200 monteurs zoeken in jouw regio.','Concrete aantallen per functie, regio en ervaring. 12 modules data. In 24 uur per mail. Eerste 2 rapporten gratis.'],
     variant_f:['Stop met gokken op salaris, kanaal en doelgroep.','12 modules arbeidsmarktdata. 33 bronnen. Geen gokwerk meer. Eerste 2 rapporten gratis.'],
-    variant_b:['Weet exact wie jouw kandidaat is.','12 modules arbeidsmarktdata. Op maat voor jouw doelgroep. Binnen 24 uur. Eerste 2 rapporten gratis.']
+    variant_b:['4.200 monteurs zoeken in jouw regio. Nu.','Krijg concrete aantallen per functie, salaris en kanaal. 12 modules data in je mailbox binnen 24u.']
   };
   var match=null;
   if(raw.indexOf('variant_e')>-1||raw.indexOf('data_hook')>-1)match='variant_e';
@@ -764,6 +763,7 @@ if ('IntersectionObserver' in window) {
   if (!heroForm) return;
   heroForm.addEventListener('submit', function(e){
     e.preventDefault();
+    if (typeof gtag !== 'undefined') gtag('event', 'form_start', {event_category:'form', event_label:'hero_bridge'});
     var input = document.getElementById('hero-email');
     var email = (input.value || '').trim();
     if (!email || email.indexOf('@') < 1 || email.indexOf('.', email.indexOf('@')) < 0) {
@@ -868,7 +868,7 @@ document.getElementById('rapport-form').addEventListener('submit', async functio
       document.getElementById('paywall-modal').style.display = 'flex';
       ga('paywall_shown', { event_category: 'monetization', event_label: 'limit_reached' });
       btn.disabled = false;
-      btn.textContent = 'Verstuur \u2014 Gratis Rapport in 24u';
+      btn.textContent = 'Stuur mijn rapport \u2192';
     } else { throw new Error('submit_failed'); }
   } catch (err) {
     try { localStorage.setItem('dgr-failed-submit', JSON.stringify({ts:Date.now(), payload:payload})); } catch(_) {}
