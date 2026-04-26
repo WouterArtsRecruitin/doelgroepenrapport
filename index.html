@@ -541,7 +541,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   </div>
   <script>
     (function() {
-      fetch('/api/rating-stats')
+      fetch('https://doelgroepenrapport-automation.onrender.com/api/rating-stats')
         .then(r => r.json())
         .then(data => {
           if (data.error) return;
@@ -552,7 +552,8 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
           document.getElementById('rating-stars').textContent = stars;
           document.getElementById('rating-text').textContent = avg > 0 ? avg.toFixed(1) + '/5 sterren' : 'Nog geen reviews';
           document.getElementById('rating-count').textContent = total > 0 ? `van ${total} beoordelingen` : 'Eerste reviews volgen';
-        });
+        })
+        .catch(err => console.warn('Rating widget fetch failed:', err));
     })();
   </script>
 </section>
