@@ -532,6 +532,29 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
       </div>
     </div>
   </div>
+  <!-- Rating widget — real-time user feedback -->
+  <div id="rating-widget" style="max-width:500px;margin:56px auto 0;padding:32px;background:rgba(255,0,204,0.08);border:1px solid rgba(255,0,204,0.15);border-radius:12px;text-align:center">
+    <div style="font-size:24px;margin-bottom:12px" id="rating-stars">★★★★☆</div>
+    <div style="font-size:16px;font-weight:600;color:#fff;margin-bottom:4px" id="rating-text">Laden...</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:8px" id="rating-count">Bezig met laden...</div>
+    <p style="font-size:11px;color:var(--muted);margin:0">Gebaseerd op directe feedback van gebruikers na rapport ontvangst</p>
+  </div>
+  <script>
+    (function() {
+      fetch('/api/rating-stats')
+        .then(r => r.json())
+        .then(data => {
+          if (data.error) return;
+          const avg = data.average || 0;
+          const total = data.total || 0;
+          const fullStars = Math.round(avg);
+          const stars = '★'.repeat(Math.min(fullStars, 5)) + '☆'.repeat(Math.max(0, 5 - fullStars));
+          document.getElementById('rating-stars').textContent = stars;
+          document.getElementById('rating-text').textContent = avg > 0 ? avg.toFixed(1) + '/5 sterren' : 'Nog geen reviews';
+          document.getElementById('rating-count').textContent = total > 0 ? `van ${total} beoordelingen` : 'Eerste reviews volgen';
+        });
+    })();
+  </script>
 </section>
 
 <!-- RISK REVERSAL STRIP (replaced pricing section — pricing now in FAQ only) -->
