@@ -12,34 +12,23 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://doelgroepenrapport.nl/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- Cookiebot consent manager (Recruitin Domain Group) -->
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="255025f6-3932-479b-a9d7-6a4fac614cb8" data-blockingmode="auto" type="text/javascript"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- GA4 (DGR stream G-7BT66CT9YR, property 403852433) — gated on statistics consent -->
-<script async type="text/plain" data-cookieconsent="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-7BT66CT9YR"></script>
-<script type="text/plain" data-cookieconsent="statistics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7BT66CT9YR');</script>
-<!-- Meta Pixel (single init, dedup fix) — gated on marketing consent -->
-<script type="text/plain" data-cookieconsent="marketing">
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '660118697194302');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=660118697194302&ev=PageView&noscript=1"/></noscript>
-<!-- LinkedIn Insight Tag — gated on marketing consent -->
-<script type="text/plain" data-cookieconsent="marketing">
-_linkedin_partner_id="508490978";
-window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
-window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};
-window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];
-var b=document.createElement("script");b.type="text/javascript";b.async=true;
-b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
-s.parentNode.insertBefore(b,s);})(window.lintrk);
+<!-- Consent Mode v2 defaults (deny tot banner accept). GA4/Meta/LinkedIn worden dynamisch geladen door in-house banner -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{
+    ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied',
+    analytics_storage:'denied',
+    functionality_storage:'granted', security_storage:'granted',
+    wait_for_update:500
+  });
+  try {
+    var c = JSON.parse(localStorage.getItem('dgr_consent_v1') || 'null');
+    if (c && c.statistics) gtag('consent','update',{analytics_storage:'granted'});
+    if (c && c.marketing)  gtag('consent','update',{ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted'});
+  } catch(_){}
 </script>
 <style>
 :root{
@@ -317,7 +306,6 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   .hero-orb{animation:none}
   html{scroll-behavior:auto}
 }
-
 /* ═══ MOBILE UX FIXES (apr 2026) ═══ */
 /* B4: form single-column on mobile (explicit 720px breakpoint) */
 @media (max-width:720px){
@@ -332,6 +320,19 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 }
 /* B6: brand-colored tap-highlight (overrides ugly grey iOS/Android default) */
 * { -webkit-tap-highlight-color: rgba(255, 0, 204, 0.15); }
+
+/* In-house consent banner (vervangt Cookiebot) */
+#dgr-cb{position:fixed;left:16px;right:16px;bottom:16px;z-index:10000;max-width:760px;margin:0 auto;background:rgba(11,8,25,0.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.14);border-radius:16px;padding:20px 22px;color:#f2eeff;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 14px 60px rgba(0,0,0,0.55),0 0 0 1px rgba(255,0,204,0.12);display:none}
+#dgr-cb.show{display:block}
+#dgr-cb h5{font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;margin-bottom:6px;letter-spacing:-0.01em;color:#fff}
+#dgr-cb p{font-size:13px;line-height:1.55;color:rgba(242,238,255,0.72);margin-bottom:14px}
+#dgr-cb p a{color:var(--magenta);text-decoration:underline;text-underline-offset:2px}
+.dgr-cb-btns{display:flex;gap:8px;flex-wrap:wrap}
+.dgr-cb-btn{flex:1 1 auto;min-height:44px;padding:10px 16px;border-radius:100px;font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.3px;cursor:pointer;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.05);color:#f2eeff;transition:all 0.2s ease}
+.dgr-cb-btn:hover{background:rgba(255,255,255,0.10)}
+.dgr-cb-btn.primary{background:var(--magenta);border-color:transparent;color:#fff}
+.dgr-cb-btn.primary:hover{transform:scale(1.03);box-shadow:0 4px 22px var(--magenta-glow)}
+@media(max-width:600px){#dgr-cb{left:8px;right:8px;bottom:8px;padding:16px} .dgr-cb-btn{flex:1 1 100%}}
 </style>
 </head>
 <body>
@@ -849,6 +850,98 @@ document.querySelectorAll('.pw-btn-primary, .pw-btn-secondary').forEach(function
 });
 document.getElementById('paywall-close').addEventListener('click', function() { document.getElementById('paywall-modal').style.display = 'none'; });
 document.getElementById('paywall-modal').addEventListener('click', function(e) { if (e.target === this) this.style.display = 'none'; });
+</script>
+
+<!-- IN-HOUSE CONSENT BANNER (vervangt Cookiebot per 26 apr 2026) -->
+<div id="dgr-cb" role="dialog" aria-live="polite" aria-label="Cookie-toestemming">
+  <h5>Cookies &amp; tracking</h5>
+  <p>Wij gebruiken functionele cookies (altijd) en — met jouw toestemming — analytics (GA4) en marketing pixels (Meta, LinkedIn) om campagnes te meten. Lees meer in onze <a href="https://recruitin.nl/privacy">privacyverklaring</a>.</p>
+  <div class="dgr-cb-btns">
+    <button type="button" class="dgr-cb-btn" id="dgr-cb-decline">Alleen functioneel</button>
+    <button type="button" class="dgr-cb-btn" id="dgr-cb-stats">Statistieken</button>
+    <button type="button" class="dgr-cb-btn primary" id="dgr-cb-accept">Alles accepteren</button>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='dgr_consent_v1';
+  var GA_ID='G-7BT66CT9YR';
+  var FB_PIXEL='660118697194302';
+  var LI_PARTNER='508490978';
+
+  function loadGA(){
+    if (window.__dgr_ga) return; window.__dgr_ga=1;
+    var s=document.createElement('script'); s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_ID, {anonymize_ip:true});
+  }
+  function loadMeta(){
+    if (window.__dgr_fb) return; window.__dgr_fb=1;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', FB_PIXEL); fbq('track','PageView');
+  }
+  function loadLI(){
+    if (!LI_PARTNER || window.__dgr_li) return; window.__dgr_li=1;
+    var s=document.createElement('script'); s.innerHTML='_linkedin_partner_id="'+LI_PARTNER+'";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push("'+LI_PARTNER+'");';
+    document.head.appendChild(s);
+    var t=document.createElement('script'); t.async=true; t.src='https://snap.licdn.com/li.lms-analytics/insight.min.js';
+    document.head.appendChild(t);
+  }
+
+  function apply(c){
+    if (c.statistics) {
+      gtag('consent','update',{analytics_storage:'granted'});
+      loadGA();
+    }
+    if (c.marketing) {
+      gtag('consent','update',{ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted'});
+      loadMeta(); loadLI();
+    }
+    window.Cookiebot = window.Cookiebot || {};
+    window.Cookiebot.consent = {
+      necessary:true, preferences:!!c.preferences, statistics:!!c.statistics, marketing:!!c.marketing,
+      method:c.method||'banner', stamp:c.stamp||Date.now()
+    };
+    window.dispatchEvent(new CustomEvent('CookiebotOnConsentReady'));
+  }
+
+  function save(c){
+    c.stamp = Date.now();
+    try { localStorage.setItem(KEY, JSON.stringify(c)); } catch(_){}
+    apply(c);
+  }
+
+  function showBanner(){ document.getElementById('dgr-cb').classList.add('show'); }
+  function hideBanner(){ document.getElementById('dgr-cb').classList.remove('show'); }
+
+  var prior=null; try { prior=JSON.parse(localStorage.getItem(KEY)||'null'); } catch(_){}
+  if (prior && (prior.statistics || prior.marketing || prior.method)) {
+    apply(prior);
+  } else {
+    setTimeout(showBanner, 1200);
+  }
+
+  document.getElementById('dgr-cb-accept').addEventListener('click', function(){
+    save({statistics:true, marketing:true, preferences:true, method:'accept-all'});
+    hideBanner();
+  });
+  document.getElementById('dgr-cb-stats').addEventListener('click', function(){
+    save({statistics:true, marketing:false, preferences:false, method:'stats-only'});
+    hideBanner();
+  });
+  document.getElementById('dgr-cb-decline').addEventListener('click', function(){
+    save({statistics:false, marketing:false, preferences:false, method:'decline'});
+    hideBanner();
+  });
+
+  window.dgrOpenCookieSettings = function(){ showBanner(); };
+})();
 </script>
 </body>
 </html>
