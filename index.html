@@ -457,6 +457,33 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   </div>
 </section>
 
+<!-- Rating widget — trust signal at top -->
+<section style="padding:48px 5%;background:var(--bg);border-bottom:1px solid var(--border)">
+  <div id="rating-widget" style="max-width:500px;margin:0 auto;padding:32px;background:rgba(255,0,204,0.08);border:1px solid rgba(255,0,204,0.15);border-radius:12px;text-align:center">
+    <div style="font-size:24px;margin-bottom:12px" id="rating-stars">★★★★☆</div>
+    <div style="font-size:16px;font-weight:600;color:#fff;margin-bottom:4px" id="rating-text">Laden...</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:8px" id="rating-count">Bezig met laden...</div>
+    <p style="font-size:11px;color:var(--muted);margin:0">Gebaseerd op directe feedback van gebruikers na rapport ontvangst</p>
+  </div>
+  <script>
+    (function() {
+      fetch('https://doelgroepenrapport-automation.onrender.com/api/rating-stats')
+        .then(r => r.json())
+        .then(data => {
+          if (data.error) return;
+          const avg = data.average || 0;
+          const total = data.total || 0;
+          const fullStars = Math.round(avg);
+          const stars = '★'.repeat(Math.min(fullStars, 5)) + '☆'.repeat(Math.max(0, 5 - fullStars));
+          document.getElementById('rating-stars').textContent = stars;
+          document.getElementById('rating-text').textContent = avg > 0 ? avg.toFixed(1) + '/5 sterren' : 'Nog geen reviews';
+          document.getElementById('rating-count').textContent = total > 0 ? `van ${total} beoordelingen` : 'Eerste reviews volgen';
+        })
+        .catch(err => console.warn('Rating widget fetch failed:', err));
+    })();
+  </script>
+</section>
+
 <!-- FEATURES -->
 <section id="features">
   <div class="features-head">
@@ -531,39 +558,6 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
         <div class="tm-foot"><div class="tm-tag" style="margin-left:0">LEVERTIJD</div></div>
       </div>
     </div>
-  </div>
-  <!-- Rating widget — real-time user feedback -->
-  <div id="rating-widget" style="max-width:500px;margin:56px auto 0;padding:32px;background:rgba(255,0,204,0.08);border:1px solid rgba(255,0,204,0.15);border-radius:12px;text-align:center">
-    <div style="font-size:24px;margin-bottom:12px" id="rating-stars">★★★★☆</div>
-    <div style="font-size:16px;font-weight:600;color:#fff;margin-bottom:4px" id="rating-text">Laden...</div>
-    <div style="font-size:13px;color:var(--muted);margin-bottom:8px" id="rating-count">Bezig met laden...</div>
-    <p style="font-size:11px;color:var(--muted);margin:0">Gebaseerd op directe feedback van gebruikers na rapport ontvangst</p>
-  </div>
-  <script>
-    (function() {
-      fetch('https://doelgroepenrapport-automation.onrender.com/api/rating-stats')
-        .then(r => r.json())
-        .then(data => {
-          if (data.error) return;
-          const avg = data.average || 0;
-          const total = data.total || 0;
-          const fullStars = Math.round(avg);
-          const stars = '★'.repeat(Math.min(fullStars, 5)) + '☆'.repeat(Math.max(0, 5 - fullStars));
-          document.getElementById('rating-stars').textContent = stars;
-          document.getElementById('rating-text').textContent = avg > 0 ? avg.toFixed(1) + '/5 sterren' : 'Nog geen reviews';
-          document.getElementById('rating-count').textContent = total > 0 ? `van ${total} beoordelingen` : 'Eerste reviews volgen';
-        })
-        .catch(err => console.warn('Rating widget fetch failed:', err));
-    })();
-  </script>
-</section>
-
-<!-- RISK REVERSAL STRIP (replaced pricing section — pricing now in FAQ only) -->
-<section style="padding:56px 5% 40px;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg)">
-  <div style="max-width:720px;margin:0 auto">
-    <div style="font-size:12px;color:var(--magenta);font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px">Geen risico</div>
-    <h2 style="font-size:clamp(1.4rem,3.2vw,2rem);margin:0 0 14px;color:#fff;line-height:1.25">Niet bruikbaar? Mail me en ik stort &euro;49 terug.</h2>
-    <p style="font-size:1.05rem;color:var(--muted);margin:0;line-height:1.6">Eerste 2 rapporten zijn sowieso gratis &mdash; geen creditcard, geen contract, geen verkoopgesprek. Rapport gaat rechtstreeks naar je mailbox.</p>
   </div>
 </section>
 
