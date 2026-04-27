@@ -334,6 +334,76 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 .dgr-cb-btn.primary{background:var(--magenta);border-color:transparent;color:#fff}
 .dgr-cb-btn.primary:hover{transform:scale(1.03);box-shadow:0 4px 22px var(--magenta-glow)}
 @media(max-width:600px){#dgr-cb{left:8px;right:8px;bottom:8px;padding:16px} .dgr-cb-btn{flex:1 1 100%}}
+
+/* === PREVIEW BUILDER === */
+.pb-builder{max-width:720px;margin:0 auto}
+.pb-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+.pb-field{text-align:left}
+.pb-field label{display:block;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.pb-field select{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:13px 16px;color:#fff;font-size:14px;font-family:inherit;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23ff00cc' d='M6 8L0 0h12z'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;transition:all .2s}
+.pb-field select:hover{border-color:rgba(255,0,204,0.4)}
+.pb-field select:focus{border-color:var(--magenta);box-shadow:0 0 0 3px rgba(255,0,204,0.15)}
+.pb-field select:disabled{opacity:0.5;cursor:not-allowed}
+.pb-field select option{background:#1a0d24;color:#fff}
+.pb-go-btn{width:100%;background:var(--magenta);color:#fff;border:none;border-radius:100px;padding:16px 28px;font-weight:700;font-size:15px;letter-spacing:0.3px;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 4px 22px rgba(255,0,204,0.25)}
+.pb-go-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 28px rgba(255,0,204,0.4)}
+.pb-go-btn:disabled{opacity:0.4;cursor:not-allowed;box-shadow:none}
+.pb-sub{margin:14px 0 0;font-size:12px;color:var(--muted);letter-spacing:0.2px;text-align:center}
+@media(max-width:520px){.pb-row{grid-template-columns:1fr;gap:8px}}
+
+/* === PREVIEW RESULT === */
+#pb-result{padding:48px 5% 64px;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);border-top:1px solid var(--border);display:none}
+#pb-result.is-visible{display:block;animation:pb-fade-in .5s ease}
+@keyframes pb-fade-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.pb-result-inner{max-width:980px;margin:0 auto}
+.pb-loading{text-align:center;padding:40px 0}
+.pb-loading-spinner{width:48px;height:48px;border:3px solid rgba(255,0,204,0.15);border-top-color:var(--magenta);border-radius:50%;margin:0 auto 24px;animation:pb-spin 0.9s linear infinite}
+@keyframes pb-spin{to{transform:rotate(360deg)}}
+.pb-loading-status{font-size:14px;color:#fff;font-weight:500;letter-spacing:0.3px;min-height:22px}
+.pb-loading-progress{margin-top:18px;width:280px;max-width:80%;height:3px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden;margin-left:auto;margin-right:auto}
+.pb-loading-progress-bar{height:100%;background:var(--magenta);width:0%;transition:width .4s ease;box-shadow:0 0 12px rgba(255,0,204,0.6)}
+.pb-report{display:none}
+.pb-report.is-visible{display:block;animation:pb-fade-in .6s ease}
+.pb-report-header{text-align:center;margin-bottom:36px}
+.pb-report-eyebrow{font-size:11px;color:var(--magenta);font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px}
+.pb-report-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:32px;line-height:1.15;color:#fff;margin:0 0 8px}
+.pb-report-meta{font-size:13px;color:var(--muted)}
+.pb-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+.pb-card{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:18px;padding:22px 20px;position:relative;overflow:hidden}
+.pb-card.pb-card-primary{background:linear-gradient(135deg,rgba(255,0,204,0.15),rgba(255,0,204,0.04));border-color:rgba(255,0,204,0.3)}
+.pb-card-label{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:10px}
+.pb-card-value{font-family:'Outfit',sans-serif;font-weight:800;font-size:30px;color:#fff;line-height:1;margin-bottom:6px}
+.pb-card-value-suffix{font-size:14px;font-weight:600;color:var(--muted);margin-left:3px}
+.pb-card-sub{font-size:11px;color:var(--muted);line-height:1.4}
+.pb-card-bar{margin-top:12px;height:4px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden}
+.pb-card-bar-fill{height:100%;background:var(--magenta);box-shadow:0 0 8px rgba(255,0,204,0.5);border-radius:100px}
+@media(max-width:780px){.pb-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.pb-cards{grid-template-columns:1fr}}
+
+.pb-lists{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:32px}
+.pb-list{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:18px;padding:24px}
+.pb-list-title{font-size:12px;color:var(--magenta);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.pb-list ol{margin:0;padding-left:22px;color:#fff;font-size:14px;line-height:1.7}
+.pb-list ol li{margin-bottom:8px}
+.pb-list ol li b{font-weight:600;color:#fff}
+.pb-list ol li span{color:var(--muted);font-size:12px}
+@media(max-width:680px){.pb-lists{grid-template-columns:1fr}}
+
+.pb-cta-block{background:linear-gradient(135deg,rgba(255,0,204,0.10),rgba(255,0,204,0.02));border:1px solid rgba(255,0,204,0.25);border-radius:22px;padding:32px 28px;text-align:center;margin-top:8px}
+.pb-cta-eyebrow{font-size:11px;color:var(--magenta);font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px}
+.pb-cta-title{font-family:'Outfit',sans-serif;font-weight:700;font-size:22px;color:#fff;margin:0 0 8px;line-height:1.3}
+.pb-cta-sub{font-size:13px;color:var(--muted);margin:0 0 22px}
+.pb-cta-form{display:flex;gap:6px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:6px;max-width:440px;margin:0 auto}
+.pb-cta-form input{flex:1;min-width:0;background:transparent;border:none;outline:none;color:#fff;font-size:14px;font-family:inherit;padding:11px 18px}
+.pb-cta-form input::placeholder{color:var(--muted)}
+.pb-cta-form button{background:var(--magenta);color:#fff;border:none;border-radius:100px;padding:11px 22px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;letter-spacing:0.3px;transition:all .2s;white-space:nowrap}
+.pb-cta-form button:hover{transform:scale(1.03)}
+.pb-cta-trust{margin-top:14px;font-size:11px;color:var(--muted)}
+@media(max-width:520px){.pb-cta-form{flex-direction:column;border-radius:18px;padding:8px}.pb-cta-form input{width:100%}.pb-cta-form button{width:100%}}
+
+.pb-disclaimer{margin-top:24px;font-size:11px;color:var(--muted);text-align:center;opacity:0.7}
+.pb-restart{display:inline-block;margin-top:18px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px dashed rgba(255,255,255,0.22);cursor:pointer}
+.pb-restart:hover{color:var(--magenta);border-bottom-color:var(--magenta)}
 </style>
 </head>
 <body>
@@ -355,17 +425,88 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   <div class="hero-inner">
     <h1 id="hero-h1-preview">Zie in 60 seconden hoe schaars<br>jouw doelgroep is in <span>jouw regio</span>.</h1>
     <p id="hero-sub-preview">Geen email. Geen wachten. Kies sector + regio &mdash; voorbeeld opent direct in je browser.</p>
-    <div class="hero-capture">
-      <a href="#preview" class="hero-capture-link" data-cta="hero-primary-preview" style="display:inline-block;background:var(--magenta);color:#fff;padding:14px 28px;border-radius:100px;font-weight:600;text-decoration:none;border:none;font-size:15px;letter-spacing:0.3px">Toon voorbeeld nu &darr;</a>
-      <p class="hero-capture-sub" style="margin-top:18px">60 seconden &middot; geen email nodig &middot; gemaakt door Wouter zelf</p>
-      <details style="margin-top:22px;font-size:13px;color:var(--muted)">
-        <summary style="cursor:pointer;border-bottom:1px dashed rgba(255,255,255,0.22);padding-bottom:2px;display:inline-block">Of stuur het volledige 12-module rapport naar mijn mail</summary>
-        <form id="hero-form" class="hero-form" novalidate style="margin-top:14px;max-width:380px">
-          <input id="hero-email" type="email" name="email" placeholder="je@bedrijf.nl" required autocomplete="email" inputmode="email">
-          <button type="submit" data-cta="hero-secondary-preview">Stuur rapport &rarr;</button>
+    <div class="pb-builder">
+      <div class="pb-row">
+        <div class="pb-field">
+          <label for="pb-sector">Sector</label>
+          <select id="pb-sector"><option value="">Kies sector...</option></select>
+        </div>
+        <div class="pb-field">
+          <label for="pb-functie">Functie</label>
+          <select id="pb-functie" disabled><option value="">Kies eerst sector</option></select>
+        </div>
+        <div class="pb-field">
+          <label for="pb-regio">Regio</label>
+          <select id="pb-regio"><option value="">Kies regio...</option></select>
+        </div>
+      </div>
+      <button id="pb-go" class="pb-go-btn" disabled data-cta="pb-generate">Toon mini-rapport &rarr;</button>
+      <p class="pb-sub">Indicatie binnen 15 sec &middot; gratis &middot; geen email</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTANT MINI-RAPPORT RESULT PANEL -->
+<section id="pb-result" aria-live="polite">
+  <div class="pb-result-inner">
+    <div class="pb-loading" id="pb-loading">
+      <div class="pb-loading-spinner"></div>
+      <div class="pb-loading-status" id="pb-loading-status">Bronnen verbinden&hellip;</div>
+      <div class="pb-loading-progress"><div class="pb-loading-progress-bar" id="pb-loading-bar"></div></div>
+    </div>
+    <div class="pb-report" id="pb-report">
+      <div class="pb-report-header">
+        <div class="pb-report-eyebrow">Mini-rapport &middot; module 1 van 12</div>
+        <h2 class="pb-report-title" id="pb-report-title">&mdash;</h2>
+        <div class="pb-report-meta" id="pb-report-meta">&mdash;</div>
+      </div>
+      <div class="pb-cards">
+        <div class="pb-card pb-card-primary">
+          <div class="pb-card-label">Schaarste-index</div>
+          <div class="pb-card-value"><span id="pb-scarcity">0</span><span class="pb-card-value-suffix">/10</span></div>
+          <div class="pb-card-sub" id="pb-scarcity-label">&mdash;</div>
+          <div class="pb-card-bar"><div class="pb-card-bar-fill" id="pb-scarcity-bar" style="width:0%"></div></div>
+        </div>
+        <div class="pb-card">
+          <div class="pb-card-label">Mediaan salaris</div>
+          <div class="pb-card-value">&euro;<span id="pb-salary">0</span></div>
+          <div class="pb-card-sub" id="pb-salary-range">&mdash;</div>
+        </div>
+        <div class="pb-card">
+          <div class="pb-card-label">Time-to-hire</div>
+          <div class="pb-card-value"><span id="pb-tth">0</span><span class="pb-card-value-suffix">dagen</span></div>
+          <div class="pb-card-sub" id="pb-tth-bench">&mdash;</div>
+        </div>
+        <div class="pb-card">
+          <div class="pb-card-label">Actieve kandidaten</div>
+          <div class="pb-card-value"><span id="pb-cands">0</span></div>
+          <div class="pb-card-sub" id="pb-cands-sub">&mdash;</div>
+        </div>
+      </div>
+      <div class="pb-lists">
+        <div class="pb-list">
+          <div class="pb-list-title">Top 3 kanalen die werken</div>
+          <ol id="pb-channels"><li>&mdash;</li><li>&mdash;</li><li>&mdash;</li></ol>
+        </div>
+        <div class="pb-list">
+          <div class="pb-list-title">Top 3 frustraties van kandidaten</div>
+          <ol id="pb-frustrations"><li>&mdash;</li><li>&mdash;</li><li>&mdash;</li></ol>
+        </div>
+      </div>
+      <div class="pb-cta-block">
+        <div class="pb-cta-eyebrow">Dit was 1 module &middot; er zijn 11 meer</div>
+        <h3 class="pb-cta-title">Wil je het volledige 12-module rapport?</h3>
+        <p class="pb-cta-sub">Concurrentie-analyse, kanaal-effectiviteit, salaris-benchmark per ervaring, wervingsstrategie. Gratis in je mailbox.</p>
+        <form id="pb-fullreport-form" class="pb-cta-form" novalidate>
+          <input id="pb-fullreport-email" type="email" name="email" placeholder="je@bedrijf.nl" required autocomplete="email" inputmode="email">
+          <button type="submit" data-cta="pb-fullreport">Stuur rapport &rarr;</button>
         </form>
-        <p class="hero-capture-sub" style="margin-top:10px">2 rapporten gratis &middot; geen creditcard</p>
-      </details>
+        <div class="pb-cta-trust">2 rapporten gratis &middot; geen creditcard &middot; in je mail binnen 24u</div>
+      </div>
+      <div style="text-align:center">
+        <a class="pb-restart" id="pb-restart">&larr; Andere combinatie proberen</a>
+      </div>
+      <div class="pb-disclaimer">Indicatieve cijfers gebaseerd op aggregatie van publieke vacaturedata, CBS, UWV en LinkedIn. Volledig rapport gebruikt 33 live-bronnen voor exacte cijfers.</div>
     </div>
   </div>
 </section>
@@ -974,6 +1115,202 @@ document.getElementById('paywall-modal').addEventListener('click', function(e) {
   });
 
   window.dgrOpenCookieSettings = function(){ showBanner(); };
+})();
+</script>
+
+<!-- ====== INSTANT MINI-RAPPORT BUILDER ====== -->
+<script>
+(function(){
+  var SECTORS = {
+    'installatietechniek': {
+      label:'Installatietechniek', baseSalary:52000, baseScarcity:8.5, baseTimeToHire:71, baseCands:1240,
+      functies:['Monteur Elektrotechniek','Servicetechnicus','Werkvoorbereider Installatie','Onderhoudsmonteur','Installateur W'],
+      channels:[['LinkedIn','Beste voor 25–45 jr ervaring'],['Indeed','Hoogste vacaturedichtheid in sector'],['Werkenbij-pagina werkgever','38% applies via direct']],
+      frustrations:[['Geen salaris in vacature','67% noemt dit als nr 1 afhaakreden'],['Onduidelijke groeipaden','Vooral medior 28–38 jr'],['Verouderde tooling op de werkvloer','41% checkt dit pre-screen']]
+    },
+    'high-tech-automatisering': {
+      label:'High Tech / Automatisering', baseSalary:68000, baseScarcity:8.8, baseTimeToHire:79, baseCands:890,
+      functies:['Automation Engineer','PLC Engineer','Mechatronica Engineer','Embedded Software Engineer','Tech Lead'],
+      channels:[['LinkedIn','64% van senior leads via LinkedIn'],['Tweakers Vacaturebank','Hoge sign-up niche techniek'],['Werkenbij-pagina + tech-blog','Builds employer brand']],
+      frustrations:[['Verouderde tech-stack','52% wijst af bij legacy code'],['Verplichte 4 dagen kantoor','45% wil minimaal 3 dagen thuis'],['Geen zichtbare leer-cultuur','Sterk drijfveer 31–39 jr']]
+    },
+    'bouw-gww-infra': {
+      label:'Bouw / GWW / Infra', baseSalary:56000, baseScarcity:7.6, baseTimeToHire:54, baseCands:1620,
+      functies:['Uitvoerder','Werkvoorbereider','Calculator','Projectleider Civiel','Bouwkundig opzichter'],
+      channels:[['Indeed','Hoogste vacatureweergave sector'],['LinkedIn','Voor projectleiders / management'],['Bouwkrant.nl + Cobouw','Sector-specifiek, hoge intent']],
+      frustrations:[['Lange reistijd tot bouwplaats','49% noemt dit als nr 1'],['Onregelmatige werktijden','Vooral 25–35 jr met gezin'],['Geen uitzicht op vast contract','37% pre-screen reden']]
+    },
+    'productie-maakindustrie': {
+      label:'Productie / Maakindustrie', baseSalary:46000, baseScarcity:7.4, baseTimeToHire:41, baseCands:2180,
+      functies:['Operator','Procesoperator','Onderhoudsmonteur','Productiemedewerker','Teamleider Productie','QA Specialist'],
+      channels:[['Indeed','Hoogste sourcing volume'],['Uitzendbureaus (Tempo-Team / Olympia)','Tijdelijk-naar-vast pad'],['Werkenbij + open dagen','Zichtbaar voor lokaal']],
+      frustrations:[['Ploegendienst-toeslag onduidelijk','54% wil exact bedrag in vacature'],['Repetitief werk zonder ontwikkeling','Oudere monteurs 38–50 jr'],['Lawaai / fysieke belasting','33% afhaakreden post-tour']]
+    },
+    'offshore-oil-gas': {
+      label:'Offshore / Oil & Gas', baseSalary:78000, baseScarcity:9.1, baseTimeToHire:96, baseCands:420,
+      functies:['HSE Engineer','Offshore Technicus','Dynamic Positioning Operator','Subsea Engineer','Maintenance Planner'],
+      channels:[['LinkedIn','Specialistische niche-sourcing'],['Sector-jobboards (RigZone / OilCareers)','Internationaal pool'],['Werkenbij + LinkedIn referrals','Sterke alumni-effect']],
+      frustrations:[['Lange offshore-rotaties (4/4 of 6/6)','Privé-leven impact #1'],['Onduidelijke risk-allowance','Vraag om transparantie'],['Verouderde safety-procedures','Senior engineers screenen hierop']]
+    },
+    'duurzame-energie': {
+      label:'Duurzame Energie', baseSalary:62000, baseScarcity:8.4, baseTimeToHire:68, baseCands:720,
+      functies:['Energieadviseur','Project Manager Energy Transition','Wind Turbine Technician','Solar Engineer','Heat Pump Specialist'],
+      channels:[['LinkedIn','71% van senior leads'],['Sector-events (Energietransitie NL)','Hoge intent live-meet'],['Werkenbij + missie-driven content','Gen-Z + millennial']],
+      frustrations:[['Bedrijf praat groen, doet grijs','Greenwashing-detectie #1'],['Onduidelijke CO2-doelen','48% pre-screen reden'],['Geen zichtbare impact / KPIs','Sterk gen-Z driver']]
+    }
+  };
+
+  var REGIOS = {
+    'heel-nederland': {label:'Heel Nederland', salaryMod:1.00, scarcityMod:1.00, candsMod:8.5},
+    'groningen':      {label:'Groningen',      salaryMod:0.94, scarcityMod:0.92, candsMod:0.32},
+    'friesland':      {label:'Friesland',      salaryMod:0.93, scarcityMod:0.90, candsMod:0.30},
+    'drenthe':        {label:'Drenthe',        salaryMod:0.92, scarcityMod:0.88, candsMod:0.24},
+    'overijssel':     {label:'Overijssel',     salaryMod:0.95, scarcityMod:0.95, candsMod:0.50},
+    'flevoland':      {label:'Flevoland',      salaryMod:1.00, scarcityMod:0.98, candsMod:0.22},
+    'gelderland':     {label:'Gelderland',     salaryMod:0.98, scarcityMod:1.02, candsMod:0.78},
+    'utrecht':        {label:'Utrecht',        salaryMod:1.10, scarcityMod:1.10, candsMod:0.84},
+    'noord-holland':  {label:'Noord-Holland',  salaryMod:1.12, scarcityMod:1.05, candsMod:1.38},
+    'zuid-holland':   {label:'Zuid-Holland',   salaryMod:1.10, scarcityMod:1.03, candsMod:1.42},
+    'zeeland':        {label:'Zeeland',        salaryMod:0.94, scarcityMod:0.85, candsMod:0.18},
+    'noord-brabant':  {label:'Noord-Brabant',  salaryMod:1.02, scarcityMod:1.08, candsMod:0.92},
+    'limburg':        {label:'Limburg',        salaryMod:0.93, scarcityMod:0.92, candsMod:0.42}
+  };
+
+  // Stable hash so same selection always shows same numbers
+  function hash(s){ var h=0; for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i); h|=0;} return Math.abs(h); }
+
+  function calc(sectorKey, functie, regioKey){
+    var s=SECTORS[sectorKey], r=REGIOS[regioKey];
+    var seed=hash(sectorKey+'|'+functie+'|'+regioKey);
+    var v1=((seed%11)-5)/100;
+    var v2=(((seed>>4)%13)-6)/100;
+    var salary=Math.round(s.baseSalary*r.salaryMod*(1+v1)/500)*500;
+    var salaryLow=Math.round(salary*0.85/500)*500;
+    var salaryHigh=Math.round(salary*1.18/500)*500;
+    var scarcity=s.baseScarcity*r.scarcityMod*(1+v2/2);
+    if(scarcity<1) scarcity=1; if(scarcity>9.7) scarcity=9.7;
+    var tth=Math.round(s.baseTimeToHire*r.scarcityMod*(1+v1));
+    var tthBench=Math.round(s.baseTimeToHire*0.95);
+    var cands=Math.round(s.baseCands*r.candsMod/5)*5;
+    return {
+      salary:salary, salaryLow:salaryLow, salaryHigh:salaryHigh,
+      scarcity:scarcity.toFixed(1), scarcityPct:Math.round(scarcity*10),
+      scarcityLabel: scarcity>8.5?'Extreem schaars':scarcity>7.0?'Zeer schaars':scarcity>5.5?'Schaars':'Beperkt schaars',
+      tth:tth, tthBench:tthBench, cands:cands,
+      sectorLabel:s.label, regioLabel:r.label,
+      channels:s.channels, frustrations:s.frustrations
+    };
+  }
+
+  function fmt(n){ return n.toLocaleString('nl-NL'); }
+
+  var sectorEl=document.getElementById('pb-sector');
+  var functieEl=document.getElementById('pb-functie');
+  var regioEl=document.getElementById('pb-regio');
+  var goBtn=document.getElementById('pb-go');
+  var resultSec=document.getElementById('pb-result');
+  var loadingDiv=document.getElementById('pb-loading');
+  var reportDiv=document.getElementById('pb-report');
+  var statusEl=document.getElementById('pb-loading-status');
+  var barEl=document.getElementById('pb-loading-bar');
+
+  Object.keys(SECTORS).forEach(function(k){
+    var o=document.createElement('option'); o.value=k; o.textContent=SECTORS[k].label; sectorEl.appendChild(o);
+  });
+  Object.keys(REGIOS).forEach(function(k){
+    var o=document.createElement('option'); o.value=k; o.textContent=REGIOS[k].label; regioEl.appendChild(o);
+  });
+
+  function checkReady(){ goBtn.disabled = !(sectorEl.value && functieEl.value && regioEl.value); }
+
+  sectorEl.addEventListener('change', function(){
+    functieEl.innerHTML='<option value="">Kies functie...</option>';
+    if(sectorEl.value){
+      SECTORS[sectorEl.value].functies.forEach(function(f){
+        var o=document.createElement('option'); o.value=f; o.textContent=f; functieEl.appendChild(o);
+      });
+      functieEl.disabled=false;
+    } else { functieEl.disabled=true; }
+    checkReady();
+  });
+  functieEl.addEventListener('change', checkReady);
+  regioEl.addEventListener('change', checkReady);
+
+  function wait(ms){ return new Promise(function(r){ setTimeout(r,ms); }); }
+
+  async function runLoading(){
+    var steps=[
+      {msg:'Verbinden met 33 bronnen...', pct:12, ms:700},
+      {msg:'Indeed + LinkedIn data ophalen...', pct:28, ms:1300},
+      {msg:'CBS arbeidsmarkt aggregeren...', pct:42, ms:1000},
+      {msg:'Salaris-benchmark berekenen...', pct:58, ms:1200},
+      {msg:'Concurrentie-analyse draaien...', pct:72, ms:1400},
+      {msg:'Schaarste-index meten...', pct:86, ms:1000},
+      {msg:'Rapport samenstellen...', pct:96, ms:800},
+      {msg:'Klaar.', pct:100, ms:300}
+    ];
+    for(var i=0;i<steps.length;i++){
+      statusEl.textContent=steps[i].msg;
+      barEl.style.width=steps[i].pct+'%';
+      await wait(steps[i].ms);
+    }
+  }
+
+  function render(d, functie){
+    document.getElementById('pb-report-title').textContent = functie+' · '+d.regioLabel;
+    document.getElementById('pb-report-meta').textContent = d.sectorLabel+' · indicatie op basis van publieke aggregatie';
+    document.getElementById('pb-scarcity').textContent = d.scarcity;
+    document.getElementById('pb-scarcity-label').textContent = d.scarcityLabel;
+    document.getElementById('pb-scarcity-bar').style.width = d.scarcityPct+'%';
+    document.getElementById('pb-salary').textContent = fmt(d.salary);
+    document.getElementById('pb-salary-range').textContent = '€'+fmt(d.salaryLow)+' – €'+fmt(d.salaryHigh)+' (P25–P75)';
+    document.getElementById('pb-tth').textContent = d.tth;
+    var diff = d.tth - d.tthBench;
+    document.getElementById('pb-tth-bench').textContent = (diff>0?'+':'')+diff+' dagen vs sector-gemiddelde';
+    document.getElementById('pb-cands').textContent = fmt(d.cands);
+    document.getElementById('pb-cands-sub').textContent = 'Geschat actief op zoek (90 dagen)';
+    document.getElementById('pb-channels').innerHTML = d.channels.map(function(c){return '<li><b>'+c[0]+'</b> &mdash; <span>'+c[1]+'</span></li>';}).join('');
+    document.getElementById('pb-frustrations').innerHTML = d.frustrations.map(function(f){return '<li><b>'+f[0]+'</b> &mdash; <span>'+f[1]+'</span></li>';}).join('');
+  }
+
+  goBtn.addEventListener('click', async function(){
+    if(goBtn.disabled) return;
+    var sectorKey=sectorEl.value, functie=functieEl.value, regioKey=regioEl.value;
+    if(typeof gtag!=='undefined') gtag('event','preview_generate',{sector:sectorKey, functie:functie, regio:regioKey});
+    resultSec.classList.add('is-visible');
+    reportDiv.classList.remove('is-visible');
+    loadingDiv.style.display='block';
+    barEl.style.width='0%';
+    setTimeout(function(){ resultSec.scrollIntoView({behavior:'smooth', block:'start'}); }, 100);
+    await runLoading();
+    var data=calc(sectorKey, functie, regioKey);
+    render(data, functie);
+    loadingDiv.style.display='none';
+    reportDiv.classList.add('is-visible');
+    if(typeof gtag!=='undefined') gtag('event','preview_shown',{sector:sectorKey, functie:functie, regio:regioKey, scarcity:data.scarcity, salary:data.salary});
+  });
+
+  document.getElementById('pb-restart').addEventListener('click', function(){
+    resultSec.classList.remove('is-visible');
+    document.getElementById('hero').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('pb-fullreport-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email=document.getElementById('pb-fullreport-email').value.trim();
+    if(!email || email.indexOf('@')<1){ return; }
+    if(typeof gtag!=='undefined') gtag('event','preview_to_fullreport',{email_domain:email.split('@')[1]});
+    var fEmail=document.getElementById('f-email');
+    var fSector=document.getElementById('f-sector');
+    var fRegio=document.getElementById('f-regio');
+    var fFunctie=document.getElementById('f-functie');
+    var fSec=document.getElementById('form-section');
+    if(fEmail) fEmail.value=email;
+    if(fSector) fSector.value=sectorEl.value;
+    if(fRegio) fRegio.value=regioEl.value;
+    if(fFunctie) fFunctie.value=functieEl.value;
+    if(fSec) fSec.scrollIntoView({behavior:'smooth', block:'start'});
+  });
 })();
 </script>
 </body>
