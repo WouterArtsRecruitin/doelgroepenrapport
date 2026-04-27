@@ -380,6 +380,56 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 @media(max-width:780px){.pb-cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:420px){.pb-cards{grid-template-columns:1fr}}
 
+/* === VISUAL MODULES (rings, bars, sparkline) === */
+.pb-modules{display:grid;grid-template-columns:1.05fr 1.15fr 0.95fr;gap:18px;margin-bottom:28px}
+.pb-module{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.pb-module-eyebrow{font-size:10px;color:var(--magenta);font-weight:700;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:14px}
+.pb-module-title{font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;color:#fff;margin:0 0 4px;line-height:1.3}
+.pb-module-sub{font-size:11px;color:var(--muted);margin:0 0 16px}
+@media(max-width:980px){.pb-modules{grid-template-columns:1fr}}
+
+/* Module A: Ring-scores */
+.pb-rings{display:flex;align-items:center;gap:16px;justify-content:space-around;padding:8px 0}
+.pb-ring-wrap{text-align:center;flex:1}
+.pb-ring{width:96px;height:96px;display:block;margin:0 auto 8px}
+.pb-ring-track{fill:none;stroke:rgba(255,255,255,0.07);stroke-width:9}
+.pb-ring-progress{fill:none;stroke-width:9;stroke-linecap:round;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)}
+.pb-ring-progress.is-magenta{stroke:var(--magenta);filter:drop-shadow(0 0 6px rgba(255,0,204,0.45))}
+.pb-ring-progress.is-amber{stroke:#f59e0b;filter:drop-shadow(0 0 6px rgba(245,158,11,0.4))}
+.pb-ring-progress.is-cyan{stroke:#22d3ee;filter:drop-shadow(0 0 6px rgba(34,211,238,0.4))}
+.pb-ring-text{text-anchor:middle;font-family:'Outfit',sans-serif;font-weight:800}
+.pb-ring-text-main{font-size:24px;fill:#fff}
+.pb-ring-text-sub{font-size:10px;fill:var(--muted);font-weight:500;letter-spacing:1px;text-transform:uppercase}
+.pb-ring-label{font-size:11px;color:#fff;font-weight:600;line-height:1.3;margin-top:2px}
+.pb-ring-bench{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* Module B: Salary bars */
+.pb-bars{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.pb-bar-row{display:grid;grid-template-columns:54px 1fr;gap:10px;align-items:center}
+.pb-bar-label{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+.pb-bar-track{position:relative;height:30px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;overflow:hidden}
+.pb-bar-fill{position:absolute;top:0;bottom:0;background:linear-gradient(90deg,rgba(255,0,204,0.18),rgba(255,0,204,0.55));border-radius:6px;transition:left .9s cubic-bezier(0.4,0,0.2,1) .15s,width 1.1s cubic-bezier(0.4,0,0.2,1) .15s;left:50%;width:0;box-shadow:0 0 0 1px rgba(255,0,204,0.25) inset}
+.pb-bar-fill-text{position:absolute;top:50%;transform:translateY(-50%);right:8px;font-size:11px;color:#fff;font-weight:600;white-space:nowrap;letter-spacing:0.2px}
+.pb-bar-marker{position:absolute;top:-4px;bottom:-4px;width:2px;background:#fff;box-shadow:0 0 8px rgba(255,255,255,0.6);left:50%;opacity:0;transition:opacity .8s ease 1s}
+.pb-bar-marker.is-shown{opacity:0.85}
+.pb-bar-axis{display:grid;grid-template-columns:54px 1fr;gap:10px;margin-top:4px}
+.pb-bar-axis-scale{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-weight:500}
+
+/* Module C: Sparkline */
+.pb-spark-wrap{margin-top:6px}
+.pb-spark{width:100%;height:90px;display:block}
+.pb-spark-line{fill:none;stroke:var(--magenta);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 2px 8px rgba(255,0,204,0.4));stroke-dasharray:600;stroke-dashoffset:600;animation:pb-spark-draw 1.5s ease forwards .3s}
+.pb-spark-area{stroke:none}
+.pb-spark-dot{fill:var(--magenta);stroke:#fff;stroke-width:1.5;opacity:0;animation:pb-fade-in 0.4s ease forwards 1.5s}
+@keyframes pb-spark-draw{to{stroke-dashoffset:0}}
+.pb-spark-axis{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--muted);font-weight:500;letter-spacing:0.3px}
+.pb-spark-stat{display:flex;align-items:baseline;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.pb-spark-delta{font-family:'Outfit',sans-serif;font-weight:800;font-size:24px;line-height:1;color:#fff}
+.pb-spark-delta.is-up{color:#4ade80}
+.pb-spark-delta.is-down{color:#f87171}
+.pb-spark-delta-arrow{font-size:14px;margin-right:2px}
+.pb-spark-delta-sub{font-size:11px;color:var(--muted);line-height:1.3}
+
 .pb-lists{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:32px}
 .pb-list{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:18px;padding:24px}
 .pb-list-title{font-size:12px;color:var(--magenta);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
@@ -483,6 +533,112 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
           <div class="pb-card-sub" id="pb-cands-sub">&mdash;</div>
         </div>
       </div>
+
+      <div class="pb-modules">
+        <!-- Module A: Multi-ring scores -->
+        <div class="pb-module">
+          <div class="pb-module-eyebrow">Score-overzicht</div>
+          <h3 class="pb-module-title">Hoe scoort jouw doelgroep?</h3>
+          <p class="pb-module-sub">Drie kerncijfers, gebenchmarkt tegen sector NL</p>
+          <div class="pb-rings">
+            <div class="pb-ring-wrap">
+              <svg class="pb-ring" viewBox="0 0 100 100">
+                <circle class="pb-ring-track" cx="50" cy="50" r="42"/>
+                <circle class="pb-ring-progress is-magenta" id="pb-ring1" cx="50" cy="50" r="42" stroke-dasharray="263.89" stroke-dashoffset="263.89"/>
+                <text x="50" y="50" class="pb-ring-text pb-ring-text-main" dy=".35em" id="pb-ring1-val">0</text>
+                <text x="50" y="74" class="pb-ring-text pb-ring-text-sub">/10</text>
+              </svg>
+              <div class="pb-ring-label">Schaarste</div>
+              <div class="pb-ring-bench" id="pb-ring1-bench">&mdash;</div>
+            </div>
+            <div class="pb-ring-wrap">
+              <svg class="pb-ring" viewBox="0 0 100 100">
+                <circle class="pb-ring-track" cx="50" cy="50" r="42"/>
+                <circle class="pb-ring-progress is-amber" id="pb-ring2" cx="50" cy="50" r="42" stroke-dasharray="263.89" stroke-dashoffset="263.89"/>
+                <text x="50" y="50" class="pb-ring-text pb-ring-text-main" dy=".35em" id="pb-ring2-val">0</text>
+                <text x="50" y="74" class="pb-ring-text pb-ring-text-sub">/10</text>
+              </svg>
+              <div class="pb-ring-label">Concurrentie</div>
+              <div class="pb-ring-bench" id="pb-ring2-bench">&mdash;</div>
+            </div>
+            <div class="pb-ring-wrap">
+              <svg class="pb-ring" viewBox="0 0 100 100">
+                <circle class="pb-ring-track" cx="50" cy="50" r="42"/>
+                <circle class="pb-ring-progress is-cyan" id="pb-ring3" cx="50" cy="50" r="42" stroke-dasharray="263.89" stroke-dashoffset="263.89"/>
+                <text x="50" y="50" class="pb-ring-text pb-ring-text-main" dy=".35em" id="pb-ring3-val">0</text>
+                <text x="50" y="74" class="pb-ring-text pb-ring-text-sub">%</text>
+              </svg>
+              <div class="pb-ring-label">Mismatch vraag/aanbod</div>
+              <div class="pb-ring-bench" id="pb-ring3-bench">&mdash;</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module B: Salaris-architectuur -->
+        <div class="pb-module">
+          <div class="pb-module-eyebrow">Salaris-architectuur</div>
+          <h3 class="pb-module-title">Bandbreedte per ervaringsniveau</h3>
+          <p class="pb-module-sub">Witte streep = mediaan markt (P50)</p>
+          <div class="pb-bars">
+            <div class="pb-bar-row">
+              <div class="pb-bar-label">Junior</div>
+              <div class="pb-bar-track">
+                <div class="pb-bar-fill" id="pb-bar-jr"><span class="pb-bar-fill-text" id="pb-bar-jr-text">&mdash;</span></div>
+                <div class="pb-bar-marker" id="pb-bar-jr-marker"></div>
+              </div>
+            </div>
+            <div class="pb-bar-row">
+              <div class="pb-bar-label">Medior</div>
+              <div class="pb-bar-track">
+                <div class="pb-bar-fill" id="pb-bar-md"><span class="pb-bar-fill-text" id="pb-bar-md-text">&mdash;</span></div>
+                <div class="pb-bar-marker" id="pb-bar-md-marker"></div>
+              </div>
+            </div>
+            <div class="pb-bar-row">
+              <div class="pb-bar-label">Senior</div>
+              <div class="pb-bar-track">
+                <div class="pb-bar-fill" id="pb-bar-sr"><span class="pb-bar-fill-text" id="pb-bar-sr-text">&mdash;</span></div>
+                <div class="pb-bar-marker" id="pb-bar-sr-marker"></div>
+              </div>
+            </div>
+          </div>
+          <div class="pb-bar-axis">
+            <div></div>
+            <div class="pb-bar-axis-scale">
+              <span id="pb-bar-axis-min">&mdash;</span>
+              <span id="pb-bar-axis-max">&mdash;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module C: Vacaturetrend -->
+        <div class="pb-module">
+          <div class="pb-module-eyebrow">Vacaturetrend</div>
+          <h3 class="pb-module-title">Laatste 6 maanden</h3>
+          <p class="pb-module-sub">Aantal nieuwe vacatures per maand</p>
+          <div class="pb-spark-wrap">
+            <svg class="pb-spark" viewBox="0 0 220 80" preserveAspectRatio="none" id="pb-spark-svg">
+              <defs>
+                <linearGradient id="pb-spark-grad" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#ff00cc" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#ff00cc" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polyline class="pb-spark-area" id="pb-spark-area" points="" fill="url(#pb-spark-grad)"/>
+              <polyline class="pb-spark-line" id="pb-spark-line" points=""/>
+              <circle class="pb-spark-dot" id="pb-spark-dot" cx="0" cy="0" r="3.5"/>
+            </svg>
+            <div class="pb-spark-axis" id="pb-spark-axis">
+              <span>&mdash;</span><span>&mdash;</span><span>&mdash;</span><span>&mdash;</span><span>&mdash;</span><span>&mdash;</span>
+            </div>
+          </div>
+          <div class="pb-spark-stat">
+            <div class="pb-spark-delta" id="pb-spark-delta"><span class="pb-spark-delta-arrow" id="pb-spark-arrow">&uarr;</span><span id="pb-spark-pct">0</span>%</div>
+            <div class="pb-spark-delta-sub" id="pb-spark-sub">&mdash;</div>
+          </div>
+        </div>
+      </div>
+
       <div class="pb-lists">
         <div class="pb-list">
           <div class="pb-list-title">Top 3 kanalen die werken</div>
@@ -1184,6 +1340,7 @@ document.getElementById('paywall-modal').addEventListener('click', function(e) {
     var seed=hash(sectorKey+'|'+functie+'|'+regioKey);
     var v1=((seed%11)-5)/100;
     var v2=(((seed>>4)%13)-6)/100;
+    var v3=(((seed>>8)%11)-5)/100;
     var salary=Math.round(s.baseSalary*r.salaryMod*(1+v1)/500)*500;
     var salaryLow=Math.round(salary*0.85/500)*500;
     var salaryHigh=Math.round(salary*1.18/500)*500;
@@ -1192,11 +1349,47 @@ document.getElementById('paywall-modal').addEventListener('click', function(e) {
     var tth=Math.round(s.baseTimeToHire*r.scarcityMod*(1+v1));
     var tthBench=Math.round(s.baseTimeToHire*0.95);
     var cands=Math.round(s.baseCands*r.candsMod/5)*5;
+
+    // Concurrentie: hoe hard vechten werkgevers om zelfde kandidaten
+    var competition = scarcity*0.78 + (s.baseScarcity>8?1.4:0.7)*(1+v3);
+    if(competition<2) competition=2; if(competition>9.6) competition=9.6;
+
+    // Mismatch %: vraag/aanbod-verschil (hoge schaarste = hogere mismatch)
+    var mismatch = Math.round(Math.min(96, Math.max(38, scarcity*8.5+((seed>>12)%14))));
+
+    // Salaris per niveau (junior/medior/senior — schaal rondom mediaan)
+    var salaryJrLow = Math.round(salary*0.65/500)*500;
+    var salaryJrHigh = Math.round(salary*0.86/500)*500;
+    var salaryMdLow = Math.round(salary*0.92/500)*500;
+    var salaryMdHigh = Math.round(salary*1.12/500)*500;
+    var salarySrLow = Math.round(salary*1.22/500)*500;
+    var salarySrHigh = Math.round(salary*1.58/500)*500;
+
+    // Vacaturetrend 6 maanden — biased upward bij hoge schaarste
+    var trendBase = Math.max(8, Math.round(cands*0.045));
+    var trendDir = scarcity>7 ? 1 : ((seed%2)===0 ? 1 : -1);
+    var trendStrength = scarcity>8 ? 1.4 : scarcity>7 ? 1.0 : 0.6;
+    var trendData = [];
+    for(var i=0;i<6;i++){
+      var noise = (((seed>>(i+3))%9)-4)/100;
+      var growth = (i/5)*0.42*trendStrength*trendDir;
+      trendData.push(Math.max(4, Math.round(trendBase*(1+growth+noise))));
+    }
+    var trendPct = Math.round(((trendData[5]-trendData[0])/Math.max(1,trendData[0]))*100);
+
     return {
       salary:salary, salaryLow:salaryLow, salaryHigh:salaryHigh,
       scarcity:scarcity.toFixed(1), scarcityPct:Math.round(scarcity*10),
+      scarcityNum:scarcity,
       scarcityLabel: scarcity>8.5?'Extreem schaars':scarcity>7.0?'Zeer schaars':scarcity>5.5?'Schaars':'Beperkt schaars',
       tth:tth, tthBench:tthBench, cands:cands,
+      competition:competition,
+      mismatch:mismatch,
+      salaryJrLow:salaryJrLow, salaryJrHigh:salaryJrHigh,
+      salaryMdLow:salaryMdLow, salaryMdHigh:salaryMdHigh,
+      salarySrLow:salarySrLow, salarySrHigh:salarySrHigh,
+      salaryMin:salaryJrLow, salaryMax:salarySrHigh,
+      trendData:trendData, trendPct:trendPct,
       sectorLabel:s.label, regioLabel:r.label,
       channels:s.channels, frustrations:s.frustrations
     };
@@ -1256,19 +1449,121 @@ document.getElementById('paywall-modal').addEventListener('click', function(e) {
     }
   }
 
+  // Ring helper: animate stroke-dashoffset from full → target
+  function setRing(ringId, valId, benchId, value, max, valueText, benchText){
+    var circ = 2*Math.PI*42; // 263.89
+    var pct = Math.min(1, Math.max(0, value/max));
+    var target = circ*(1-pct);
+    var ring = document.getElementById(ringId);
+    ring.style.strokeDasharray = circ.toFixed(2);
+    ring.style.strokeDashoffset = circ.toFixed(2);
+    // force reflow for clean transition
+    void ring.getBoundingClientRect();
+    setTimeout(function(){ ring.style.strokeDashoffset = target.toFixed(2); }, 80);
+    document.getElementById(valId).textContent = valueText;
+    document.getElementById(benchId).textContent = benchText;
+  }
+
+  // Bar helper: position+width op shared schaal, animated
+  function setBar(fillId, textId, markerId, low, high, mediaan, gMin, gMax){
+    var range = Math.max(1, gMax-gMin);
+    var leftPct = ((low-gMin)/range)*100;
+    var widthPct = ((high-low)/range)*100;
+    var medianPct = ((mediaan-gMin)/range)*100;
+    var fill = document.getElementById(fillId);
+    fill.style.left = '50%'; fill.style.width = '0';
+    void fill.getBoundingClientRect();
+    setTimeout(function(){ fill.style.left = leftPct.toFixed(1)+'%'; fill.style.width = widthPct.toFixed(1)+'%'; }, 80);
+    document.getElementById(textId).textContent = '€'+Math.round(low/1000)+'k–€'+Math.round(high/1000)+'k';
+    var marker = document.getElementById(markerId);
+    marker.classList.remove('is-shown');
+    marker.style.left = medianPct.toFixed(1)+'%';
+    setTimeout(function(){ marker.classList.add('is-shown'); }, 1100);
+  }
+
+  // Sparkline helper: build polyline points + animate stroke-draw
+  function setSparkline(data){
+    var w=220, h=80, pad=8;
+    var maxV = Math.max.apply(null, data);
+    var minV = Math.min.apply(null, data);
+    var range = Math.max(1, maxV-minV);
+    var pts = [];
+    for(var i=0;i<data.length;i++){
+      var x = (i/(data.length-1))*(w-2*pad)+pad;
+      var y = h-pad - ((data[i]-minV)/range)*(h-2*pad);
+      pts.push(x.toFixed(1)+','+y.toFixed(1));
+    }
+    var line = document.getElementById('pb-spark-line');
+    line.setAttribute('points', pts.join(' '));
+    // Reset+restart line-draw animation
+    line.style.animation = 'none';
+    void line.getBoundingClientRect();
+    line.style.animation = '';
+    // Area fill: line points + bottom-right corner + bottom-left corner
+    var area = pts.slice();
+    area.push((w-pad).toFixed(1)+','+(h-pad).toFixed(1));
+    area.push(pad+','+(h-pad).toFixed(1));
+    document.getElementById('pb-spark-area').setAttribute('points', area.join(' '));
+    // Last dot
+    var lastPt = pts[pts.length-1].split(',');
+    var dot = document.getElementById('pb-spark-dot');
+    dot.setAttribute('cx', lastPt[0]);
+    dot.setAttribute('cy', lastPt[1]);
+    dot.style.animation = 'none';
+    void dot.getBoundingClientRect();
+    dot.style.animation = '';
+    // Axis labels — laatste 6 maanden NL
+    var now = new Date();
+    var labels = [];
+    for(var k=5;k>=0;k--){
+      var dt = new Date(now.getFullYear(), now.getMonth()-k, 1);
+      labels.push(dt.toLocaleDateString('nl-NL',{month:'short'}).replace('.',''));
+    }
+    document.getElementById('pb-spark-axis').innerHTML = labels.map(function(l){return '<span>'+l+'</span>';}).join('');
+    return labels;
+  }
+
   function render(d, functie){
     document.getElementById('pb-report-title').textContent = functie+' · '+d.regioLabel;
     document.getElementById('pb-report-meta').textContent = d.sectorLabel+' · indicatie op basis van publieke aggregatie';
+
+    // Top stat-cards (existing)
     document.getElementById('pb-scarcity').textContent = d.scarcity;
     document.getElementById('pb-scarcity-label').textContent = d.scarcityLabel;
     document.getElementById('pb-scarcity-bar').style.width = d.scarcityPct+'%';
     document.getElementById('pb-salary').textContent = fmt(d.salary);
     document.getElementById('pb-salary-range').textContent = '€'+fmt(d.salaryLow)+' – €'+fmt(d.salaryHigh)+' (P25–P75)';
     document.getElementById('pb-tth').textContent = d.tth;
-    var diff = d.tth - d.tthBench;
+    var diff = d.tth-d.tthBench;
     document.getElementById('pb-tth-bench').textContent = (diff>0?'+':'')+diff+' dagen vs sector-gemiddelde';
     document.getElementById('pb-cands').textContent = fmt(d.cands);
     document.getElementById('pb-cands-sub').textContent = 'Geschat actief op zoek (90 dagen)';
+
+    // Module A: Multi-ring scores
+    setRing('pb-ring1', 'pb-ring1-val', 'pb-ring1-bench', d.scarcityNum, 10, d.scarcity, 'Sector NL: 7,2');
+    setRing('pb-ring2', 'pb-ring2-val', 'pb-ring2-bench', d.competition, 10, d.competition.toFixed(1), 'Sector NL: 6,5');
+    setRing('pb-ring3', 'pb-ring3-val', 'pb-ring3-bench', d.mismatch, 100, d.mismatch, 'Sector NL: 65%');
+
+    // Module B: Salary bars
+    var jrMid = (d.salaryJrLow+d.salaryJrHigh)/2;
+    var srMid = (d.salarySrLow+d.salarySrHigh)/2;
+    setBar('pb-bar-jr','pb-bar-jr-text','pb-bar-jr-marker', d.salaryJrLow, d.salaryJrHigh, jrMid, d.salaryMin, d.salaryMax);
+    setBar('pb-bar-md','pb-bar-md-text','pb-bar-md-marker', d.salaryMdLow, d.salaryMdHigh, d.salary, d.salaryMin, d.salaryMax);
+    setBar('pb-bar-sr','pb-bar-sr-text','pb-bar-sr-marker', d.salarySrLow, d.salarySrHigh, srMid, d.salaryMin, d.salaryMax);
+    document.getElementById('pb-bar-axis-min').textContent = '€'+Math.round(d.salaryMin/1000)+'k';
+    document.getElementById('pb-bar-axis-max').textContent = '€'+Math.round(d.salaryMax/1000)+'k';
+
+    // Module C: Sparkline + delta
+    var labels = setSparkline(d.trendData);
+    var delta = document.getElementById('pb-spark-delta');
+    delta.classList.remove('is-up','is-down');
+    delta.classList.add(d.trendPct>=0?'is-up':'is-down');
+    document.getElementById('pb-spark-arrow').textContent = d.trendPct>=0 ? '↑' : '↓';
+    document.getElementById('pb-spark-pct').textContent = Math.abs(d.trendPct);
+    var avg = Math.round(d.trendData.reduce(function(a,b){return a+b;},0)/d.trendData.length);
+    document.getElementById('pb-spark-sub').textContent = 'Gemiddeld '+avg+' nieuwe vacatures/maand · '+labels[0]+' → '+labels[5];
+
+    // Lists
     document.getElementById('pb-channels').innerHTML = d.channels.map(function(c){return '<li><b>'+c[0]+'</b> &mdash; <span>'+c[1]+'</span></li>';}).join('');
     document.getElementById('pb-frustrations').innerHTML = d.frustrations.map(function(f){return '<li><b>'+f[0]+'</b> &mdash; <span>'+f[1]+'</span></li>';}).join('');
   }
