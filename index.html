@@ -773,16 +773,19 @@ if ('IntersectionObserver' in window) {
   });
 })();
 
-// Sticky mobile CTA: verberg wanneer form in viewport komt (geen dubbele CTA)
+// Sticky mobile CTA: verberg wanneer hero-form OF form-section in viewport zit (geen dubbele CTA)
 (function(){
   var sticky = document.getElementById('sticky-cta');
   if (!sticky || !('IntersectionObserver' in window)) return;
-  var sec = document.getElementById('form-section');
-  if (!sec) return;
+  var targets = ['hero-form', 'form-section'].map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  if (!targets.length) return;
+  var visible = {};
   var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){ sticky.classList.toggle('hidden', entry.isIntersecting); });
+    entries.forEach(function(entry){ visible[entry.target.id] = entry.isIntersecting; });
+    var anyVisible = Object.keys(visible).some(function(k){ return visible[k]; });
+    sticky.classList.toggle('hidden', anyVisible);
   }, { threshold: 0.15 });
-  obs.observe(sec);
+  targets.forEach(function(t){ obs.observe(t); });
   sticky.addEventListener('click', function(){
     ga('sticky_cta_click', { event_category: 'engagement', event_label: 'mobile_sticky' });
   });
