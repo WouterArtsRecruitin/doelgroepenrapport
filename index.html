@@ -63,15 +63,15 @@ nav.scrolled{background:rgba(7,5,15,0.92);box-shadow:0 16px 40px rgba(0,0,0,0.5)
 .nav-btn:hover{background:var(--magenta);color:#fff;box-shadow:0 0 24px var(--magenta-glow)}
 
 /* ═══ HERO ═══ */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+#hero{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 5% 50px;position:relative;overflow:hidden}
 .hero-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(120px)}
 .hero-orb-1{width:680px;height:680px;top:-10%;right:-15%;background:radial-gradient(circle,rgba(255,0,204,0.22) 0%,rgba(139,43,255,0.12) 50%,transparent 75%);animation:float 14s ease-in-out infinite}
 .hero-orb-2,.hero-orb-3{display:none}
 @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.08)}}
 .hero-inner{max-width:820px;position:relative;z-index:2}
-#hero h1{font-size:clamp(3.5rem,8vw,6.5rem);line-height:0.92;margin-bottom:28px;text-transform:uppercase;letter-spacing:-0.02em}
-#hero h1 span{-webkit-text-stroke:2px var(--magenta);color:transparent;display:inline-block}
-#hero p{font-size:1.15rem;color:var(--muted);line-height:1.7;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
+#hero h1{font-size:clamp(2.4rem,5.6vw,4.4rem);line-height:1.05;margin-bottom:24px;letter-spacing:-0.025em;font-weight:800}
+#hero h1 span{color:var(--magenta);display:inline}
+#hero p{font-size:1.05rem;color:var(--muted);line-height:1.6;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
 .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--magenta);color:#fff;padding:16px 36px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:all 0.25s;box-shadow:0 8px 32px var(--magenta-glow)}
 .hero-btn:hover{transform:translateY(-3px);box-shadow:0 12px 44px rgba(255,0,204,0.55)}
@@ -288,7 +288,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 @media(max-width:768px){
   nav{padding:0 14px;height:54px}
   #hero{padding:90px 16px 40px}
-  #hero h1{font-size:2.8rem}
+  #hero h1{font-size:2.05rem;line-height:1.1}
   #features,#preview,#form-section,#proof,#faq{padding:48px 16px}
   .cards{grid-template-columns:1fr}
   .b-content{grid-template-columns:1fr}
@@ -348,7 +348,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-orb hero-orb-3"></div>
   <div class="hero-inner">
-    <h1 id="hero-h1">4.200 monteurs zoeken<br>in <span>jouw regio</span>. Nu.</h1>
+    <h1 id="hero-h1">4.200 monteurs in <span>jouw regio</span>.</h1>
     <p id="hero-sub">Krijg concrete aantallen per functie, salaris en kanaal. 12 modules data in je mailbox binnen 24u.</p>
     <div class="hero-capture">
       <form id="hero-form" class="hero-form" novalidate>
@@ -356,7 +356,6 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
         <button type="submit" data-cta="hero-primary">Start gratis &rarr;</button>
       </form>
       <p class="hero-capture-sub">2 rapporten gratis &middot; geen creditcard &middot; 24u levertijd</p>
-      <a href="#preview" class="hero-capture-link" data-cta="hero-secondary">Of bekijk eerst een voorbeeld &darr;</a>
     </div>
   </div>
 </section>
