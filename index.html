@@ -852,6 +852,7 @@ document.getElementById('rapport-form').addEventListener('submit', async functio
       document.getElementById('success-email-addr').textContent = email;
       try { successEl.scrollIntoView({behavior:'smooth'}); } catch(_) {}
       ga('generate_lead', { event_category: 'doelgroepenrapport', event_label: payload.sector, value: 49.00, currency: 'EUR', sector: payload.sector, functie: payload.functie, regio: payload.regio, niveau: payload.niveau });
+      ga('form_submit', { form_name: 'doelgroepenrapport', sector: payload.sector, functie: payload.functie, regio: payload.regio, niveau: payload.niveau });
       if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Doelgroepenrapport', content_category: payload.sector, value: 49.00, currency: 'EUR' });
     } else if (res.status === 402 && data.limit_reached) {
       clearTimeout(fallbackTimer);
@@ -870,8 +871,30 @@ document.getElementById('rapport-form').addEventListener('submit', async functio
 });
 
 // Paywall
+function getGaClientId(){
+  try {
+    var m = document.cookie.match(/_ga=([^;]+)/);
+    if (!m) return '';
+    var parts = m[1].split('.');
+    if (parts.length < 4) return '';
+    return parts.slice(-2).join('.'); // client_id = last two segments
+  } catch(_) { return ''; }
+}
+function appendGaCidToStripeLink(url){
+  if (!url || url.indexOf('buy.stripe.com') === -1) return url;
+  var cid = getGaClientId();
+  if (!cid) return url;
+  var sep = url.indexOf('?') === -1 ? '?' : '&';
+  return url + sep + 'client_reference_id=' + encodeURIComponent(cid);
+}
 document.querySelectorAll('.pw-btn-primary, .pw-btn-secondary').forEach(function(btn) {
-  btn.addEventListener('click', function() { ga('paywall_click', { event_category: 'monetization', event_label: this.textContent.trim() }); });
+  btn.addEventListener('click', function(e) {
+    ga('paywall_click', { event_category: 'monetization', event_label: this.textContent.trim() });
+    if (this.tagName === 'A' && this.href) {
+      var newHref = appendGaCidToStripeLink(this.href);
+      if (newHref !== this.href) this.href = newHref;
+    }
+  });
 });
 document.getElementById('paywall-close').addEventListener('click', function() { document.getElementById('paywall-modal').style.display = 'none'; });
 document.getElementById('paywall-modal').addEventListener('click', function(e) { if (e.target === this) this.style.display = 'none'; });
