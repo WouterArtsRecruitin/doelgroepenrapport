@@ -368,6 +368,33 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
   <div class="stat"><span class="stat-v">&euro;0</span><span class="stat-l">Eerste 2 rapporten</span></div>
 </div>
 
+<!-- SAMPLE STRIP — instant voorbeeld-rapport (alleen email) -->
+<section id="sample" style="padding:56px 5%;background:linear-gradient(180deg,var(--bg) 0%,rgba(255,0,204,0.03) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div style="max-width:560px;margin:0 auto;text-align:center">
+    <span style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--magenta);margin-bottom:14px">Direct downloaden</span>
+    <h2 style="font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:800;color:#fff;letter-spacing:-0.02em;margin:0 0 12px">Bekijk een echt rapport &mdash; geen wachttijd</h2>
+    <p style="color:var(--muted);font-size:15px;line-height:1.55;margin:0 0 28px">Voorbeelden van Werkvoorbereider, Monteur, Projectleider en Engineer in <strong>Gelderland</strong>. Email invoeren &rarr; PDF downloaden.</p>
+    <form id="sample-form" style="display:flex;flex-direction:column;gap:10px;max-width:440px;margin:0 auto" novalidate>
+      <select id="sample-slug" required style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:12px;color:#fff;padding:14px 18px;font-size:15px;font-family:inherit;outline:none;cursor:pointer">
+        <option value="" disabled selected>Kies voorbeeld-rapport &darr;</option>
+        <option value="werkvoorbereider-bouw-gelderland">Werkvoorbereider &middot; Bouw/GWW &middot; Gelderland</option>
+        <option value="monteur-installatietechniek-gelderland">Monteur Elektrotechniek &middot; Installatietechniek &middot; Gelderland</option>
+        <option value="projectleider-bouw-gelderland">Projectleider &middot; Bouw/GWW &middot; Gelderland</option>
+        <option value="engineer-hightech-gelderland">Engineer &middot; High Tech/Automatisering &middot; Gelderland</option>
+      </select>
+      <input id="sample-email" type="email" required placeholder="je@bedrijf.nl" autocomplete="email" inputmode="email" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:12px;color:#fff;padding:14px 18px;font-size:15px;font-family:inherit;outline:none">
+      <button id="sample-btn" type="submit" style="background:var(--magenta);color:#fff;border:none;padding:14px 28px;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer;font-family:inherit;box-shadow:0 8px 28px var(--magenta-glow);transition:all 0.2s">Download voorbeeld-rapport (PDF) &rarr;</button>
+    </form>
+    <p id="sample-msg" style="font-size:12px;color:var(--muted);margin:14px 0 0;min-height:18px"></p>
+    <div id="sample-success" style="display:none;margin-top:18px;padding:18px 20px;background:rgba(255,0,204,0.1);border:1px solid rgba(255,0,204,0.3);border-radius:12px;text-align:center">
+      <p style="color:#fff;font-weight:600;font-size:15px;margin:0 0 12px">Klaar &mdash; download je voorbeeld:</p>
+      <a id="sample-download-link" href="#" target="_blank" rel="noopener" style="display:inline-block;background:var(--magenta);color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;margin-bottom:10px">Open PDF &rarr;</a>
+      <p style="color:var(--muted);font-size:12px;margin:8px 0 0">We hebben je ook een mail gestuurd met de link.</p>
+      <p style="color:var(--muted);font-size:12px;margin:14px 0 0">Geen voorbeeld voor jouw sector? <a href="#form-section" style="color:var(--magenta);font-weight:600">Vraag een eigen rapport aan &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
 <!-- PREVIEW (geactiveerd) -->
 <section id="preview">
   <div class="preview-wrap">
@@ -647,6 +674,53 @@ if ('IntersectionObserver' in window) {
 
 // Time on page
 [30,60,120].forEach(function(s) { setTimeout(function() { ga('time_on_page', { event_category: 'engagement', event_label: s + 's', seconds: s }); }, s * 1000); });
+
+// Sample-form → email + slug → POST /api/sample → toon download knop
+(function(){
+  var form = document.getElementById('sample-form');
+  if (!form) return;
+  var emailEl = document.getElementById('sample-email');
+  var slugEl = document.getElementById('sample-slug');
+  var btn = document.getElementById('sample-btn');
+  var msg = document.getElementById('sample-msg');
+  var success = document.getElementById('sample-success');
+  var dlLink = document.getElementById('sample-download-link');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var email = (emailEl.value || '').trim();
+    var slug = (slugEl.value || '').trim();
+    if (!email || email.indexOf('@') < 1 || email.indexOf('.', email.indexOf('@')) < 0) {
+      msg.textContent = 'Vul een geldig email-adres in.'; emailEl.focus(); return;
+    }
+    if (!slug) { msg.textContent = 'Kies een voorbeeld-rapport.'; slugEl.focus(); return; }
+    btn.disabled = true; btn.textContent = 'Bezig...'; msg.textContent = '';
+    if (typeof gtag !== 'undefined') gtag('event','sample_submit',{slug:slug,email_domain:email.split('@')[1]});
+    try {
+      var r = await fetch('https://doelgroepenrapport-automation.onrender.com/api/sample', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({email:email, slug:slug})
+      });
+      var data = await r.json();
+      if (!r.ok || !data.ok) {
+        msg.textContent = 'Iets ging mis. Probeer opnieuw of mail warts@recruitin.nl.';
+        btn.disabled = false; btn.textContent = 'Download voorbeeld-rapport (PDF) →';
+        return;
+      }
+      dlLink.href = data.download_url;
+      form.style.display = 'none';
+      msg.style.display = 'none';
+      success.style.display = 'block';
+      if (typeof gtag !== 'undefined') gtag('event','sample_download',{slug:slug});
+      // Auto-trigger download zodat user direct PDF ziet
+      window.open(data.download_url, '_blank', 'noopener');
+    } catch (err) {
+      msg.textContent = 'Server niet bereikbaar. Probeer opnieuw of mail warts@recruitin.nl.';
+      btn.disabled = false; btn.textContent = 'Download voorbeeld-rapport (PDF) →';
+    }
+  });
+})();
 
 // Hero mini-form → pre-fill full form + smooth scroll (vangt boven-fold intent)
 (function(){
