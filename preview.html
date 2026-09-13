@@ -693,9 +693,9 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
 
 <!-- SOURCE-LOGOS STRIP -->
 <div style="padding:20px 5%;background:var(--bg);border-top:1px solid var(--border);text-align:center">
-  <div style="font-size:10px;color:var(--muted);font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px">Data uit 33 bronnen, waaronder</div>
+  <div style="font-size:10px;color:var(--muted);font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px">Data uit tientallen bronnen, waaronder</div>
   <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;opacity:0.7;font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:0.5px">
-    <span>Indeed</span><span>LinkedIn</span><span>CBS</span><span>UWV</span><span>Stepstone</span><span>Monsterboard</span><span>BraveSearch</span><span style="color:var(--magenta)">+26 meer</span>
+    <span>Indeed</span><span>LinkedIn</span><span>CBS</span><span>UWV</span><span>Stepstone</span><span>Monsterboard</span><span>BraveSearch</span><span style="color:var(--magenta)">en meer</span>
   </div>
 </div>
 
@@ -745,7 +745,7 @@ footer{border-top:1px solid var(--border);background:var(--bg)}
     </div>
     <div class="testimonials">
       <div class="tm">
-        <p class="tm-quote">33 bronnen gescand per rapport &mdash; Apify Indeed, BraveSearch, CBS, UWV, Stepstone, Monsterboard, LinkedIn Talent Insights + 26 meer.</p>
+        <p class="tm-quote">Tientallen bronnen gescand per rapport &mdash; Apify Indeed, BraveSearch, CBS, UWV, Stepstone, Monsterboard, LinkedIn Talent Insights en tientallen andere.</p>
         <div class="tm-foot"><div class="tm-tag" style="margin-left:0">BRONNEN</div></div>
       </div>
       <div class="tm">
@@ -879,7 +879,7 @@ window.addEventListener('scroll',()=>{document.getElementById('nav').classList.t
   var raw=(new URLSearchParams(location.search).get('utm_content')||'').toLowerCase();
   var V={
     variant_e:['4.200 monteurs zoeken in jouw regio.','Concrete aantallen per functie, regio en ervaring. 12 modules data. In 24 uur per mail. Eerste 2 rapporten gratis.'],
-    variant_f:['Stop met gokken op salaris, kanaal en doelgroep.','12 modules arbeidsmarktdata. 33 bronnen. Geen gokwerk meer. Eerste 2 rapporten gratis.'],
+    variant_f:['Stop met gokken op salaris, kanaal en doelgroep.','12 modules arbeidsmarktdata, tientallen bronnen. Geen gokwerk meer. Eerste 2 rapporten gratis.'],
     variant_b:['4.200 monteurs zoeken in jouw regio. Nu.','Krijg concrete aantallen per functie, salaris en kanaal. 12 modules data in je mailbox binnen 24u.']
   };
   var match=null;
@@ -1327,7 +1327,7 @@ document.getElementById('paywall-modal').addEventListener('click', function(e) {
 
   async function runLoading(){
     var steps=[
-      {msg:'Verbinden met 33 bronnen...', pct:12, ms:700},
+      {msg:'Verbinden met de databronnen...', pct:12, ms:700},
       {msg:'Indeed + LinkedIn data ophalen...', pct:28, ms:1300},
       {msg:'CBS arbeidsmarkt aggregeren...', pct:42, ms:1000},
       {msg:'Salaris-benchmark berekenen...', pct:58, ms:1200},
