@@ -1,5 +1,6 @@
 # Tijdelijk offline — alles naar recruitin.nl
-# Met eigen UTM's: ongewijzigd door (Netlify geeft de querystring mee).
+# Met eigen UTM's: door naar recruitin.nl. Of Netlify de overige parameters meegeeft bij een query-match is NIET aangenomen:
+# getoetst op de deploy-preview van de PR (curl met 3 UTM's, alleen utm_source, gclid, en zonder query).
 # Zonder UTM: herkenbaar maken, anders verdwijnt dit verkeer anoniem in de recruitin.nl-stream (GA4-audit 31-10-2026).
 /*  utm_source=:s  https://recruitin.nl/  301!
 /*  https://recruitin.nl/?utm_source=doelgroepenrapport.nl&utm_medium=redirect&utm_campaign=dgr-offline  301!
