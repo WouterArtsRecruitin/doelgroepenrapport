@@ -1,5 +1,8 @@
 # Tijdelijk offline — alles naar recruitin.nl
-/*  https://recruitin.nl/  301!
+# Met eigen UTM's: ongewijzigd door (Netlify geeft de querystring mee).
+# Zonder UTM: herkenbaar maken, anders verdwijnt dit verkeer anoniem in de recruitin.nl-stream (GA4-audit 31-10-2026).
+/*  utm_source=:s  https://recruitin.nl/  301!
+/*  https://recruitin.nl/?utm_source=doelgroepenrapport.nl&utm_medium=redirect&utm_campaign=dgr-offline  301!
 
 # Legal pages — clean URLs
 /privacy                 /privacy.html                 301
